@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D7A307A1D16E365004D775B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30791D16E365004D775B /* AppDelegate.swift */; };
+		5D7A307E1D16E365004D775B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D7A307D1D16E365004D775B /* Assets.xcassets */; };
+		5D7A30811D16E365004D775B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D7A307F1D16E365004D775B /* Main.storyboard */; };
+		5D7A308C1D16E365004D775B /* GazoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A308B1D16E365004D775B /* GazoTests.swift */; };
+		5D7A30971D16E365004D775B /* GazoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30961D16E365004D775B /* GazoUITests.swift */; };
+		5D7A30A71D16E446004D775B /* GZImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30A61D16E446004D775B /* GZImageViewerViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5D7A30881D16E365004D775B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D7A306E1D16E364004D775B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D7A30751D16E365004D775B;
+			remoteInfo = Gazo;
+		};
+		5D7A30931D16E365004D775B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D7A306E1D16E364004D775B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D7A30751D16E365004D775B;
+			remoteInfo = Gazo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5D7A30761D16E365004D775B /* Gazo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gazo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D7A30791D16E365004D775B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5D7A307D1D16E365004D775B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5D7A30801D16E365004D775B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5D7A30821D16E365004D775B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D7A30871D16E365004D775B /* GazoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GazoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D7A308B1D16E365004D775B /* GazoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazoTests.swift; sourceTree = "<group>"; };
+		5D7A308D1D16E365004D775B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D7A30921D16E365004D775B /* GazoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GazoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D7A30961D16E365004D775B /* GazoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazoUITests.swift; sourceTree = "<group>"; };
+		5D7A30981D16E365004D775B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D7A30A61D16E446004D775B /* GZImageViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageViewerViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5D7A30731D16E365004D775B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D7A30841D16E365004D775B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D7A308F1D16E365004D775B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5D7A306D1D16E364004D775B = {
+			isa = PBXGroup;
+			children = (
+				5D7A30781D16E365004D775B /* Gazo */,
+				5D7A308A1D16E365004D775B /* GazoTests */,
+				5D7A30951D16E365004D775B /* GazoUITests */,
+				5D7A30771D16E365004D775B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5D7A30771D16E365004D775B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A30761D16E365004D775B /* Gazo.app */,
+				5D7A30871D16E365004D775B /* GazoTests.xctest */,
+				5D7A30921D16E365004D775B /* GazoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5D7A30781D16E365004D775B /* Gazo */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A30791D16E365004D775B /* AppDelegate.swift */,
+				5D7A30A41D16E3A0004D775B /* Storyboards */,
+				5D7A30A51D16E3E3004D775B /* View Controllers */,
+				5D7A307D1D16E365004D775B /* Assets.xcassets */,
+				5D7A30821D16E365004D775B /* Info.plist */,
+			);
+			path = Gazo;
+			sourceTree = "<group>";
+		};
+		5D7A308A1D16E365004D775B /* GazoTests */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A308B1D16E365004D775B /* GazoTests.swift */,
+				5D7A308D1D16E365004D775B /* Info.plist */,
+			);
+			path = GazoTests;
+			sourceTree = "<group>";
+		};
+		5D7A30951D16E365004D775B /* GazoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A30961D16E365004D775B /* GazoUITests.swift */,
+				5D7A30981D16E365004D775B /* Info.plist */,
+			);
+			path = GazoUITests;
+			sourceTree = "<group>";
+		};
+		5D7A30A41D16E3A0004D775B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A307F1D16E365004D775B /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		5D7A30A51D16E3E3004D775B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A30A81D16E44A004D775B /* Image Viewer */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5D7A30A81D16E44A004D775B /* Image Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A30A61D16E446004D775B /* GZImageViewerViewController.swift */,
+			);
+			name = "Image Viewer";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5D7A30751D16E365004D775B /* Gazo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D7A309B1D16E365004D775B /* Build configuration list for PBXNativeTarget "Gazo" */;
+			buildPhases = (
+				5D7A30721D16E365004D775B /* Sources */,
+				5D7A30731D16E365004D775B /* Frameworks */,
+				5D7A30741D16E365004D775B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gazo;
+			productName = Gazo;
+			productReference = 5D7A30761D16E365004D775B /* Gazo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5D7A30861D16E365004D775B /* GazoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D7A309E1D16E365004D775B /* Build configuration list for PBXNativeTarget "GazoTests" */;
+			buildPhases = (
+				5D7A30831D16E365004D775B /* Sources */,
+				5D7A30841D16E365004D775B /* Frameworks */,
+				5D7A30851D16E365004D775B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D7A30891D16E365004D775B /* PBXTargetDependency */,
+			);
+			name = GazoTests;
+			productName = GazoTests;
+			productReference = 5D7A30871D16E365004D775B /* GazoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5D7A30911D16E365004D775B /* GazoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D7A30A11D16E365004D775B /* Build configuration list for PBXNativeTarget "GazoUITests" */;
+			buildPhases = (
+				5D7A308E1D16E365004D775B /* Sources */,
+				5D7A308F1D16E365004D775B /* Frameworks */,
+				5D7A30901D16E365004D775B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D7A30941D16E365004D775B /* PBXTargetDependency */,
+			);
+			name = GazoUITests;
+			productName = GazoUITests;
+			productReference = 5D7A30921D16E365004D775B /* GazoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5D7A306E1D16E364004D775B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = DrabWeb;
+				TargetAttributes = {
+					5D7A30751D16E365004D775B = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					5D7A30861D16E365004D775B = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 5D7A30751D16E365004D775B;
+					};
+					5D7A30911D16E365004D775B = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 5D7A30751D16E365004D775B;
+					};
+				};
+			};
+			buildConfigurationList = 5D7A30711D16E364004D775B /* Build configuration list for PBXProject "Gazo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5D7A306D1D16E364004D775B;
+			productRefGroup = 5D7A30771D16E365004D775B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5D7A30751D16E365004D775B /* Gazo */,
+				5D7A30861D16E365004D775B /* GazoTests */,
+				5D7A30911D16E365004D775B /* GazoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5D7A30741D16E365004D775B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D7A307E1D16E365004D775B /* Assets.xcassets in Resources */,
+				5D7A30811D16E365004D775B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D7A30851D16E365004D775B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D7A30901D16E365004D775B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5D7A30721D16E365004D775B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D7A307A1D16E365004D775B /* AppDelegate.swift in Sources */,
+				5D7A30A71D16E446004D775B /* GZImageViewerViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D7A30831D16E365004D775B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D7A308C1D16E365004D775B /* GazoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D7A308E1D16E365004D775B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D7A30971D16E365004D775B /* GazoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5D7A30891D16E365004D775B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D7A30751D16E365004D775B /* Gazo */;
+			targetProxy = 5D7A30881D16E365004D775B /* PBXContainerItemProxy */;
+		};
+		5D7A30941D16E365004D775B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D7A30751D16E365004D775B /* Gazo */;
+			targetProxy = 5D7A30931D16E365004D775B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5D7A307F1D16E365004D775B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D7A30801D16E365004D775B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5D7A30991D16E365004D775B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5D7A309A1D16E365004D775B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5D7A309C1D16E365004D775B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Gazo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.Gazo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5D7A309D1D16E365004D775B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Gazo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.Gazo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5D7A309F1D16E365004D775B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GazoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.GazoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gazo.app/Contents/MacOS/Gazo";
+			};
+			name = Debug;
+		};
+		5D7A30A01D16E365004D775B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GazoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.GazoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gazo.app/Contents/MacOS/Gazo";
+			};
+			name = Release;
+		};
+		5D7A30A21D16E365004D775B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GazoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.GazoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Gazo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		5D7A30A31D16E365004D775B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GazoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drabweb.GazoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Gazo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5D7A30711D16E364004D775B /* Build configuration list for PBXProject "Gazo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D7A30991D16E365004D775B /* Debug */,
+				5D7A309A1D16E365004D775B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D7A309B1D16E365004D775B /* Build configuration list for PBXNativeTarget "Gazo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D7A309C1D16E365004D775B /* Debug */,
+				5D7A309D1D16E365004D775B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5D7A309E1D16E365004D775B /* Build configuration list for PBXNativeTarget "GazoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D7A309F1D16E365004D775B /* Debug */,
+				5D7A30A01D16E365004D775B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5D7A30A11D16E365004D775B /* Build configuration list for PBXNativeTarget "GazoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D7A30A21D16E365004D775B /* Debug */,
+				5D7A30A31D16E365004D775B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5D7A306E1D16E364004D775B /* Project object */;
+}
