@@ -18,6 +18,7 @@
 		5D7A30B11D16E9F7004D775B /* GZValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30B01D16E9F7004D775B /* GZValues.swift */; };
 		5D7A30B51D16EB31004D775B /* GZNoDividerSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30B41D16EB31004D775B /* GZNoDividerSplitView.swift */; };
 		5D99CE1E1D16EE2100092920 /* GZImageViewerSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99CE1D1D16EE2100092920 /* GZImageViewerSplitViewController.swift */; };
+		5DF055081D172DFC0094621E /* GZExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF055071D172DFC0094621E /* GZExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		5D7A30B41D16EB31004D775B /* GZNoDividerSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZNoDividerSplitView.swift; sourceTree = "<group>"; };
 		5D7A30BA1D16ECA4004D775B /* libGazo Framework.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libGazo Framework.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D99CE1D1D16EE2100092920 /* GZImageViewerSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageViewerSplitViewController.swift; sourceTree = "<group>"; };
+		5DF055071D172DFC0094621E /* GZExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				5D7A30A41D16E3A0004D775B /* Storyboards */,
 				5D7A30B21D16EB19004D775B /* Views */,
 				5D7A30AF1D16E9DE004D775B /* Objects */,
+				5DF055061D172DEC0094621E /* Utilities */,
 				5D7A30A51D16E3E3004D775B /* View Controllers */,
 				5D7A307D1D16E365004D775B /* Assets.xcassets */,
 				5D7A30821D16E365004D775B /* Info.plist */,
@@ -192,6 +195,14 @@
 				5D99CE1D1D16EE2100092920 /* GZImageViewerSplitViewController.swift */,
 			);
 			name = Subclasses;
+			sourceTree = "<group>";
+		};
+		5DF055061D172DEC0094621E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5DF055071D172DFC0094621E /* GZExtensions.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +372,7 @@
 				5D7A30AB1D16E7C1004D775B /* GZImageViewerSidebarViewController.swift in Sources */,
 				5D7A30A71D16E446004D775B /* GZImageViewerViewController.swift in Sources */,
 				5D7A30B11D16E9F7004D775B /* GZValues.swift in Sources */,
+				5DF055081D172DFC0094621E /* GZExtensions.swift in Sources */,
 				5D7A30B51D16EB31004D775B /* GZNoDividerSplitView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

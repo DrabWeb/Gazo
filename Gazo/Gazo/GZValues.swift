@@ -12,4 +12,7 @@ import Cocoa
 class GZValues {
     /// The color for the background of a GZImageViewerViewController's GZImageViewerImageViewController
     static let imageViewerViewControllerImageViewBackgroundColor : NSColor = NSColor(calibratedWhite: 0.1, alpha: 1);
+    
+    /// The duration for fade animations based on mouse activity
+    static let mouseActivityFadeDuration : CGFloat = 0.1;
 }

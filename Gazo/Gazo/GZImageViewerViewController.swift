@@ -23,30 +23,63 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
     /// The controller for the image view of this image viewer view
     var contentImageViewController : GZImageViewerImageViewController? = nil;
     
-    // Is contentSidebarViewController collapsed?
-    var sidebarCollapsedState : Bool = false;
-    
-    func windowDidEnterFullScreen(notification: NSNotification) {
-        // If the sidebar is collapsed...
-        if(sidebarCollapsedState) {
-            // Show the traffic lights
-            window.standardWindowButton(.CloseButton)?.superview?.superview?.hidden = false;
-        }
-    }
-    
-    func windowWillExitFullScreen(notification: NSNotification) {
-        // If the sidebar is collapsed...
-        if(sidebarCollapsedState) {
-            // Hide the traffic lights
-            window.standardWindowButton(.CloseButton)?.superview?.superview?.hidden = true;
-        }
-    }
+    /// The views to fade out/in based on mouse activity
+    var mouseActivityFadeViews : [NSView] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         // Style the window
         styleWindow();
+    }
+    
+    /// Fades out all the views in mouseActivityFadeViews and the titlebar
+    func fadeOutMouseActivityFadeViews() {
+        // Set the animation duration
+        NSAnimationContext.currentContext().duration = NSTimeInterval(GZValues.mouseActivityFadeDuration);
+        
+        // For every view in mouseActivityFadeViews...
+        for(_, currentFadeView) in mouseActivityFadeViews.enumerate() {
+            // Fade out the current view
+            currentFadeView.animator().alphaValue = 0;
+        }
+        
+        // If the sidebar is collapsed and we arent in fullscreen...
+        if(contentSplitViewController!.splitViewItems[0].collapsed && !window.fullscreen) {
+            // Fade out the titlebar
+            window.titlebarView.animator().alphaValue = 0;
+        }
+    }
+    
+    /// Fades in all the views in mouseActivityFadeViews and the titlebar
+    func fadeInMouseActivityFadeViews() {
+        // Set the animation duration
+        NSAnimationContext.currentContext().duration = NSTimeInterval(GZValues.mouseActivityFadeDuration);
+        
+        // For every view in mouseActivityFadeViews...
+        for(_, currentFadeView) in mouseActivityFadeViews.enumerate() {
+            // Fade in the current view
+            currentFadeView.animator().alphaValue = 1;
+        }
+        
+        // Fade in the titlebar
+        window.titlebarView.animator().alphaValue = 1;
+    }
+    
+    func windowWillEnterFullScreen(notification: NSNotification) {
+        // Set the animation duration
+        NSAnimationContext.currentContext().duration = NSTimeInterval(GZValues.mouseActivityFadeDuration);
+        
+        // Fade in the titlebar
+        window.titlebarView.animator().alphaValue = 1;
+        
+        // Set the window's appearance to vibrant dark so the fullscreen toolbar is dark
+        window.appearance = NSAppearance(named: NSAppearanceNameVibrantDark);
+    }
+    
+    func windowDidExitFullScreen(notification: NSNotification) {
+        // Set back the window's appearance
+        window.appearance = NSAppearance(named: NSAppearanceNameAqua);
     }
     
     /// Styles the window
@@ -63,26 +96,6 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         window.titleVisibility = .Hidden;
     }
     
-    /// Called when the collapsed state changes for contentSplitViewController
-    func contentSplitViewControllerCollapsedStateChanged(splitView : GZImageViewerSidebarViewController) {
-        // If we arent in fullscreen...
-        if(!((window.styleMask & NSFullScreenWindowMask) > 0)) {
-            // Set sidebarCollapsedState
-            sidebarCollapsedState = contentSplitViewController!.splitViewItems[0].collapsed;
-            
-            // If the sidebar is now collapsed...
-            if(sidebarCollapsedState) {
-                // Hide the traffic lights
-                window.standardWindowButton(.CloseButton)?.superview?.superview?.hidden = true;
-            }
-                // If the sidebar is now expanded...
-            else {
-                // Show the traffic lights
-                window.standardWindowButton(.CloseButton)?.superview?.superview?.hidden = false;
-            }
-        }
-    }
-    
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender);
         
@@ -91,13 +104,54 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
             // Set contentSplitViewController to the destination view controller
             contentSplitViewController = (segue.destinationController as! GZImageViewerSplitViewController);
             
-            // Set contentSplitViewController's collapsed state changed action and selector
-            contentSplitViewController!.collapseStateChangedTarget = self;
-            contentSplitViewController!.collapseStateChangedAction = Selector("contentSplitViewControllerCollapsedStateChanged:");
-            
             // Set contentSidebarViewController and contentImageViewController
             contentSidebarViewController = (contentSplitViewController!.splitViewItems[0].viewController as! GZImageViewerSidebarViewController);
             contentImageViewController = (contentSplitViewController!.splitViewItems[1].viewController as! GZImageViewerImageViewController);
         }
+    }
+    
+    override func mouseEntered(theEvent: NSEvent) {
+        super.mouseEntered(theEvent);
+        
+        // Fade in the mouse activity fade views and the titlebar
+        fadeInMouseActivityFadeViews();
+    }
+    
+    override func mouseExited(theEvent: NSEvent) {
+        super.mouseExited(theEvent);
+        
+        // Fade out the mouse activity fade views and the titlebar
+        fadeOutMouseActivityFadeViews();
+    }
+    
+    /// The tracking area for this view controller
+    private var trackingArea : NSTrackingArea? = nil;
+    
+    override func viewWillLayout() {
+        super.viewWillLayout();
+        
+        // Update the tracking areas
+        updateTrackingAreas();
+    }
+    
+    func updateTrackingAreas() {
+        // Remove alll the tracking areas
+        for(_, currentTrackingArea) in self.view.trackingAreas.enumerate() {
+            self.view.removeTrackingArea(currentTrackingArea);
+        }
+        
+        /// The same as the original tracking area, but updated to match the frame of this view
+        trackingArea = NSTrackingArea(rect: self.view.frame, options: [NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveInKeyWindow], owner: self, userInfo: nil);
+        
+        // Add the tracking area
+        self.view.addTrackingArea(trackingArea!);
+    }
+    
+    override func awakeFromNib() {
+        /// The tracking are we will use for getting mouse entered and exited events
+        trackingArea = NSTrackingArea(rect: self.view.frame, options: [NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveInKeyWindow], owner: self, userInfo: nil);
+        
+        // Add the tracking area
+        self.view.addTrackingArea(trackingArea!);
     }
 }
