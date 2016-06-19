@@ -13,6 +13,11 @@
 		5D7A308C1D16E365004D775B /* GazoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A308B1D16E365004D775B /* GazoTests.swift */; };
 		5D7A30971D16E365004D775B /* GazoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30961D16E365004D775B /* GazoUITests.swift */; };
 		5D7A30A71D16E446004D775B /* GZImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30A61D16E446004D775B /* GZImageViewerViewController.swift */; };
+		5D7A30AB1D16E7C1004D775B /* GZImageViewerSidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30A91D16E7C1004D775B /* GZImageViewerSidebarViewController.swift */; };
+		5D7A30AE1D16E7DF004D775B /* GZImageViewerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30AD1D16E7DF004D775B /* GZImageViewerImageViewController.swift */; };
+		5D7A30B11D16E9F7004D775B /* GZValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30B01D16E9F7004D775B /* GZValues.swift */; };
+		5D7A30B51D16EB31004D775B /* GZNoDividerSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30B41D16EB31004D775B /* GZNoDividerSplitView.swift */; };
+		5D99CE1E1D16EE2100092920 /* GZImageViewerSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99CE1D1D16EE2100092920 /* GZImageViewerSplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,12 @@
 		5D7A30961D16E365004D775B /* GazoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazoUITests.swift; sourceTree = "<group>"; };
 		5D7A30981D16E365004D775B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D7A30A61D16E446004D775B /* GZImageViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageViewerViewController.swift; sourceTree = "<group>"; };
+		5D7A30A91D16E7C1004D775B /* GZImageViewerSidebarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageViewerSidebarViewController.swift; sourceTree = "<group>"; };
+		5D7A30AD1D16E7DF004D775B /* GZImageViewerImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageViewerImageViewController.swift; sourceTree = "<group>"; };
+		5D7A30B01D16E9F7004D775B /* GZValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZValues.swift; sourceTree = "<group>"; };
+		5D7A30B41D16EB31004D775B /* GZNoDividerSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZNoDividerSplitView.swift; sourceTree = "<group>"; };
+		5D7A30BA1D16ECA4004D775B /* libGazo Framework.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libGazo Framework.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D99CE1D1D16EE2100092920 /* GZImageViewerSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageViewerSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +74,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5D7A308F1D16E365004D775B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D7A30B71D16ECA4004D775B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -88,6 +106,7 @@
 				5D7A30761D16E365004D775B /* Gazo.app */,
 				5D7A30871D16E365004D775B /* GazoTests.xctest */,
 				5D7A30921D16E365004D775B /* GazoUITests.xctest */,
+				5D7A30BA1D16ECA4004D775B /* libGazo Framework.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +116,8 @@
 			children = (
 				5D7A30791D16E365004D775B /* AppDelegate.swift */,
 				5D7A30A41D16E3A0004D775B /* Storyboards */,
+				5D7A30B21D16EB19004D775B /* Views */,
+				5D7A30AF1D16E9DE004D775B /* Objects */,
 				5D7A30A51D16E3E3004D775B /* View Controllers */,
 				5D7A307D1D16E365004D775B /* Assets.xcassets */,
 				5D7A30821D16E365004D775B /* Info.plist */,
@@ -142,11 +163,48 @@
 			isa = PBXGroup;
 			children = (
 				5D7A30A61D16E446004D775B /* GZImageViewerViewController.swift */,
+				5D7A30A91D16E7C1004D775B /* GZImageViewerSidebarViewController.swift */,
+				5D7A30AD1D16E7DF004D775B /* GZImageViewerImageViewController.swift */,
 			);
 			name = "Image Viewer";
 			sourceTree = "<group>";
 		};
+		5D7A30AF1D16E9DE004D775B /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A30B01D16E9F7004D775B /* GZValues.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		5D7A30B21D16EB19004D775B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A30B31D16EB22004D775B /* Subclasses */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5D7A30B31D16EB22004D775B /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A30B41D16EB31004D775B /* GZNoDividerSplitView.swift */,
+				5D99CE1D1D16EE2100092920 /* GZImageViewerSplitViewController.swift */,
+			);
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5D7A30B81D16ECA4004D775B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		5D7A30751D16E365004D775B /* Gazo */ = {
@@ -202,6 +260,23 @@
 			productReference = 5D7A30921D16E365004D775B /* GazoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		5D7A30B91D16ECA4004D775B /* Gazo Framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D7A30C01D16ECA4004D775B /* Build configuration list for PBXNativeTarget "Gazo Framework" */;
+			buildPhases = (
+				5D7A30B61D16ECA4004D775B /* Sources */,
+				5D7A30B71D16ECA4004D775B /* Frameworks */,
+				5D7A30B81D16ECA4004D775B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Gazo Framework";
+			productName = "Gazo Framework";
+			productReference = 5D7A30BA1D16ECA4004D775B /* libGazo Framework.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -223,6 +298,9 @@
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 5D7A30751D16E365004D775B;
 					};
+					5D7A30B91D16ECA4004D775B = {
+						CreatedOnToolsVersion = 7.2;
+					};
 				};
 			};
 			buildConfigurationList = 5D7A30711D16E364004D775B /* Build configuration list for PBXProject "Gazo" */;
@@ -241,6 +319,7 @@
 				5D7A30751D16E365004D775B /* Gazo */,
 				5D7A30861D16E365004D775B /* GazoTests */,
 				5D7A30911D16E365004D775B /* GazoUITests */,
+				5D7A30B91D16ECA4004D775B /* Gazo Framework */,
 			);
 		};
 /* End PBXProject section */
@@ -276,8 +355,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D99CE1E1D16EE2100092920 /* GZImageViewerSplitViewController.swift in Sources */,
 				5D7A307A1D16E365004D775B /* AppDelegate.swift in Sources */,
+				5D7A30AE1D16E7DF004D775B /* GZImageViewerImageViewController.swift in Sources */,
+				5D7A30AB1D16E7C1004D775B /* GZImageViewerSidebarViewController.swift in Sources */,
 				5D7A30A71D16E446004D775B /* GZImageViewerViewController.swift in Sources */,
+				5D7A30B11D16E9F7004D775B /* GZValues.swift in Sources */,
+				5D7A30B51D16EB31004D775B /* GZNoDividerSplitView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +378,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D7A30971D16E365004D775B /* GazoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D7A30B61D16ECA4004D775B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +571,26 @@
 			};
 			name = Release;
 		};
+		5D7A30C11D16ECA4004D775B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5D7A30C21D16ECA4004D775B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -499,6 +610,7 @@
 				5D7A309D1D16E365004D775B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5D7A309E1D16E365004D775B /* Build configuration list for PBXNativeTarget "GazoTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +619,7 @@
 				5D7A30A01D16E365004D775B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5D7A30A11D16E365004D775B /* Build configuration list for PBXNativeTarget "GazoUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +628,16 @@
 				5D7A30A31D16E365004D775B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D7A30C01D16ECA4004D775B /* Build configuration list for PBXNativeTarget "Gazo Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D7A30C11D16ECA4004D775B /* Debug */,
+				5D7A30C21D16ECA4004D775B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

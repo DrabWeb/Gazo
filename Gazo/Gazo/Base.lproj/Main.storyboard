@@ -276,11 +276,89 @@
                     <view key="view" id="W3v-YT-RHv">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="xtl-s4-gbZ" userLabel="Content Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <connections>
+                                    <segue destination="Qvy-sI-wcq" kind="embed" identifier="imageViewerContentSplitViewControllerSegue" id="fqf-7Y-Czs"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="xtl-s4-gbZ" secondAttribute="bottom" id="AGn-fb-DX8"/>
+                            <constraint firstAttribute="trailing" secondItem="xtl-s4-gbZ" secondAttribute="trailing" id="JqC-Lx-KQ0"/>
+                            <constraint firstItem="xtl-s4-gbZ" firstAttribute="leading" secondItem="W3v-YT-RHv" secondAttribute="leading" id="dDG-rQ-f1Q"/>
+                            <constraint firstItem="xtl-s4-gbZ" firstAttribute="top" secondItem="W3v-YT-RHv" secondAttribute="top" id="e0A-3U-qft"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="jzs-n8-Qag" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73" y="643"/>
+        </scene>
+        <!--Image Viewer Content Split View Controller-->
+        <scene sceneID="PEP-53-1qb">
+            <objects>
+                <splitViewController id="Qvy-sI-wcq" userLabel="Image Viewer Content Split View Controller" customClass="GZImageViewerSplitViewController" customModule="Gazo" customModuleProvider="target" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem canCollapse="YES" id="3J8-Cb-5ce"/>
+                        <splitViewItem id="l3k-kH-Jj9"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="cuY-pE-Ynu" userLabel="Split View" customClass="GZNoDividerSplitView" customModule="Gazo" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </splitView>
+                    <connections>
+                        <segue destination="Tfo-f2-KRg" kind="relationship" relationship="splitItems" id="LzR-va-tbl"/>
+                        <segue destination="Cfc-y7-mpr" kind="relationship" relationship="splitItems" id="qVF-Nl-k3v"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="C9a-hJ-1Vm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73" y="1093"/>
+        </scene>
+        <!--Image Viewer Sidebar View Controller-->
+        <scene sceneID="Nh3-a3-5hC">
+            <objects>
+                <viewController id="Tfo-f2-KRg" userLabel="Image Viewer Sidebar View Controller" customClass="GZImageViewerSidebarViewController" customModule="Gazo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="bbY-n9-y6U">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Vqy-5H-wAM">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="hW1-SD-1g0"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Vqy-5H-wAM" secondAttribute="trailing" id="Pk7-Q6-6T7"/>
+                            <constraint firstAttribute="bottom" secondItem="Vqy-5H-wAM" secondAttribute="bottom" id="QnG-nw-LMX"/>
+                            <constraint firstItem="Vqy-5H-wAM" firstAttribute="leading" secondItem="bbY-n9-y6U" secondAttribute="leading" id="V4t-v1-ZvI"/>
+                            <constraint firstItem="Vqy-5H-wAM" firstAttribute="top" secondItem="bbY-n9-y6U" secondAttribute="top" id="y3O-EN-whz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundVisualEffectView" destination="Vqy-5H-wAM" id="LqG-kZ-m4V"/>
+                    </connections>
+                </viewController>
+                <customObject id="XSJ-xb-5jz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763" y="881"/>
+        </scene>
+        <!--Image Viewer Image View Controller-->
+        <scene sceneID="FQW-2B-ovT">
+            <objects>
+                <viewController id="Cfc-y7-mpr" userLabel="Image Viewer Image View Controller" customClass="GZImageViewerImageViewController" customModule="Gazo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="0TA-fx-8V5">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="iy6-kb-k3g" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763" y="1280"/>
         </scene>
     </scenes>
 </document>
