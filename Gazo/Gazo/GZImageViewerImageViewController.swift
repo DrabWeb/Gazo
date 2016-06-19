@@ -11,11 +11,26 @@ import Cocoa
 /// The view controller for the image view in a GZImageViewerViewController
 class GZImageViewerImageViewController: NSViewController {
 
+    /// The image view for displaying images in this view
+    @IBOutlet var imageView: NSImageView!
+    
+    /// The GZImage that is currently being displayed in this view
+    var currentDisplayingImage : GZImage? = nil;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         // Style the view
         styleView();
+    }
+    
+    /// Displays the given GZImage in this view
+    func displayImage(image : GZImage) {
+        // Set currentDisplayingImage
+        currentDisplayingImage = image;
+        
+        // Display the image
+        self.imageView.image = NSImage(contentsOfFile: currentDisplayingImage!.path);
     }
     
     /// Styles this view

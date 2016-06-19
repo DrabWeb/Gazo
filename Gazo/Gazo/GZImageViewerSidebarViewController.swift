@@ -14,6 +14,12 @@ class GZImageViewerSidebarViewController: NSViewController {
     /// The visual effect view for the background of this sidebar
     @IBOutlet var backgroundVisualEffectView: NSVisualEffectView!
     
+    /// The stack view that holds all the sidebar items for this sidebar view
+    @IBOutlet var sidebarStackView: NSStackView!
+    
+    /// The scroll view for sidebarStackView
+    @IBOutlet var sidebarStackViewScrollView: NSScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -25,5 +31,8 @@ class GZImageViewerSidebarViewController: NSViewController {
     func styleView() {
         // Style the visual effect views
         backgroundVisualEffectView.material = .Dark;
+        
+        // Set the sidebar stack view's appearance(For some reason it doesnt inherit the appearance)
+        sidebarStackView.appearance = backgroundVisualEffectView.appearance;
     }
 }

@@ -33,6 +33,18 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         styleWindow();
     }
     
+    /// Called when the user presses CMD+SHIFT+L(View/Toggle Sidebar)
+    func toggleSidebar() {
+        // Toggle the sidebar
+        contentSplitViewController!.splitViewItems[0].collapsed = !contentSplitViewController!.splitViewItems[0].collapsed;
+        
+        // If the cursor is outside of this window...
+        if(!window.cursorIn) {
+            // Fade out the mouse activity views
+            fadeOutMouseActivityFadeViews();
+        }
+    }
+    
     /// Fades out all the views in mouseActivityFadeViews and the titlebar
     func fadeOutMouseActivityFadeViews() {
         // Set the animation duration
@@ -94,6 +106,9 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         window.styleMask |= NSFullSizeContentViewWindowMask;
         window.titlebarAppearsTransparent = true;
         window.titleVisibility = .Hidden;
+        
+        // Load an example image
+        contentImageViewController!.displayImage(GZImage(path: NSHomeDirectory() + "/Pictures/Cute/1466125139266.jpg"));
     }
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
@@ -141,7 +156,7 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         }
         
         /// The same as the original tracking area, but updated to match the frame of this view
-        trackingArea = NSTrackingArea(rect: self.view.frame, options: [NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveInKeyWindow], owner: self, userInfo: nil);
+        trackingArea = NSTrackingArea(rect: self.view.frame, options: [NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveInKeyWindow, NSTrackingAreaOptions.AssumeInside], owner: self, userInfo: nil);
         
         // Add the tracking area
         self.view.addTrackingArea(trackingArea!);
@@ -149,7 +164,7 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
     
     override func awakeFromNib() {
         /// The tracking are we will use for getting mouse entered and exited events
-        trackingArea = NSTrackingArea(rect: self.view.frame, options: [NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveInKeyWindow], owner: self, userInfo: nil);
+        trackingArea = NSTrackingArea(rect: self.view.frame, options: [NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveInKeyWindow, NSTrackingAreaOptions.AssumeInside], owner: self, userInfo: nil);
         
         // Add the tracking area
         self.view.addTrackingArea(trackingArea!);

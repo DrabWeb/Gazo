@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -59,7 +60,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
+                                        <menuItem title="New Testing Image Viewer" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
                                                 <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
                                                 <segue destination="DhD-FS-ftm" kind="show" id="iHS-vu-P84"/>
@@ -189,6 +190,8 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">
                                     <items>
+                                        <menuItem title="Toggle Sidebar" keyEquivalent="L" id="q60-kM-J1u"/>
+                                        <menuItem isSeparatorItem="YES" id="7Lx-A7-7hc"/>
                                         <menuItem title="Show Toolbar" keyEquivalent="t" id="snW-S8-Cw5">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                             <connections>
@@ -247,7 +250,11 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Gazo" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Gazo" customModuleProvider="target">
+                    <connections>
+                        <outlet property="menuItemToggleSidebar" destination="q60-kM-J1u" id="XgJ-Nw-PGI"/>
+                    </connections>
+                </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73.5" y="-131"/>
@@ -328,20 +335,144 @@
                         <subviews>
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Vqy-5H-wAM">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                <subviews>
+                                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBN-jX-UQp" userLabel="Scroll View - Sidebar Stack View">
+                                        <rect key="frame" x="5" y="5" width="190" height="268"/>
+                                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Wmw-Bt-Ty6" userLabel="Clip View" customClass="GZFloatAtTopClipView" customModule="Gazo" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="190" height="268"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UT7-Jj-ehz" userLabel="Sidebar Stack View">
+                                                    <rect key="frame" x="0.0" y="154" width="190" height="192"/>
+                                                    <subviews>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o1P-PV-FOd" userLabel="Source Tags Label">
+                                                            <rect key="frame" x="-2" y="175" width="47" height="17"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source" id="e1S-18-M9c">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <tokenField focusRingType="none" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="h2Y-PT-Zew" userLabel="Source Tags Token Field" customClass="GZScaleToFitContentTokenField" customModule="Gazo" customModuleProvider="target">
+                                                            <rect key="frame" x="-2" y="150" width="194" height="17"/>
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Tags" allowsEditingTextAttributes="YES" id="dSP-eG-l0g">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </tokenFieldCell>
+                                                        </tokenField>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bGw-oE-c81" userLabel="Character Tags Label">
+                                                            <rect key="frame" x="-2" y="125" width="71" height="17"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Characters" id="aKf-A2-nyn">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <tokenField focusRingType="none" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="4mW-6H-V4J" userLabel="Character Tags Token Field" customClass="GZScaleToFitContentTokenField" customModule="Gazo" customModuleProvider="target">
+                                                            <rect key="frame" x="-2" y="100" width="194" height="17"/>
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Tags" allowsEditingTextAttributes="YES" id="G4L-Nb-tF4">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </tokenFieldCell>
+                                                        </tokenField>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UoN-J3-MLf" userLabel="Artists Tags Label">
+                                                            <rect key="frame" x="-2" y="75" width="44" height="17"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Artists" id="nMk-5C-V57">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <tokenField focusRingType="none" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="OOO-lj-uhO" userLabel="Artist Tags Token Field" customClass="GZScaleToFitContentTokenField" customModule="Gazo" customModuleProvider="target">
+                                                            <rect key="frame" x="-2" y="50" width="194" height="17"/>
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Tags" allowsEditingTextAttributes="YES" id="xd2-QZ-6zu">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </tokenFieldCell>
+                                                        </tokenField>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vWz-pO-eoZ" userLabel="General Tags Label">
+                                                            <rect key="frame" x="-2" y="25" width="52" height="17"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="General" id="Ik6-Ri-aeb">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <tokenField focusRingType="none" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="pNn-6P-L6D" userLabel="General Tags Token Field" customClass="GZScaleToFitContentTokenField" customModule="Gazo" customModuleProvider="target">
+                                                            <rect key="frame" x="-2" y="0.0" width="194" height="17"/>
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Tags" allowsEditingTextAttributes="YES" id="ffZ-kz-aQ4">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </tokenFieldCell>
+                                                        </tokenField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="4mW-6H-V4J" firstAttribute="leading" secondItem="UT7-Jj-ehz" secondAttribute="leading" id="BPh-TX-bUn"/>
+                                                        <constraint firstAttribute="trailing" secondItem="h2Y-PT-Zew" secondAttribute="trailing" id="Gtl-Ct-5VM"/>
+                                                        <constraint firstItem="h2Y-PT-Zew" firstAttribute="leading" secondItem="UT7-Jj-ehz" secondAttribute="leading" id="ONC-7s-aQh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="4mW-6H-V4J" secondAttribute="trailing" id="wB2-cU-nBV"/>
+                                                    </constraints>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UT7-Jj-ehz" firstAttribute="leading" secondItem="Wmw-Bt-Ty6" secondAttribute="leading" id="hU4-hv-T5Q"/>
+                                                <constraint firstAttribute="trailing" secondItem="UT7-Jj-ehz" secondAttribute="trailing" id="o21-vG-a6U"/>
+                                            </constraints>
+                                        </clipView>
+                                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="7lJ-FM-aik">
+                                            <rect key="frame" x="0.0" y="252" width="190" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="tEd-ng-LYC">
+                                            <rect key="frame" x="175" y="0.0" width="15" height="268"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                    </scrollView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="hW1-SD-1g0"/>
+                                    <constraint firstItem="JBN-jX-UQp" firstAttribute="top" secondItem="Vqy-5H-wAM" secondAttribute="top" constant="27" id="4aY-4m-To1"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="OFJ-AU-E3N"/>
+                                    <constraint firstAttribute="bottom" secondItem="JBN-jX-UQp" secondAttribute="bottom" constant="5" id="nh7-xy-FHS"/>
+                                    <constraint firstAttribute="trailing" secondItem="JBN-jX-UQp" secondAttribute="trailing" constant="5" id="sU3-Nl-TXo"/>
+                                    <constraint firstItem="JBN-jX-UQp" firstAttribute="leading" secondItem="Vqy-5H-wAM" secondAttribute="leading" constant="5" id="vIq-5v-X75"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Vqy-5H-wAM" secondAttribute="trailing" id="Pk7-Q6-6T7"/>
-                            <constraint firstAttribute="bottom" secondItem="Vqy-5H-wAM" secondAttribute="bottom" id="QnG-nw-LMX"/>
-                            <constraint firstItem="Vqy-5H-wAM" firstAttribute="leading" secondItem="bbY-n9-y6U" secondAttribute="leading" id="V4t-v1-ZvI"/>
-                            <constraint firstItem="Vqy-5H-wAM" firstAttribute="top" secondItem="bbY-n9-y6U" secondAttribute="top" id="y3O-EN-whz"/>
+                            <constraint firstItem="Vqy-5H-wAM" firstAttribute="leading" secondItem="bbY-n9-y6U" secondAttribute="leading" id="5FA-tz-kdR"/>
+                            <constraint firstAttribute="trailing" secondItem="Vqy-5H-wAM" secondAttribute="trailing" id="GJA-Uu-hyl"/>
+                            <constraint firstAttribute="bottom" secondItem="Vqy-5H-wAM" secondAttribute="bottom" id="lud-ua-CC8"/>
+                            <constraint firstItem="Vqy-5H-wAM" firstAttribute="top" secondItem="bbY-n9-y6U" secondAttribute="top" id="oC1-Zh-G8X"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundVisualEffectView" destination="Vqy-5H-wAM" id="LqG-kZ-m4V"/>
+                        <outlet property="sidebarStackView" destination="UT7-Jj-ehz" id="K2y-GM-ske"/>
+                        <outlet property="sidebarStackViewScrollView" destination="JBN-jX-UQp" id="c4H-MI-7On"/>
                     </connections>
                 </viewController>
                 <customObject id="XSJ-xb-5jz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -355,11 +486,29 @@
                     <view key="view" id="0TA-fx-8V5">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="NeC-nt-ijN">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSCaution" id="tJX-fb-tuo"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="NeC-nt-ijN" firstAttribute="top" secondItem="0TA-fx-8V5" secondAttribute="top" id="Hcb-RW-lcM"/>
+                            <constraint firstAttribute="bottom" secondItem="NeC-nt-ijN" secondAttribute="bottom" id="fWv-Ik-QjX"/>
+                            <constraint firstAttribute="trailing" secondItem="NeC-nt-ijN" secondAttribute="trailing" id="kHH-4Q-amb"/>
+                            <constraint firstItem="NeC-nt-ijN" firstAttribute="leading" secondItem="0TA-fx-8V5" secondAttribute="leading" id="rJ6-Lj-SLJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="NeC-nt-ijN" id="SjQ-lx-Amb"/>
+                    </connections>
                 </viewController>
                 <customObject id="iy6-kb-k3g" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="763" y="1280"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSCaution" width="32" height="32"/>
+    </resources>
 </document>
