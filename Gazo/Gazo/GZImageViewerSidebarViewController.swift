@@ -29,6 +29,18 @@ class GZImageViewerSidebarViewController: NSViewController {
     /// The scroll view for sidebarStackView
     @IBOutlet var sidebarStackViewScrollView: NSScrollView!
     
+    /// The token field in the sidebar stack view for tags about the source material of this image
+    @IBOutlet var sidebarStackViewSourceTagsTokenField: GZTagsTokenField!
+    
+    /// The token field in the sidebar stack view for tags about the characters in this mage
+    @IBOutlet var sidebarStackViewCharacterTagsTokenField: GZTagsTokenField!
+    
+    /// The token field in the sidebar stack view for tags about the artist(s) of this image
+    @IBOutlet var sidebarStackViewArtistsTagsTokenField: GZTagsTokenField!
+
+    /// The token field in the sidebar stack view for tags on this image that dont fit into another category
+    @IBOutlet var sidebarStackViewGeneralTagsTokenField: GZTagsTokenField!
+    
     /// The stack view that holds the buttons in the bottom bar
     @IBOutlet var bottomBarButtonsStackView: NSStackView!
     
@@ -42,11 +54,34 @@ class GZImageViewerSidebarViewController: NSViewController {
         
     }
     
+    /// The GZImage that is currently being displayed in this view
+    var currentDisplayingImage : GZImage? = nil;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         // Style the view
         styleView();
+    }
+    
+    /// Displays the given GZImage's info in this sidebar
+    func displayImage(image : GZImage) {
+        // Set currentDisplayingImage
+        currentDisplayingImage = image;
+        
+        // Display the image's info
+        // Display the tags
+        sidebarStackViewSourceTagsTokenField.stringValue = "";
+        sidebarStackViewSourceTagsTokenField.addTagsFromArray(image.sourceTags);
+        
+        sidebarStackViewCharacterTagsTokenField.stringValue = "";
+        sidebarStackViewCharacterTagsTokenField.addTagsFromArray(image.characterTags);
+        
+        sidebarStackViewArtistsTagsTokenField.stringValue = "";
+        sidebarStackViewArtistsTagsTokenField.addTagsFromArray(image.artistTags);
+        
+        sidebarStackViewGeneralTagsTokenField.stringValue = "";
+        sidebarStackViewGeneralTagsTokenField.addTagsFromArray(image.generalTags);
     }
     
     /// Shows titlebarVisualEffectView

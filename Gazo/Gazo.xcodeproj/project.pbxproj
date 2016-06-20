@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D3A3E891D18442000E24545 /* GZTagsTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A3E881D18442000E24545 /* GZTagsTokenField.swift */; };
+		5D3A3E8B1D18520900E24545 /* GZTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A3E8A1D18520900E24545 /* GZTag.swift */; };
 		5D7A307A1D16E365004D775B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30791D16E365004D775B /* AppDelegate.swift */; };
 		5D7A307E1D16E365004D775B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D7A307D1D16E365004D775B /* Assets.xcassets */; };
 		5D7A30811D16E365004D775B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D7A307F1D16E365004D775B /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		5D3A3E881D18442000E24545 /* GZTagsTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZTagsTokenField.swift; sourceTree = "<group>"; };
+		5D3A3E8A1D18520900E24545 /* GZTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZTag.swift; sourceTree = "<group>"; };
 		5D7A30761D16E365004D775B /* Gazo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gazo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7A30791D16E365004D775B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D7A307D1D16E365004D775B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				5D7A30B01D16E9F7004D775B /* GZValues.swift */,
 				5DF055091D17314C0094621E /* GZImage.swift */,
+				5D3A3E8A1D18520900E24545 /* GZTag.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				5DF055081D172DFC0094621E /* GZExtensions.swift in Sources */,
 				5D7A30B51D16EB31004D775B /* GZNoDividerSplitView.swift in Sources */,
 				5DF055121D173B380094621E /* GZScaleToFitContentTokenField.swift in Sources */,
+				5D3A3E8B1D18520900E24545 /* GZTag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

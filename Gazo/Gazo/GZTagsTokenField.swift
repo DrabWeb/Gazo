@@ -9,11 +9,6 @@
 import Cocoa
 
 class GZTagsTokenField: GZScaleToFitContentTokenField {
-    func tokenField(tokenField: NSTokenField, readFromPasteboard pboard: NSPasteboard) -> [AnyObject]? {
-        // Return the text from pboard split at every space
-        return (pboard.stringForType(NSStringPboardType)?.componentsSeparatedByString(" "));
-    }
-    
     func tokenField(tokenField: NSTokenField, writeRepresentedObjects objects: [AnyObject], toPasteboard pboard: NSPasteboard) -> Bool {
         // Add the string type to the pasteboard
         pboard.declareTypes([NSStringPboardType], owner: nil);
@@ -38,5 +33,14 @@ class GZTagsTokenField: GZScaleToFitContentTokenField {
         
         // Always allow copying tokens
         return true;
+    }
+    
+    /// Adds the tags from the given array of GZTags to this token field
+    func addTagsFromArray(tagArray : [GZTag]) {
+        // For every given tag...
+        for(_, currentTag) in tagArray.enumerate() {
+            // Add the current tag's name to this token field's string value
+            self.stringValue = self.stringValue + "," + currentTag.name;
+        }
     }
 }

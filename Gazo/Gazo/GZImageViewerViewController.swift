@@ -26,11 +26,29 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
     /// The views to fade out/in based on mouse activity
     var mouseActivityFadeViews : [NSView] = [];
     
+    /// The GZImage that is currently being displayed in this view
+    var currentDisplayingImage : GZImage? = nil;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         // Style the window
         styleWindow();
+    }
+    
+    /// Displays the given GZImage in this image viewer
+    func displayImage(image : GZImage) {
+        // Set currentDisplayingImage
+        currentDisplayingImage = image;
+        
+        // Set the window's title
+        window.title = NSString(string: image.path).lastPathComponent;
+        
+        // Display the image in the image view
+        contentImageViewController!.displayImage(image);
+        
+        // Display the image in the sidebar
+        contentSidebarViewController!.displayImage(image);
     }
     
     /// Called when the user presses CMD+SHIFT+L(View/Toggle Sidebar)
@@ -114,7 +132,14 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         window.titleVisibility = .Hidden;
         
         // Load an example image
-        contentImageViewController!.displayImage(GZImage(path: NSHomeDirectory() + "/Pictures/Cute/1466125139266.jpg"));
+        let exampleImage : GZImage = GZImage(path: NSHomeDirectory() + "/Pictures/Cute/1466125139266.jpg");
+        
+        exampleImage.sourceTags = [GZTag(name: "hibike! euphonium")];
+        exampleImage.characterTags = [GZTag(name: "oumae kumiko")];
+        exampleImage.artistTags = [GZTag(name: "ikeda shouko")];
+        exampleImage.generalTags = GZTag.tagArrayFromStrings(["1girl", "bag", "bench", "brown eyes", "brown hair", "euphonium", "highres", "instrument", "official art", "petals", "school uniform", "short hair", "sitting", "smile"]);
+        
+        displayImage(exampleImage);
     }
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {

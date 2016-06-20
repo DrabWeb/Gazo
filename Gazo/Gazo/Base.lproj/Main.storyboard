@@ -392,7 +392,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OOO-lj-uhO" userLabel="Artist Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
+                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OOO-lj-uhO" userLabel="Artists Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="50" width="194" height="17"/>
                                                             <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Artists tags" allowsEditingTextAttributes="YES" id="xd2-QZ-6zu">
                                                                 <font key="font" metaFont="system"/>
@@ -536,7 +536,11 @@
                         <outlet property="bottomBarButtonsStackView" destination="7Hs-Kh-th1" id="dVK-vb-yIz"/>
                         <outlet property="bottomBarVisualEffectView" destination="A9o-Zt-Rse" id="RAE-Ha-9AE"/>
                         <outlet property="sidebarStackView" destination="UT7-Jj-ehz" id="K2y-GM-ske"/>
+                        <outlet property="sidebarStackViewArtistsTagsTokenField" destination="OOO-lj-uhO" id="PHz-BV-OPs"/>
+                        <outlet property="sidebarStackViewCharacterTagsTokenField" destination="4mW-6H-V4J" id="7IN-d2-US2"/>
+                        <outlet property="sidebarStackViewGeneralTagsTokenField" destination="pNn-6P-L6D" id="LD9-ls-Ant"/>
                         <outlet property="sidebarStackViewScrollView" destination="JBN-jX-UQp" id="c4H-MI-7On"/>
+                        <outlet property="sidebarStackViewSourceTagsTokenField" destination="h2Y-PT-Zew" id="RGJ-ko-eZF"/>
                         <outlet property="titlebarVisualEffectView" destination="Phq-VT-KnI" id="yGp-3V-0tt"/>
                         <outlet property="titlebarVisualEffectViewHeightConstraint" destination="4aQ-Av-3oe" id="GAm-vk-exh"/>
                     </connections>

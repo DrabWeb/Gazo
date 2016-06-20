@@ -13,6 +13,18 @@ class GZImage: NSObject {
     /// The path to this image
     var path : String = "";
     
+    /// The tags for the source material of this image
+    var sourceTags : [GZTag] = [];
+    
+    /// The tags for the characters in this image
+    var characterTags : [GZTag] = [];
+    
+    /// The tags for the artist(s) of this image
+    var artistTags : [GZTag] = [];
+    
+    /// Any other tags for this image that dont fit into a previous category
+    var generalTags : [GZTag] = [];
+    
     // Init with a path
     init(path : String) {
         super.init();
