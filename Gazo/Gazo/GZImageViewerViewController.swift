@@ -29,11 +29,16 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
     /// The GZImage that is currently being displayed in this view
     var currentDisplayingImage : GZImage? = nil;
     
+    /// Is this image viewer view embed? (Meaning it shouldnt do anything with the window)
+    var embed : Bool = false;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         // Style the window
         styleWindow();
+        
+//        embed = true;
     }
     
     /// Displays the given GZImage in this image viewer
@@ -41,8 +46,11 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         // Set currentDisplayingImage
         currentDisplayingImage = image;
         
-        // Set the window's title
-        window.title = NSString(string: image.path).lastPathComponent;
+        // If this view isnt embed...
+        if(!embed) {
+            // Set the window's title
+            window.title = NSString(string: image.path).lastPathComponent;
+        }
         
         // Display the image in the image view
         contentImageViewController!.displayImage(image);
@@ -56,10 +64,13 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         // Toggle the sidebar
         contentSplitViewController!.splitViewItems[0].collapsed = !contentSplitViewController!.splitViewItems[0].collapsed;
         
-        // If the cursor is outside of this window...
-        if(!window.cursorIn) {
-            // Fade out the mouse activity views
-            fadeOutMouseActivityFadeViews();
+        // If this view isnt embed...
+        if(!embed) {
+            // If the cursor is outside of this window...
+            if(!window.cursorIn) {
+                // Fade out the mouse activity views
+                fadeOutMouseActivityFadeViews();
+            }
         }
     }
     
@@ -74,10 +85,13 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
             currentFadeView.animator().alphaValue = 0;
         }
         
-        // If the sidebar is collapsed and we arent in fullscreen...
-        if(contentSplitViewController!.splitViewItems[0].collapsed && !window.fullscreen) {
-            // Fade out the titlebar
-            window.titlebarView.animator().alphaValue = 0;
+        // If this view isnt embed...
+        if(!embed) {
+            // If the sidebar is collapsed and we arent in fullscreen...
+            if(contentSplitViewController!.splitViewItems[0].collapsed && !window.fullscreen) {
+                // Fade out the titlebar
+                window.titlebarView.animator().alphaValue = 0;
+            }
         }
     }
     
@@ -92,8 +106,11 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
             currentFadeView.animator().alphaValue = 1;
         }
         
-        // Fade in the titlebar
-        window.titlebarView.animator().alphaValue = 1;
+        // If this view isnt embed...
+        if(!embed) {
+            // Fade in the titlebar
+            window.titlebarView.animator().alphaValue = 1;
+        }
     }
     
     func windowWillEnterFullScreen(notification: NSNotification) {
@@ -120,16 +137,24 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
     
     /// Styles the window
     func styleWindow() {
-        // Get the window
-        window = NSApplication.sharedApplication().windows.last!;
-        
-        // Set the window's delegate
-        window.delegate = self;
-        
-        // Style the window
-        window.styleMask |= NSFullSizeContentViewWindowMask;
-        window.titlebarAppearsTransparent = true;
-        window.titleVisibility = .Hidden;
+        // If this view isnt embed...
+        if(!embed) {
+            // Get the window
+            window = NSApplication.sharedApplication().windows.last!;
+            
+            // Set the window's delegate
+            window.delegate = self;
+            
+            // Style the window
+            window.styleMask |= NSFullSizeContentViewWindowMask;
+            window.titlebarAppearsTransparent = true;
+            window.titleVisibility = .Hidden;
+        }
+        // If this view is embed...
+        else {
+            // Hide the titlebar visual effect view in the sidebar
+            contentSidebarViewController!.hideTitlebarVisualEffectView();
+        }
         
         // Load an example image
         let exampleImage : GZImage = GZImage(path: NSHomeDirectory() + "/Pictures/Cute/1466125139266.jpg");

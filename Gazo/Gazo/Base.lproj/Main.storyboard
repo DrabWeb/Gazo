@@ -344,13 +344,13 @@
                                         </constraints>
                                     </visualEffectView>
                                     <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBN-jX-UQp" userLabel="Scroll View - Sidebar Stack View">
-                                        <rect key="frame" x="5" y="27" width="190" height="246"/>
+                                        <rect key="frame" x="5" y="22" width="190" height="256"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Wmw-Bt-Ty6" userLabel="Clip View" customClass="GZFloatAtTopClipView" customModule="Gazo" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="246"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="190" height="256"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UT7-Jj-ehz" userLabel="Sidebar Stack View">
-                                                    <rect key="frame" x="0.0" y="132" width="190" height="192"/>
+                                                    <rect key="frame" x="0.0" y="142" width="190" height="192"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o1P-PV-FOd" userLabel="Source Tags Label">
                                                             <rect key="frame" x="-2" y="175" width="47" height="17"/>
@@ -454,12 +454,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="UT7-Jj-ehz" secondAttribute="trailing" id="o21-vG-a6U"/>
                                             </constraints>
                                         </clipView>
+                                        <edgeInsets key="contentInsets" left="0.0" right="0.0" top="5" bottom="5"/>
                                         <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="7lJ-FM-aik">
-                                            <rect key="frame" x="0.0" y="230" width="190" height="16"/>
+                                            <rect key="frame" x="0.0" y="235" width="190" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="tEd-ng-LYC">
-                                            <rect key="frame" x="174" y="0.0" width="16" height="246"/>
+                                            <rect key="frame" x="174" y="5" width="16" height="246"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
@@ -513,9 +514,9 @@
                                     <constraint firstAttribute="trailing" secondItem="Phq-VT-KnI" secondAttribute="trailing" id="3kG-Qq-hh8"/>
                                     <constraint firstItem="Phq-VT-KnI" firstAttribute="leading" secondItem="Vqy-5H-wAM" secondAttribute="leading" id="6tJ-57-07H"/>
                                     <constraint firstAttribute="trailing" secondItem="A9o-Zt-Rse" secondAttribute="trailing" id="E6c-1x-Bpb"/>
-                                    <constraint firstItem="JBN-jX-UQp" firstAttribute="top" secondItem="Phq-VT-KnI" secondAttribute="bottom" constant="5" id="Nyj-Nm-5Wb"/>
+                                    <constraint firstItem="JBN-jX-UQp" firstAttribute="top" secondItem="Phq-VT-KnI" secondAttribute="bottom" id="Nyj-Nm-5Wb"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="OFJ-AU-E3N"/>
-                                    <constraint firstItem="A9o-Zt-Rse" firstAttribute="top" secondItem="JBN-jX-UQp" secondAttribute="bottom" constant="5" id="Z9I-Ze-knj"/>
+                                    <constraint firstItem="A9o-Zt-Rse" firstAttribute="top" secondItem="JBN-jX-UQp" secondAttribute="bottom" id="Z9I-Ze-knj"/>
                                     <constraint firstItem="Phq-VT-KnI" firstAttribute="top" secondItem="Vqy-5H-wAM" secondAttribute="top" id="cQJ-2l-Gf2"/>
                                     <constraint firstItem="A9o-Zt-Rse" firstAttribute="leading" secondItem="Vqy-5H-wAM" secondAttribute="leading" id="ikn-oH-SJZ"/>
                                     <constraint firstAttribute="trailing" secondItem="JBN-jX-UQp" secondAttribute="trailing" constant="5" id="sU3-Nl-TXo"/>

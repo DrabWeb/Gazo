@@ -82,6 +82,9 @@ class GZImageViewerSidebarViewController: NSViewController {
         
         sidebarStackViewGeneralTagsTokenField.stringValue = "";
         sidebarStackViewGeneralTagsTokenField.addTagsFromArray(image.generalTags);
+        
+        // Scroll to the top of sidebarStackViewScrollView
+        sidebarStackViewScrollView.verticalScroller!.floatValue = Float(sidebarStackViewScrollView.contentView.bounds.height);
     }
     
     /// Shows titlebarVisualEffectView
