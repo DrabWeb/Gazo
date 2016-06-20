@@ -12,7 +12,8 @@ class GZScaleToFitContentTokenField: NSTokenField {
     
     override var intrinsicContentSize : NSSize {
         /// The intrinsic size to return, set as the size of this token field fit to the super view's width
-        let size : NSSize = self.sizeThatFits(NSSize(width: self.superview!.frame.width, height: self.superview!.frame.height));
+        var size : NSSize = self.sizeThatFits(NSSize(width: self.superview!.frame.width, height: self.superview!.frame.height));
+        size = NSSize(width: self.superview!.frame.width, height: size.height);
         
         // Return the size
         return size;

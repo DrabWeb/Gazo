@@ -268,6 +268,7 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="229" y="249" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1600" height="900"/>
+                        <value key="minSize" type="size" width="200" height="150"/>
                     </window>
                     <connections>
                         <segue destination="9DL-gF-XBN" kind="relationship" relationship="window.shadowedContentViewController" id="xNr-E4-mEU"/>
@@ -333,17 +334,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Vqy-5H-wAM">
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="Vqy-5H-wAM">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                                 <subviews>
+                                    <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Phq-VT-KnI" userLabel="Titlebar Visual Effect View">
+                                        <rect key="frame" x="0.0" y="278" width="200" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="4aQ-Av-3oe"/>
+                                        </constraints>
+                                    </visualEffectView>
                                     <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBN-jX-UQp" userLabel="Scroll View - Sidebar Stack View">
-                                        <rect key="frame" x="5" y="5" width="190" height="268"/>
+                                        <rect key="frame" x="5" y="27" width="190" height="246"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Wmw-Bt-Ty6" userLabel="Clip View" customClass="GZFloatAtTopClipView" customModule="Gazo" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="268"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="190" height="246"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UT7-Jj-ehz" userLabel="Sidebar Stack View">
-                                                    <rect key="frame" x="0.0" y="154" width="190" height="192"/>
+                                                    <rect key="frame" x="0.0" y="132" width="190" height="192"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o1P-PV-FOd" userLabel="Source Tags Label">
                                                             <rect key="frame" x="-2" y="175" width="47" height="17"/>
@@ -353,9 +360,9 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <tokenField focusRingType="none" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="h2Y-PT-Zew" userLabel="Source Tags Token Field" customClass="GZScaleToFitContentTokenField" customModule="Gazo" customModuleProvider="target">
+                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="h2Y-PT-Zew" userLabel="Source Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="150" width="194" height="17"/>
-                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Tags" allowsEditingTextAttributes="YES" id="dSP-eG-l0g">
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Source tags" allowsEditingTextAttributes="YES" id="dSP-eG-l0g">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -369,9 +376,9 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <tokenField focusRingType="none" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="4mW-6H-V4J" userLabel="Character Tags Token Field" customClass="GZScaleToFitContentTokenField" customModule="Gazo" customModuleProvider="target">
+                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="4mW-6H-V4J" userLabel="Character Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="100" width="194" height="17"/>
-                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Tags" allowsEditingTextAttributes="YES" id="G4L-Nb-tF4">
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Characters tags" allowsEditingTextAttributes="YES" id="G4L-Nb-tF4">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -385,9 +392,9 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <tokenField focusRingType="none" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="OOO-lj-uhO" userLabel="Artist Tags Token Field" customClass="GZScaleToFitContentTokenField" customModule="Gazo" customModuleProvider="target">
+                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OOO-lj-uhO" userLabel="Artist Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="50" width="194" height="17"/>
-                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Tags" allowsEditingTextAttributes="YES" id="xd2-QZ-6zu">
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Artists tags" allowsEditingTextAttributes="YES" id="xd2-QZ-6zu">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -401,9 +408,9 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <tokenField focusRingType="none" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="pNn-6P-L6D" userLabel="General Tags Token Field" customClass="GZScaleToFitContentTokenField" customModule="Gazo" customModuleProvider="target">
+                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="pNn-6P-L6D" userLabel="General Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="0.0" width="194" height="17"/>
-                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Tags" allowsEditingTextAttributes="YES" id="ffZ-kz-aQ4">
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="General tags" allowsEditingTextAttributes="YES" id="ffZ-kz-aQ4">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -411,9 +418,13 @@
                                                         </tokenField>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="OOO-lj-uhO" firstAttribute="leading" secondItem="UT7-Jj-ehz" secondAttribute="leading" id="1TH-wr-K4u"/>
                                                         <constraint firstItem="4mW-6H-V4J" firstAttribute="leading" secondItem="UT7-Jj-ehz" secondAttribute="leading" id="BPh-TX-bUn"/>
                                                         <constraint firstAttribute="trailing" secondItem="h2Y-PT-Zew" secondAttribute="trailing" id="Gtl-Ct-5VM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="OOO-lj-uhO" secondAttribute="trailing" id="JjQ-cg-ZpQ"/>
+                                                        <constraint firstItem="pNn-6P-L6D" firstAttribute="leading" secondItem="UT7-Jj-ehz" secondAttribute="leading" id="MD5-dl-tKD"/>
                                                         <constraint firstItem="h2Y-PT-Zew" firstAttribute="leading" secondItem="UT7-Jj-ehz" secondAttribute="leading" id="ONC-7s-aQh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="pNn-6P-L6D" secondAttribute="trailing" id="vHl-PX-bpq"/>
                                                         <constraint firstAttribute="trailing" secondItem="4mW-6H-V4J" secondAttribute="trailing" id="wB2-cU-nBV"/>
                                                     </constraints>
                                                     <visibilityPriorities>
@@ -444,20 +455,71 @@
                                             </constraints>
                                         </clipView>
                                         <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="7lJ-FM-aik">
-                                            <rect key="frame" x="0.0" y="252" width="190" height="16"/>
+                                            <rect key="frame" x="0.0" y="230" width="190" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="tEd-ng-LYC">
-                                            <rect key="frame" x="175" y="0.0" width="15" height="268"/>
+                                            <rect key="frame" x="174" y="0.0" width="16" height="246"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
+                                    <visualEffectView appearanceType="vibrantDark" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" blendingMode="behindWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="A9o-Zt-Rse" userLabel="Bottom Bar Visual Effect View">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
+                                        <subviews>
+                                            <stackView orientation="horizontal" alignment="centerY" spacing="22" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Hs-Kh-th1" userLabel="Buttons Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
+                                                <beginningViews>
+                                                    <button toolTip="Sauce" focusRingType="none" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQd-Tq-mOx" userLabel="Sauce Button">
+                                                        <rect key="frame" x="0.0" y="5" width="19" height="12"/>
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSQuickLookTemplate" imagePosition="only" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="Y2S-aw-jPb">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="bottomBarSauceButtonPressed:" target="Tfo-f2-KRg" id="bYg-K8-3ct"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button toolTip="Share" focusRingType="none" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RFg-NY-slg" userLabel="Share Button">
+                                                        <rect key="frame" x="41" y="3" width="11" height="16"/>
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSShareTemplate" imagePosition="only" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="okv-a3-CYg">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="bottomBarShareButtonPressed:" target="Tfo-f2-KRg" id="qfU-oD-R7Z"/>
+                                                        </connections>
+                                                    </button>
+                                                </beginningViews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="7Hs-Kh-th1" firstAttribute="top" secondItem="A9o-Zt-Rse" secondAttribute="top" id="Ahs-j6-4CA"/>
+                                            <constraint firstItem="7Hs-Kh-th1" firstAttribute="leading" secondItem="A9o-Zt-Rse" secondAttribute="leading" id="dC7-d0-T9z"/>
+                                            <constraint firstAttribute="trailing" secondItem="7Hs-Kh-th1" secondAttribute="trailing" id="eST-gx-zZS"/>
+                                            <constraint firstAttribute="bottom" secondItem="7Hs-Kh-th1" secondAttribute="bottom" id="kXl-Df-qJL"/>
+                                            <constraint firstAttribute="height" constant="22" id="zyd-7C-OuA"/>
+                                        </constraints>
+                                    </visualEffectView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="JBN-jX-UQp" firstAttribute="top" secondItem="Vqy-5H-wAM" secondAttribute="top" constant="27" id="4aY-4m-To1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Phq-VT-KnI" secondAttribute="trailing" id="3kG-Qq-hh8"/>
+                                    <constraint firstItem="Phq-VT-KnI" firstAttribute="leading" secondItem="Vqy-5H-wAM" secondAttribute="leading" id="6tJ-57-07H"/>
+                                    <constraint firstAttribute="trailing" secondItem="A9o-Zt-Rse" secondAttribute="trailing" id="E6c-1x-Bpb"/>
+                                    <constraint firstItem="JBN-jX-UQp" firstAttribute="top" secondItem="Phq-VT-KnI" secondAttribute="bottom" constant="5" id="Nyj-Nm-5Wb"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="OFJ-AU-E3N"/>
-                                    <constraint firstAttribute="bottom" secondItem="JBN-jX-UQp" secondAttribute="bottom" constant="5" id="nh7-xy-FHS"/>
+                                    <constraint firstItem="A9o-Zt-Rse" firstAttribute="top" secondItem="JBN-jX-UQp" secondAttribute="bottom" constant="5" id="Z9I-Ze-knj"/>
+                                    <constraint firstItem="Phq-VT-KnI" firstAttribute="top" secondItem="Vqy-5H-wAM" secondAttribute="top" id="cQJ-2l-Gf2"/>
+                                    <constraint firstItem="A9o-Zt-Rse" firstAttribute="leading" secondItem="Vqy-5H-wAM" secondAttribute="leading" id="ikn-oH-SJZ"/>
                                     <constraint firstAttribute="trailing" secondItem="JBN-jX-UQp" secondAttribute="trailing" constant="5" id="sU3-Nl-TXo"/>
+                                    <constraint firstAttribute="bottom" secondItem="A9o-Zt-Rse" secondAttribute="bottom" id="uhQ-tu-IzT"/>
                                     <constraint firstItem="JBN-jX-UQp" firstAttribute="leading" secondItem="Vqy-5H-wAM" secondAttribute="leading" constant="5" id="vIq-5v-X75"/>
                                 </constraints>
                             </visualEffectView>
@@ -471,8 +533,12 @@
                     </view>
                     <connections>
                         <outlet property="backgroundVisualEffectView" destination="Vqy-5H-wAM" id="LqG-kZ-m4V"/>
+                        <outlet property="bottomBarButtonsStackView" destination="7Hs-Kh-th1" id="dVK-vb-yIz"/>
+                        <outlet property="bottomBarVisualEffectView" destination="A9o-Zt-Rse" id="RAE-Ha-9AE"/>
                         <outlet property="sidebarStackView" destination="UT7-Jj-ehz" id="K2y-GM-ske"/>
                         <outlet property="sidebarStackViewScrollView" destination="JBN-jX-UQp" id="c4H-MI-7On"/>
+                        <outlet property="titlebarVisualEffectView" destination="Phq-VT-KnI" id="yGp-3V-0tt"/>
+                        <outlet property="titlebarVisualEffectViewHeightConstraint" destination="4aQ-Av-3oe" id="GAm-vk-exh"/>
                     </connections>
                 </viewController>
                 <customObject id="XSJ-xb-5jz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -489,6 +555,9 @@
                         <subviews>
                             <imageView horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="NeC-nt-ijN">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="r2q-nr-mqv"/>
+                                </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSCaution" id="tJX-fb-tuo"/>
                             </imageView>
                         </subviews>
@@ -510,5 +579,7 @@
     </scenes>
     <resources>
         <image name="NSCaution" width="32" height="32"/>
+        <image name="NSQuickLookTemplate" width="19" height="12"/>
+        <image name="NSShareTemplate" width="11" height="16"/>
     </resources>
 </document>

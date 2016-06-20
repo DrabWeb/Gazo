@@ -87,11 +87,17 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         
         // Set the window's appearance to vibrant dark so the fullscreen toolbar is dark
         window.appearance = NSAppearance(named: NSAppearanceNameVibrantDark);
+        
+        // Hide the titlebar visual effect view in the sidebar
+        contentSidebarViewController!.hideTitlebarVisualEffectView();
     }
     
     func windowDidExitFullScreen(notification: NSNotification) {
         // Set back the window's appearance
         window.appearance = NSAppearance(named: NSAppearanceNameAqua);
+        
+        // Show the titlebar visual effect view in the sidebar
+        contentSidebarViewController!.showTitlebarVisualEffectView();
     }
     
     /// Styles the window

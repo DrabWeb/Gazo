@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D3A3E891D18442000E24545 /* GZTagsTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A3E881D18442000E24545 /* GZTagsTokenField.swift */; };
 		5D7A307A1D16E365004D775B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30791D16E365004D775B /* AppDelegate.swift */; };
 		5D7A307E1D16E365004D775B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D7A307D1D16E365004D775B /* Assets.xcassets */; };
 		5D7A30811D16E365004D775B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D7A307F1D16E365004D775B /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D3A3E881D18442000E24545 /* GZTagsTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZTagsTokenField.swift; sourceTree = "<group>"; };
 		5D7A30761D16E365004D775B /* Gazo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gazo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7A30791D16E365004D775B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D7A307D1D16E365004D775B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D3A3E871D18440D00E24545 /* Image Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				5D3A3E881D18442000E24545 /* GZTagsTokenField.swift */,
+			);
+			name = "Image Viewer";
+			sourceTree = "<group>";
+		};
 		5D7A306D1D16E364004D775B = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +191,7 @@
 		5D7A30B21D16EB19004D775B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5D3A3E871D18440D00E24545 /* Image Viewer */,
 				5D7A30B31D16EB22004D775B /* Subclasses */,
 			);
 			name = Views;
@@ -341,6 +352,7 @@
 				5D7A307A1D16E365004D775B /* AppDelegate.swift in Sources */,
 				5D7A30AE1D16E7DF004D775B /* GZImageViewerImageViewController.swift in Sources */,
 				5D7A30AB1D16E7C1004D775B /* GZImageViewerSidebarViewController.swift in Sources */,
+				5D3A3E891D18442000E24545 /* GZTagsTokenField.swift in Sources */,
 				5D7A30A71D16E446004D775B /* GZImageViewerViewController.swift in Sources */,
 				5D7A30B11D16E9F7004D775B /* GZValues.swift in Sources */,
 				5DF055081D172DFC0094621E /* GZExtensions.swift in Sources */,
@@ -428,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -466,7 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
