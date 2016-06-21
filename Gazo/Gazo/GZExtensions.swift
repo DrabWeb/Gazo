@@ -47,3 +47,72 @@ extension NSWindow {
         return cursorIn;
     }
 }
+
+extension NSImage {
+    /// The pixel size of this image
+    var pixelSize : NSSize {
+        /// The NSBitmapImageRep to the image
+        let imageRep : NSBitmapImageRep = (NSBitmapImageRep(data: self.TIFFRepresentation!))!;
+        
+        /// The size of the iamge
+        let imageSize : NSSize = NSSize(width: imageRep.pixelsWide, height: imageRep.pixelsHigh);
+        
+        // Return the image size
+        return imageSize;
+    }
+}
+
+extension NSArrayController {
+    /// Removes all the objects from this array controller
+    func removeAll() {
+        // Remove all the objects in this array controller
+        self.removeObjects(self.arrangedObjects as! [AnyObject]);
+    }
+}
+
+extension String {
+    /// This string as an NSString
+    var ToNSString : NSString {
+        /// Return this string as an NSString
+        return NSString(string: self);
+    }
+}
+
+extension SequenceType {
+    /// Returns this array(assuming its an array of file paths) sorted by modification date
+    func sortedByModificationDate() -> [String] {
+        /// This array, sorted by modification date
+        var sortedArray : [String] = self as! [String];
+        
+        // Sort the array
+        sortedArray = sortedArray.sort({ (fileOne, fileTwo) in
+            do {
+                /// The modification date of fileOne
+                let fileOneModificationDate : NSDate? = try NSFileManager.defaultManager().attributesOfItemAtPath(fileOne)["NSFileModificationDate"] as? NSDate;
+                
+                /// The modification date of fileTwo
+                let fileTwoModificationDate : NSDate? = try NSFileManager.defaultManager().attributesOfItemAtPath(fileTwo)["NSFileModificationDate"] as? NSDate;
+                
+                // If file one's modification date is earlier than file two's modification date...
+                if(fileOneModificationDate!.timeIntervalSince1970 < fileTwoModificationDate!.timeIntervalSince1970) {
+                    // Say to sort descending
+                    return false;
+                }
+                // If file one's modification date is later than file two's modification date...
+                else {
+                    // Say to sort ascending
+                    return true;
+                }
+            }
+            catch {
+                // Do nothing with errors
+            }
+            
+            // Default to descending in case there is an error
+            return false;
+        });
+        
+        // Return the sorted array
+        return sortedArray;
+    }
+}

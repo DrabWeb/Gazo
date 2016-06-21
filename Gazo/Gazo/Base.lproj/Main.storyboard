@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="DhD-FS-ftm">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Y6v-Xw-H9x">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -60,10 +59,9 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="New Testing Image Viewer" keyEquivalent="n" id="Was-JA-tGl">
+                                        <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
                                                 <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
-                                                <segue destination="DhD-FS-ftm" kind="show" id="iHS-vu-P84"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
@@ -192,12 +190,6 @@
                                     <items>
                                         <menuItem title="Toggle Sidebar" keyEquivalent="L" id="q60-kM-J1u"/>
                                         <menuItem isSeparatorItem="YES" id="7Lx-A7-7hc"/>
-                                        <menuItem title="Show Toolbar" keyEquivalent="t" id="snW-S8-Cw5">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="toggleToolbarShown:" target="Ady-hI-5gd" id="BXY-wc-z0C"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem title="Customize Toolbar…" id="1UK-8n-QPP">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -257,13 +249,209 @@
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73.5" y="-131"/>
+            <point key="canvasLocation" x="795.5" y="-159"/>
+        </scene>
+        <!--Image Browser Window Controller-->
+        <scene sceneID="UQI-5s-8OS">
+            <objects>
+                <windowController id="Y6v-Xw-H9x" userLabel="Image Browser Window Controller" sceneMemberID="viewController">
+                    <window key="window" title="Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="2FH-UN-b1u">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="229" y="249" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1600" height="900"/>
+                        <toolbar key="toolbar" implicitIdentifier="7A5CF84C-BF17-4884-9FC7-2F1B482BA25D" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="sRr-UD-1Ua">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="Bsb-86-GLM"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="Xaa-uj-dN2"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="6Cv-EM-m5T"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="nuw-HW-JgQ"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="ApJ-dp-BOZ"/>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems/>
+                        </toolbar>
+                    </window>
+                    <connections>
+                        <segue destination="Kag-Ep-x6u" kind="relationship" relationship="window.shadowedContentViewController" id="5Te-bv-0fY"/>
+                    </connections>
+                </windowController>
+                <customObject id="GHs-gE-8za" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="795" y="158"/>
+        </scene>
+        <!--Image Browser View Controller-->
+        <scene sceneID="4zi-Q1-GwP">
+            <objects>
+                <viewController id="Kag-Ep-x6u" userLabel="Image Browser View Controller" customClass="GZImageBrowserViewController" customModule="Gazo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="3Tm-tZ-Qa1">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="FtD-ri-MJy" userLabel="Content Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <connections>
+                                    <segue destination="Np5-NP-2qT" kind="embed" identifier="imageBrowserContentSplitViewControllerSegue" id="N2T-Hc-n0o"/>
+                                </connections>
+                            </containerView>
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="withinWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="n8M-tg-bL1" userLabel="Titlebar Visual Effect View">
+                                <rect key="frame" x="0.0" y="233" width="480" height="37"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="2DM-B0-QpA" userLabel="Gradient View" customClass="GZGradientView" customModule="Gazo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="37"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.24953268788343558" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="DLb-Xb-eBS"/>
+                                    <constraint firstItem="2DM-B0-QpA" firstAttribute="top" secondItem="n8M-tg-bL1" secondAttribute="top" id="GoB-s7-u1h"/>
+                                    <constraint firstAttribute="bottom" secondItem="2DM-B0-QpA" secondAttribute="bottom" id="MNZ-aL-XoJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="2DM-B0-QpA" secondAttribute="trailing" id="pQD-wG-xas"/>
+                                    <constraint firstItem="2DM-B0-QpA" firstAttribute="leading" secondItem="n8M-tg-bL1" secondAttribute="leading" id="zns-tt-5oE"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="n8M-tg-bL1" firstAttribute="top" secondItem="3Tm-tZ-Qa1" secondAttribute="top" id="Gus-gG-S0O"/>
+                            <constraint firstItem="n8M-tg-bL1" firstAttribute="leading" secondItem="3Tm-tZ-Qa1" secondAttribute="leading" id="H6H-FD-ncX"/>
+                            <constraint firstItem="FtD-ri-MJy" firstAttribute="trailing" secondItem="n8M-tg-bL1" secondAttribute="trailing" id="Ufj-Qe-EwI"/>
+                            <constraint firstAttribute="bottom" secondItem="FtD-ri-MJy" secondAttribute="bottom" id="Z6H-gL-WjK"/>
+                            <constraint firstItem="FtD-ri-MJy" firstAttribute="leading" secondItem="n8M-tg-bL1" secondAttribute="leading" id="cgJ-3z-UhI"/>
+                            <constraint firstItem="FtD-ri-MJy" firstAttribute="top" secondItem="n8M-tg-bL1" secondAttribute="top" id="gbc-MA-TBk"/>
+                            <constraint firstAttribute="trailing" secondItem="n8M-tg-bL1" secondAttribute="trailing" id="wz0-Vh-7E6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="titlebarVisualEffectView" destination="n8M-tg-bL1" id="JFa-qV-Cmg"/>
+                    </connections>
+                </viewController>
+                <customObject id="ble-7r-N39" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="795" y="643"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="ulD-Xh-sUE">
+            <objects>
+                <splitViewController id="Np5-NP-2qT" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem canCollapse="YES" id="fOP-yT-3UU"/>
+                        <splitViewItem id="Ufk-WP-2YN"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="t2c-zX-Wy5" customClass="GZNoDividerSplitView" customModule="Gazo" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </splitView>
+                    <connections>
+                        <segue destination="jrK-re-rZO" kind="relationship" relationship="splitItems" id="2MN-HT-pS1"/>
+                        <segue destination="Xak-iD-y1e" kind="relationship" relationship="splitItems" id="LL3-IP-Uyn"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="jLP-y6-zo4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="795" y="1093"/>
+        </scene>
+        <!--Image Browser Sidebar View Controller-->
+        <scene sceneID="VeS-ev-lfU">
+            <objects>
+                <viewController id="jrK-re-rZO" userLabel="Image Browser Sidebar View Controller" customClass="GZImageBrowserSidebarViewController" customModule="Gazo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="geu-ft-yKj">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="X5y-z2-ICN" userLabel="Background Visual Effect View">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="2ww-6V-4gF"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="X5y-z2-ICN" firstAttribute="leading" secondItem="geu-ft-yKj" secondAttribute="leading" id="XOi-67-gKo"/>
+                            <constraint firstAttribute="bottom" secondItem="X5y-z2-ICN" secondAttribute="bottom" id="bT1-pR-3AY"/>
+                            <constraint firstItem="X5y-z2-ICN" firstAttribute="top" secondItem="geu-ft-yKj" secondAttribute="top" id="h7a-Se-Pp0"/>
+                            <constraint firstAttribute="trailing" secondItem="X5y-z2-ICN" secondAttribute="trailing" id="tBq-F2-P9O"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundVisualEffectView" destination="X5y-z2-ICN" id="aQY-1O-AY5"/>
+                    </connections>
+                </viewController>
+                <customObject id="1FN-6t-hGS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="576" y="1579"/>
+        </scene>
+        <!--Image Browser Image Grid View Controller-->
+        <scene sceneID="eDU-q9-sQb">
+            <objects>
+                <viewController id="Xak-iD-y1e" userLabel="Image Browser Image Grid View Controller" customClass="GZImageBrowserImageGridViewController" customModule="Gazo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Mgq-gO-ele">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTv-46-v02" userLabel="Scroll View - Image Grid Collection View">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="0Tv-t1-SWE">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="2b9-wF-GOT">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="primaryBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                            <connections>
+                                                <binding destination="g9C-pZ-gtb" name="content" keyPath="arrangedObjects" id="cuq-zS-sCA"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <edgeInsets key="contentInsets" left="0.0" right="0.0" top="37" bottom="0.0"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="hAo-dl-GAY">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Hfz-2w-p9G">
+                                    <rect key="frame" x="434" y="37" width="16" height="263"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="VTv-46-v02" firstAttribute="leading" secondItem="Mgq-gO-ele" secondAttribute="leading" id="26A-2z-xpf"/>
+                            <constraint firstItem="VTv-46-v02" firstAttribute="top" secondItem="Mgq-gO-ele" secondAttribute="top" id="4cu-0z-yDE"/>
+                            <constraint firstAttribute="trailing" secondItem="VTv-46-v02" secondAttribute="trailing" id="9QI-BA-q0r"/>
+                            <constraint firstAttribute="bottom" secondItem="VTv-46-v02" secondAttribute="bottom" id="NaG-9H-lNn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageGridCollectionView" destination="2b9-wF-GOT" id="IGF-2z-NHo"/>
+                        <outlet property="imageGridCollectionViewArrayController" destination="g9C-pZ-gtb" id="Qq6-jd-YwB"/>
+                        <outlet property="imageGridCollectionViewScrollView" destination="VTv-46-v02" id="KbJ-xn-CfO"/>
+                    </connections>
+                </viewController>
+                <customObject id="no1-7n-EEg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController objectClassName="GZImageBrowserCollectionViewObject" id="g9C-pZ-gtb">
+                    <declaredKeys>
+                        <string>image</string>
+                        <string>thumbnailImage</string>
+                    </declaredKeys>
+                    <connections>
+                        <binding destination="Xak-iD-y1e" name="contentArray" keyPath="imageGridCollectionViewViewArrayControllerObjects" id="PJH-4K-lpD"/>
+                    </connections>
+                </arrayController>
+            </objects>
+            <point key="canvasLocation" x="918" y="1579"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R5d-Cj-4Gn">
             <objects>
                 <windowController id="DhD-FS-ftm" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="dJh-fw-J7F">
+                    <window key="window" title="Image Viewer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="dJh-fw-J7F">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="229" y="249" width="480" height="270"/>
@@ -470,7 +658,7 @@
                                             <stackView orientation="horizontal" alignment="centerY" spacing="22" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Hs-Kh-th1" userLabel="Buttons Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
                                                 <beginningViews>
-                                                    <button toolTip="Sauce" focusRingType="none" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQd-Tq-mOx" userLabel="Sauce Button">
+                                                    <button toolTip="Sauce" focusRingType="none" verticalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQd-Tq-mOx" userLabel="Sauce Button">
                                                         <rect key="frame" x="0.0" y="5" width="19" height="12"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSQuickLookTemplate" imagePosition="only" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="Y2S-aw-jPb">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -480,7 +668,7 @@
                                                             <action selector="bottomBarSauceButtonPressed:" target="Tfo-f2-KRg" id="bYg-K8-3ct"/>
                                                         </connections>
                                                     </button>
-                                                    <button toolTip="Share" focusRingType="none" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RFg-NY-slg" userLabel="Share Button">
+                                                    <button toolTip="Share" focusRingType="none" verticalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RFg-NY-slg" userLabel="Share Button">
                                                         <rect key="frame" x="41" y="3" width="11" height="16"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSShareTemplate" imagePosition="only" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="okv-a3-CYg">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -548,7 +736,7 @@
                 </viewController>
                 <customObject id="XSJ-xb-5jz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="763" y="881"/>
+            <point key="canvasLocation" x="-153" y="1579"/>
         </scene>
         <!--Image Viewer Image View Controller-->
         <scene sceneID="FQW-2B-ovT">
@@ -579,7 +767,40 @@
                 </viewController>
                 <customObject id="iy6-kb-k3g" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="763" y="1280"/>
+            <point key="canvasLocation" x="188" y="1579"/>
+        </scene>
+        <!--Image Browser Collection View Item-->
+        <scene sceneID="CQ9-mG-1TG">
+            <objects>
+                <collectionViewItem storyboardIdentifier="imageBrowserCollectionViewItem" id="dtt-Kx-raC" userLabel="Image Browser Collection View Item" customClass="GZImageBrowserCollectionViewItem" customModule="Gazo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="EqR-xw-R3h">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="0WX-Pe-iLX" customClass="GZRasterizedImageView" customModule="Gazo" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="130" height="130"/>
+                                <shadow key="shadow" blurRadius="4">
+                                    <size key="offset" width="0.0" height="-3"/>
+                                    <color key="color" white="0.0" alpha="0.39634058665644173" colorSpace="calibratedWhite"/>
+                                </shadow>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSCaution" id="i9G-lI-nf4"/>
+                                <connections>
+                                    <binding destination="dtt-Kx-raC" name="value" keyPath="representedObject.thumbnailImage" id="a2R-dV-wl4"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="0WX-Pe-iLX" firstAttribute="top" secondItem="EqR-xw-R3h" secondAttribute="top" constant="10" id="4qa-JF-5x6"/>
+                            <constraint firstItem="0WX-Pe-iLX" firstAttribute="leading" secondItem="EqR-xw-R3h" secondAttribute="leading" constant="10" id="5dR-A6-Qjk"/>
+                            <constraint firstAttribute="trailing" secondItem="0WX-Pe-iLX" secondAttribute="trailing" constant="10" id="BP6-Fk-bfz"/>
+                            <constraint firstAttribute="bottom" secondItem="0WX-Pe-iLX" secondAttribute="bottom" constant="10" id="WuG-fT-xBb"/>
+                        </constraints>
+                    </view>
+                </collectionViewItem>
+                <customObject id="wlo-J6-ubL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="qb1-86-fO2"/>
+            </objects>
+            <point key="canvasLocation" x="1300" y="1579"/>
         </scene>
     </scenes>
     <resources>

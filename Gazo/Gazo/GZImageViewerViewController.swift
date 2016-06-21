@@ -37,8 +37,6 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         // Do view setup here.
         // Style the window
         styleWindow();
-        
-//        embed = true;
     }
     
     /// Displays the given GZImage in this image viewer
@@ -49,7 +47,7 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         // If this view isnt embed...
         if(!embed) {
             // Set the window's title
-            window.title = NSString(string: image.path).lastPathComponent;
+            window.title = image.path.ToNSString.lastPathComponent;
         }
         
         // Display the image in the image view
