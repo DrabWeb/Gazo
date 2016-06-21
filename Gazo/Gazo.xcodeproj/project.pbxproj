@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D25EBB51D19EDB200658C66 /* GZImageBrowserCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25EBB41D19EDB200658C66 /* GZImageBrowserCollectionView.swift */; };
+		5D25EBB81D19EEFE00658C66 /* GZImageBrowserCollectionViewItemSelectionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25EBB71D19EEFE00658C66 /* GZImageBrowserCollectionViewItemSelectionBox.swift */; };
 		5D3A3E891D18442000E24545 /* GZTagsTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A3E881D18442000E24545 /* GZTagsTokenField.swift */; };
 		5D3A3E8B1D18520900E24545 /* GZTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A3E8A1D18520900E24545 /* GZTag.swift */; };
 		5D3A3E8E1D18636200E24545 /* GZImageBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A3E8D1D18636200E24545 /* GZImageBrowserViewController.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D25EBB41D19EDB200658C66 /* GZImageBrowserCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageBrowserCollectionView.swift; sourceTree = "<group>"; };
+		5D25EBB71D19EEFE00658C66 /* GZImageBrowserCollectionViewItemSelectionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageBrowserCollectionViewItemSelectionBox.swift; sourceTree = "<group>"; };
 		5D3A3E881D18442000E24545 /* GZTagsTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZTagsTokenField.swift; sourceTree = "<group>"; };
 		5D3A3E8A1D18520900E24545 /* GZTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZTag.swift; sourceTree = "<group>"; };
 		5D3A3E8D1D18636200E24545 /* GZImageBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageBrowserViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D25EBB61D19EEED00658C66 /* Image Browser */ = {
+			isa = PBXGroup;
+			children = (
+				5D25EBB71D19EEFE00658C66 /* GZImageBrowserCollectionViewItemSelectionBox.swift */,
+			);
+			name = "Image Browser";
+			sourceTree = "<group>";
+		};
 		5D3A3E871D18440D00E24545 /* Image Viewer */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +137,7 @@
 				5D3A3E981D186CB100E24545 /* GZImageBrowserSidebarViewController.swift */,
 				5D3A3E9A1D186D4B00E24545 /* GZImageBrowserImageGridViewController.swift */,
 				5D3A3E8F1D18656500E24545 /* GZImageBrowserCollectionViewItem.swift */,
+				5D25EBB41D19EDB200658C66 /* GZImageBrowserCollectionView.swift */,
 			);
 			name = "Image Browser";
 			sourceTree = "<group>";
@@ -248,6 +261,7 @@
 		5D7A30B21D16EB19004D775B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5D25EBB61D19EEED00658C66 /* Image Browser */,
 				5D3A3E871D18440D00E24545 /* Image Viewer */,
 				5D7A30B31D16EB22004D775B /* Subclasses */,
 				5D3A3E961D186ABC00E24545 /* GZGradientView.swift */,
@@ -407,6 +421,7 @@
 			files = (
 				5DCDF2001D19DD8C0027765F /* GZPreferences.swift in Sources */,
 				5DF0550A1D17314C0094621E /* GZImage.swift in Sources */,
+				5D25EBB81D19EEFE00658C66 /* GZImageBrowserCollectionViewItemSelectionBox.swift in Sources */,
 				5DF055101D17348C0094621E /* GZFloatAtTopClipView.swift in Sources */,
 				5D3A3E9B1D186D4B00E24545 /* GZImageBrowserImageGridViewController.swift in Sources */,
 				5D99CE1E1D16EE2100092920 /* GZImageViewerSplitViewController.swift in Sources */,
@@ -417,6 +432,7 @@
 				5D3A3E971D186ABC00E24545 /* GZGradientView.swift in Sources */,
 				5D3A3E891D18442000E24545 /* GZTagsTokenField.swift in Sources */,
 				5D3A3EAE1D18801900E24545 /* GZRasterizedImageView.swift in Sources */,
+				5D25EBB51D19EDB200658C66 /* GZImageBrowserCollectionView.swift in Sources */,
 				5D7A30A71D16E446004D775B /* GZImageViewerViewController.swift in Sources */,
 				5D3A3E931D1865D800E24545 /* GZImageBrowserCollectionViewObject.swift in Sources */,
 				5D7A30B11D16E9F7004D775B /* GZValues.swift in Sources */,

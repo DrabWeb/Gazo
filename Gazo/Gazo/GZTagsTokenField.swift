@@ -10,6 +10,7 @@ import Cocoa
 
 /// A token field subclass for tags
 class GZTagsTokenField: GZScaleToFitContentTokenField {
+    
     func tokenField(tokenField: NSTokenField, writeRepresentedObjects objects: [AnyObject], toPasteboard pboard: NSPasteboard) -> Bool {
         // Add the string type to the pasteboard
         pboard.declareTypes([NSStringPboardType], owner: nil);

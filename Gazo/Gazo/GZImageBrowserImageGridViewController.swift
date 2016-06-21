@@ -12,7 +12,22 @@ import Cocoa
 class GZImageBrowserImageGridViewController: NSViewController {
     
     /// The collection view that shows the grid of images for browsing
-    @IBOutlet var imageGridCollectionView: NSCollectionView!
+    @IBOutlet var imageGridCollectionView: GZImageBrowserCollectionView!
+    
+    /// Returns the selected GZImageBrowserCollectionViewObjects in imageGridCollectionView
+    var imageGridCollectionViewSelectedItems : [GZImageBrowserCollectionViewObject] {
+        /// The selected items in imageGridCollectionView
+        var selectedItems : [GZImageBrowserCollectionViewObject] = [];
+        
+        // For every selection index in imageGridCollectionView...
+        for(_, currentSelectionIndex) in imageGridCollectionView.selectionIndexes.enumerate() {
+            // Add the item at the given index to selectedItems
+            selectedItems.append((imageGridCollectionViewArrayController.arrangedObjects as! [GZImageBrowserCollectionViewObject])[currentSelectionIndex])
+        }
+        
+        // Return the selected items
+        return selectedItems;
+    }
     
     /// The scroll view for imageGridCollectionView
     @IBOutlet var imageGridCollectionViewScrollView: NSScrollView!
@@ -36,6 +51,13 @@ class GZImageBrowserImageGridViewController: NSViewController {
         imageGridCollectionView.minItemSize = NSSize(width: 150, height: 150);
         imageGridCollectionView.maxItemSize = NSSize(width: 250, height: 250);
         
+        // Setup the image grid collection view right click actions
+        imageGridCollectionView.setTagsForSelectedImagesTarget = self;
+        imageGridCollectionView.setTagsForSelectedImagesAction = Selector("promptToSetTagsForSelectedImages");
+        
+        imageGridCollectionView.addTagsToSelectedImagesTarget = self;
+        imageGridCollectionView.addTagsToSelectedImagesAction = Selector("promptToAddTagsToSelectedImages");
+        
         // Prompt for a folder to display images from, for testing
         /// The open panel for getting the folder to display images from
         let imagesFolderOpenPanel : NSOpenPanel = NSOpenPanel();
@@ -45,7 +67,7 @@ class GZImageBrowserImageGridViewController: NSViewController {
         imagesFolderOpenPanel.canChooseFiles = false;
         imagesFolderOpenPanel.canChooseDirectories = true;
         
-        /// If the user hits ok on the open panel...
+        /// If the user hits ok on the open panel...]
         if(Bool(imagesFolderOpenPanel.runModal())) {
             // Display the images from the selected folder in the image grid
             displayImagesFromFolder(imagesFolderOpenPanel.URL!.absoluteString.stringByRemovingPercentEncoding!.stringByReplacingOccurrencesOfString("file://", withString: ""), deepSearch: false);
@@ -128,6 +150,16 @@ class GZImageBrowserImageGridViewController: NSViewController {
         
         // Scroll to the top of imageGridCollectionViewScrollView
         imageGridCollectionViewScrollView.scrollToTop();
+    }
+    
+    /// Called when the user right clicks image(s) and selects "Set Tags For Selected Image(s)" in the image grid
+    func promptToSetTagsForSelectedImages() {
+        
+    }
+    
+    /// Called when the user right clicks image(s) and selects "Add Tags To Selected Image(s)" in the image grid
+    func promptToAddTagsToSelectedImages() {
+        
     }
     
     override func viewWillAppear() {

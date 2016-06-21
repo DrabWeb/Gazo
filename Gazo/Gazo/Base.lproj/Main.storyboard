@@ -268,7 +268,7 @@
         <scene sceneID="UQI-5s-8OS">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="Y6v-Xw-H9x" userLabel="Image Browser Window Controller" sceneMemberID="viewController">
-                    <window key="window" title="Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="drabweb.Gazo.ImageBrowserWindow" animationBehavior="default" id="2FH-UN-b1u">
+                    <window key="window" title="Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="2FH-UN-b1u">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="229" y="249" width="640" height="480"/>
@@ -413,7 +413,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="2b9-wF-GOT">
+                                        <collectionView selectable="YES" allowsMultipleSelection="YES" id="2b9-wF-GOT" customClass="GZImageBrowserCollectionView" customModule="Gazo" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="primaryBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -464,7 +464,7 @@
         <scene sceneID="R5d-Cj-4Gn">
             <objects>
                 <windowController storyboardIdentifier="imageViewerWindowController" id="DhD-FS-ftm" sceneMemberID="viewController">
-                    <window key="window" title="Image Viewer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="drabweb.Gazo.ImageViewerWindow" animationBehavior="default" id="dJh-fw-J7F">
+                    <window key="window" title="Image Viewer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="dJh-fw-J7F">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="328" y="307" width="480" height="500"/>
@@ -803,23 +803,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="0WX-Pe-iLX" customClass="GZRasterizedImageView" customModule="Gazo" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="130" height="130"/>
-                                <shadow key="shadow" blurRadius="4">
-                                    <size key="offset" width="0.0" height="-3"/>
-                                    <color key="color" white="0.0" alpha="0.39634058665644173" colorSpace="calibratedWhite"/>
-                                </shadow>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSCaution" id="i9G-lI-nf4"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="paj-GD-acM" userLabel="Selection Box" customClass="GZImageBrowserCollectionViewItemSelectionBox" customModule="Gazo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <connections>
-                                    <binding destination="dtt-Kx-raC" name="value" keyPath="representedObject.thumbnailImage" id="a2R-dV-wl4"/>
+                                    <binding destination="dtt-Kx-raC" name="hidden" keyPath="selected" id="b5c-2d-9lX">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
                                 </connections>
-                            </imageView>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="fkR-jD-4Qq" userLabel="Content Container">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                <subviews>
+                                    <imageView horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="0WX-Pe-iLX" customClass="GZRasterizedImageView" customModule="Gazo" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="130" height="130"/>
+                                        <shadow key="shadow" blurRadius="4">
+                                            <size key="offset" width="0.0" height="-3"/>
+                                            <color key="color" white="0.0" alpha="0.39634058665644173" colorSpace="calibratedWhite"/>
+                                        </shadow>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSCaution" id="i9G-lI-nf4"/>
+                                        <connections>
+                                            <binding destination="dtt-Kx-raC" name="value" keyPath="representedObject.thumbnailImage" id="a2R-dV-wl4"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0WX-Pe-iLX" secondAttribute="bottom" constant="10" id="3vK-KT-uiN"/>
+                                    <constraint firstItem="0WX-Pe-iLX" firstAttribute="top" secondItem="fkR-jD-4Qq" secondAttribute="top" constant="10" id="WpV-ch-7tD"/>
+                                    <constraint firstAttribute="trailing" secondItem="0WX-Pe-iLX" secondAttribute="trailing" constant="10" id="bbr-qC-Vq8"/>
+                                    <constraint firstItem="0WX-Pe-iLX" firstAttribute="leading" secondItem="fkR-jD-4Qq" secondAttribute="leading" constant="10" id="bcz-ID-PSd"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="0WX-Pe-iLX" firstAttribute="top" secondItem="EqR-xw-R3h" secondAttribute="top" constant="10" id="4qa-JF-5x6"/>
-                            <constraint firstItem="0WX-Pe-iLX" firstAttribute="leading" secondItem="EqR-xw-R3h" secondAttribute="leading" constant="10" id="5dR-A6-Qjk"/>
-                            <constraint firstAttribute="trailing" secondItem="0WX-Pe-iLX" secondAttribute="trailing" constant="10" id="BP6-Fk-bfz"/>
-                            <constraint firstAttribute="bottom" secondItem="0WX-Pe-iLX" secondAttribute="bottom" constant="10" id="WuG-fT-xBb"/>
+                            <constraint firstItem="paj-GD-acM" firstAttribute="top" secondItem="EqR-xw-R3h" secondAttribute="top" id="G6n-fb-Cap"/>
+                            <constraint firstAttribute="trailing" secondItem="paj-GD-acM" secondAttribute="trailing" id="Jfp-hp-HJ1"/>
+                            <constraint firstAttribute="bottom" secondItem="paj-GD-acM" secondAttribute="bottom" id="MEA-iT-gir"/>
+                            <constraint firstItem="fkR-jD-4Qq" firstAttribute="top" secondItem="EqR-xw-R3h" secondAttribute="top" id="NUS-J4-pGA"/>
+                            <constraint firstItem="paj-GD-acM" firstAttribute="leading" secondItem="EqR-xw-R3h" secondAttribute="leading" id="SWI-BU-O0w"/>
+                            <constraint firstAttribute="bottom" secondItem="fkR-jD-4Qq" secondAttribute="bottom" id="mVG-Wu-kVz"/>
+                            <constraint firstItem="fkR-jD-4Qq" firstAttribute="leading" secondItem="EqR-xw-R3h" secondAttribute="leading" id="tdu-GS-rMm"/>
+                            <constraint firstAttribute="trailing" secondItem="fkR-jD-4Qq" secondAttribute="trailing" id="vkq-rU-VpH"/>
                         </constraints>
                     </view>
                     <connections>

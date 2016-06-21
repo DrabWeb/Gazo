@@ -10,10 +10,23 @@ import Cocoa
 
 /// A collection view item in the image browser collection view in a GZImageBrowserViewController
 class GZImageBrowserCollectionViewItem: NSCollectionViewItem {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        // Do view setup here.=
+    }
+    
+    override func rightMouseDown(theEvent: NSEvent) {
+        // If this item isnt selected...
+        if(!self.selected) {
+            // Deselect all the other items
+            self.collectionView.deselectAll(self);
+            
+            // Select this item
+            self.selected = true;
+        }
+        
+        super.rightMouseDown(theEvent);
     }
     
     override func mouseDown(theEvent: NSEvent) {
