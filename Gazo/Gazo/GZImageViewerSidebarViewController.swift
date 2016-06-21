@@ -32,14 +32,38 @@ class GZImageViewerSidebarViewController: NSViewController {
     /// The token field in the sidebar stack view for tags about the source material of this image
     @IBOutlet var sidebarStackViewSourceTagsTokenField: GZTagsTokenField!
     
+    /// When the user ends editing sidebarStackViewSourceTagsTokenField...
+    @IBAction func sidebarStackViewSourceTagsTokenFieldEndedEditing(sender: AnyObject) {
+        // Update the current image's source tags
+        currentDisplayingImage?.sourceTags = GZTag.tagArrayFromStrings(sidebarStackViewSourceTagsTokenField.stringValue.componentsSeparatedByString(","));
+    }
+    
     /// The token field in the sidebar stack view for tags about the characters in this mage
     @IBOutlet var sidebarStackViewCharacterTagsTokenField: GZTagsTokenField!
     
+    /// When the user ends editing sidebarStackViewCharacterTagsTokenField...
+    @IBAction func sidebarStackViewCharacterTagsTokenFieldEndedEditing(sender: AnyObject) {
+        // Update the current image's character tags
+        currentDisplayingImage?.characterTags = GZTag.tagArrayFromStrings(sidebarStackViewCharacterTagsTokenField.stringValue.componentsSeparatedByString(","));
+    }
+    
     /// The token field in the sidebar stack view for tags about the artist(s) of this image
     @IBOutlet var sidebarStackViewArtistsTagsTokenField: GZTagsTokenField!
+    
+    /// When the user ends editing sidebarStackViewArtistsTagsTokenField...
+    @IBAction func sidebarStackViewArtistsTagsTokenFieldEndedEditing(sender: AnyObject) {
+        // Update the current image's artist tags
+        currentDisplayingImage?.artistTags = GZTag.tagArrayFromStrings(sidebarStackViewArtistsTagsTokenField.stringValue.componentsSeparatedByString(","));
+    }
 
     /// The token field in the sidebar stack view for tags on this image that dont fit into another category
     @IBOutlet var sidebarStackViewGeneralTagsTokenField: GZTagsTokenField!
+    
+    /// When the user ends editing sidebarStackViewGeneralTagsTokenField...
+    @IBAction func sidebarStackViewGeneralTagsTokenFieldEndedEditing(sender: AnyObject) {
+        // Update the current image's general tags
+        currentDisplayingImage?.generalTags = GZTag.tagArrayFromStrings(sidebarStackViewGeneralTagsTokenField.stringValue.componentsSeparatedByString(","));
+    }
     
     /// The stack view that holds the buttons in the bottom bar
     @IBOutlet var bottomBarButtonsStackView: NSStackView!
@@ -64,6 +88,16 @@ class GZImageViewerSidebarViewController: NSViewController {
         styleView();
     }
     
+    override func viewWillDisappear() {
+        super.viewWillDisappear();
+        
+        // Update all the tags
+        currentDisplayingImage?.sourceTags = GZTag.tagArrayFromStrings(sidebarStackViewSourceTagsTokenField.tokens);
+        currentDisplayingImage?.characterTags = GZTag.tagArrayFromStrings(sidebarStackViewCharacterTagsTokenField.tokens);
+        currentDisplayingImage?.artistTags = GZTag.tagArrayFromStrings(sidebarStackViewArtistsTagsTokenField.tokens);
+        currentDisplayingImage?.generalTags = GZTag.tagArrayFromStrings(sidebarStackViewGeneralTagsTokenField.tokens);
+    }
+    
     /// Displays the given GZImage's info in this sidebar
     func displayImage(image : GZImage) {
         // Set currentDisplayingImage
@@ -84,7 +118,7 @@ class GZImageViewerSidebarViewController: NSViewController {
         sidebarStackViewGeneralTagsTokenField.addTagsFromArray(image.generalTags);
         
         // Scroll to the top of sidebarStackViewScrollView
-        sidebarStackViewScrollView.verticalScroller!.floatValue = Float(sidebarStackViewScrollView.contentView.bounds.height);
+        sidebarStackViewScrollView.scrollToTop();
     }
     
     /// Shows titlebarVisualEffectView

@@ -27,6 +27,7 @@
 		5D7A30B11D16E9F7004D775B /* GZValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30B01D16E9F7004D775B /* GZValues.swift */; };
 		5D7A30B51D16EB31004D775B /* GZNoDividerSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30B41D16EB31004D775B /* GZNoDividerSplitView.swift */; };
 		5D99CE1E1D16EE2100092920 /* GZImageViewerSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99CE1D1D16EE2100092920 /* GZImageViewerSplitViewController.swift */; };
+		5DCDF2001D19DD8C0027765F /* GZPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCDF1FF1D19DD8C0027765F /* GZPreferences.swift */; };
 		5DF055081D172DFC0094621E /* GZExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF055071D172DFC0094621E /* GZExtensions.swift */; };
 		5DF0550A1D17314C0094621E /* GZImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF055091D17314C0094621E /* GZImage.swift */; };
 		5DF055101D17348C0094621E /* GZFloatAtTopClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF0550F1D17348C0094621E /* GZFloatAtTopClipView.swift */; };
@@ -77,6 +78,7 @@
 		5D7A30B01D16E9F7004D775B /* GZValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZValues.swift; sourceTree = "<group>"; };
 		5D7A30B41D16EB31004D775B /* GZNoDividerSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZNoDividerSplitView.swift; sourceTree = "<group>"; };
 		5D99CE1D1D16EE2100092920 /* GZImageViewerSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageViewerSplitViewController.swift; sourceTree = "<group>"; };
+		5DCDF1FF1D19DD8C0027765F /* GZPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZPreferences.swift; sourceTree = "<group>"; };
 		5DF055071D172DFC0094621E /* GZExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZExtensions.swift; sourceTree = "<group>"; };
 		5DF055091D17314C0094621E /* GZImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImage.swift; sourceTree = "<group>"; };
 		5DF0550F1D17348C0094621E /* GZFloatAtTopClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZFloatAtTopClipView.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				5D7A30B01D16E9F7004D775B /* GZValues.swift */,
 				5DF055091D17314C0094621E /* GZImage.swift */,
 				5D3A3E8A1D18520900E24545 /* GZTag.swift */,
+				5DCDF1FF1D19DD8C0027765F /* GZPreferences.swift */,
 				5D3A3E911D1865BF00E24545 /* Image Browser */,
 			);
 			name = Objects;
@@ -402,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DCDF2001D19DD8C0027765F /* GZPreferences.swift in Sources */,
 				5DF0550A1D17314C0094621E /* GZImage.swift in Sources */,
 				5DF055101D17348C0094621E /* GZFloatAtTopClipView.swift in Sources */,
 				5D3A3E9B1D186D4B00E24545 /* GZImageBrowserImageGridViewController.swift in Sources */,

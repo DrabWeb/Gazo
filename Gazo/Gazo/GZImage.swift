@@ -13,6 +13,21 @@ class GZImage: NSObject {
     /// The path to this image
     var path : String = "";
     
+    /// The image at path, only set when done manually or loadImage is called
+    var image : NSImage? = nil;
+    
+    /// Returns image if it is already loaded, and if not calls loadImage first
+    func getImage() -> NSImage {
+        // If image is nil...
+        if(image == nil) {
+            // Load the image
+            loadImage();
+        }
+        
+        // Return the image
+        return image!;
+    }
+    
     /// The tags for the source material of this image
     var sourceTags : [GZTag] = [];
     
@@ -25,10 +40,27 @@ class GZImage: NSObject {
     /// Any other tags for this image that dont fit into a previous category
     var generalTags : [GZTag] = [];
     
+    /// Loads this GZImage's image at path into image
+    func loadImage() {
+        // Load the image
+        self.image = NSImage(contentsOfFile: path);
+    }
+    
     // Init with a path
     init(path : String) {
         super.init();
         
         self.path = path;
+    }
+    
+    // Blank init
+    override init() {
+        super.init();
+        
+        path = "";
+        sourceTags = [];
+        characterTags = [];
+        artistTags = [];
+        generalTags = [];
     }
 }

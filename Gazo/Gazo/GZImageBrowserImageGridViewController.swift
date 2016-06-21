@@ -36,8 +36,20 @@ class GZImageBrowserImageGridViewController: NSViewController {
         imageGridCollectionView.minItemSize = NSSize(width: 150, height: 150);
         imageGridCollectionView.maxItemSize = NSSize(width: 250, height: 250);
         
-        // Add example items to the image grid collection view, from my trap folder
-        displayImagesFromFolder(NSHomeDirectory() + "/Pictures/Trap/", deepSearch: false);
+        // Prompt for a folder to display images from, for testing
+        /// The open panel for getting the folder to display images from
+        let imagesFolderOpenPanel : NSOpenPanel = NSOpenPanel();
+        
+        // Configure the open panel
+        imagesFolderOpenPanel.allowsMultipleSelection = false;
+        imagesFolderOpenPanel.canChooseFiles = false;
+        imagesFolderOpenPanel.canChooseDirectories = true;
+        
+        /// If the user hits ok on the open panel...
+        if(Bool(imagesFolderOpenPanel.runModal())) {
+            // Display the images from the selected folder in the image grid
+            displayImagesFromFolder(imagesFolderOpenPanel.URL!.absoluteString.stringByRemovingPercentEncoding!.stringByReplacingOccurrencesOfString("file://", withString: ""), deepSearch: false);
+        }
     }
     
     /// Displays the images from the given folder in this image grid. If deepSearch is true it uses a file enumerator and goes into subfolders
@@ -103,12 +115,19 @@ class GZImageBrowserImageGridViewController: NSViewController {
             /// The GZImageBrowserCollectionViewObject for the new image grid item
             let newImageGridObject : GZImageBrowserCollectionViewObject = GZImageBrowserCollectionViewObject();
             
-            // Set the display image
+            // Set the thumbnail image
             newImageGridObject.thumbnailImage = NSImage(contentsOfFile: currentFile);
+            
+            // Set the image
+            newImageGridObject.image = GZImage();
+            newImageGridObject.image!.image = newImageGridObject.thumbnailImage;
             
             // Add the item to the image grid
             imageGridCollectionViewArrayController.addObject(newImageGridObject);
         }
+        
+        // Scroll to the top of imageGridCollectionViewScrollView
+        imageGridCollectionViewScrollView.scrollToTop();
     }
     
     override func viewWillAppear() {

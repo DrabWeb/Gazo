@@ -188,7 +188,9 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">
                                     <items>
-                                        <menuItem title="Toggle Sidebar" keyEquivalent="L" id="q60-kM-J1u"/>
+                                        <menuItem title="Toggle Sidebar" keyEquivalent="L" id="q60-kM-J1u">
+                                            <attributedString key="attributedTitle"/>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="7Lx-A7-7hc"/>
                                         <menuItem title="Customize Toolbar…" id="1UK-8n-QPP">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -203,6 +205,16 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
                                     <items>
+                                        <menuItem isSeparatorItem="YES" id="sZe-X8-9I6"/>
+                                        <menuItem title="Browser" id="fvH-Bg-gtw">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <segue destination="Y6v-Xw-H9x" kind="show" id="4ML-1O-ASQ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="0oi-Nk-2LX"/>
+                                        <menuItem title="Fit Window to Image" keyEquivalent="1" id="24B-4Z-Rpm"/>
+                                        <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
                                         <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
                                             <connections>
                                                 <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
@@ -214,7 +226,7 @@
                                                 <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
+                                        <menuItem isSeparatorItem="YES" id="xnR-6i-A1t"/>
                                         <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -244,21 +256,22 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Gazo" customModuleProvider="target">
                     <connections>
+                        <outlet property="menuItemFitWindowToImage" destination="24B-4Z-Rpm" id="zMR-yT-d9p"/>
                         <outlet property="menuItemToggleSidebar" destination="q60-kM-J1u" id="XgJ-Nw-PGI"/>
                     </connections>
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="795.5" y="-159"/>
+            <point key="canvasLocation" x="795.5" y="-304"/>
         </scene>
         <!--Image Browser Window Controller-->
         <scene sceneID="UQI-5s-8OS">
             <objects>
-                <windowController id="Y6v-Xw-H9x" userLabel="Image Browser Window Controller" sceneMemberID="viewController">
-                    <window key="window" title="Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="2FH-UN-b1u">
+                <windowController showSeguePresentationStyle="single" id="Y6v-Xw-H9x" userLabel="Image Browser Window Controller" sceneMemberID="viewController">
+                    <window key="window" title="Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="drabweb.Gazo.ImageBrowserWindow" animationBehavior="default" id="2FH-UN-b1u">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="229" y="249" width="480" height="270"/>
+                        <rect key="contentRect" x="229" y="249" width="640" height="480"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1600" height="900"/>
                         <toolbar key="toolbar" implicitIdentifier="7A5CF84C-BF17-4884-9FC7-2F1B482BA25D" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="sRr-UD-1Ua">
                             <allowedToolbarItems>
@@ -277,7 +290,7 @@
                 </windowController>
                 <customObject id="GHs-gE-8za" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="795" y="158"/>
+            <point key="canvasLocation" x="795" y="86"/>
         </scene>
         <!--Image Browser View Controller-->
         <scene sceneID="4zi-Q1-GwP">
@@ -343,7 +356,7 @@
                         <splitViewItem canCollapse="YES" id="fOP-yT-3UU"/>
                         <splitViewItem id="Ufk-WP-2YN"/>
                     </splitViewItems>
-                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="t2c-zX-Wy5" customClass="GZNoDividerSplitView" customModule="Gazo" customModuleProvider="target">
+                    <splitView key="splitView" autosaveName="drabweb.Gazo.ImageBrowserContentSplitView" dividerStyle="thin" vertical="YES" id="t2c-zX-Wy5" userLabel="Split View" customClass="GZNoDividerSplitView" customModule="Gazo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </splitView>
@@ -450,11 +463,11 @@
         <!--Window Controller-->
         <scene sceneID="R5d-Cj-4Gn">
             <objects>
-                <windowController id="DhD-FS-ftm" sceneMemberID="viewController">
-                    <window key="window" title="Image Viewer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="dJh-fw-J7F">
+                <windowController storyboardIdentifier="imageViewerWindowController" id="DhD-FS-ftm" sceneMemberID="viewController">
+                    <window key="window" title="Image Viewer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="drabweb.Gazo.ImageViewerWindow" animationBehavior="default" id="dJh-fw-J7F">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="229" y="249" width="480" height="270"/>
+                        <rect key="contentRect" x="328" y="307" width="480" height="500"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1600" height="900"/>
                         <value key="minSize" type="size" width="200" height="150"/>
                     </window>
@@ -464,12 +477,12 @@
                 </windowController>
                 <customObject id="3XS-rL-EnU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73" y="158"/>
+            <point key="canvasLocation" x="73" y="96"/>
         </scene>
         <!--Image Viewer View Controller-->
         <scene sceneID="za0-yO-SAA">
             <objects>
-                <viewController id="9DL-gF-XBN" customClass="GZImageViewerViewController" customModule="Gazo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="imageViewerViewController" id="9DL-gF-XBN" customClass="GZImageViewerViewController" customModule="Gazo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="W3v-YT-RHv">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -501,7 +514,7 @@
                         <splitViewItem canCollapse="YES" id="3J8-Cb-5ce"/>
                         <splitViewItem id="l3k-kH-Jj9"/>
                     </splitViewItems>
-                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="cuY-pE-Ynu" userLabel="Split View" customClass="GZNoDividerSplitView" customModule="Gazo" customModuleProvider="target">
+                    <splitView key="splitView" autosaveName="drabweb.Gazo.ImageViewerContentSplitView" dividerStyle="thin" vertical="YES" id="cuY-pE-Ynu" userLabel="Split View" customClass="GZNoDividerSplitView" customModule="Gazo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </splitView>
@@ -538,7 +551,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UT7-Jj-ehz" userLabel="Sidebar Stack View">
-                                                    <rect key="frame" x="0.0" y="142" width="190" height="192"/>
+                                                    <rect key="frame" x="0.0" y="141" width="190" height="193"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o1P-PV-FOd" userLabel="Source Tags Label">
                                                             <rect key="frame" x="-2" y="175" width="47" height="17"/>
@@ -550,11 +563,14 @@
                                                         </textField>
                                                         <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="h2Y-PT-Zew" userLabel="Source Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="150" width="194" height="17"/>
-                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Source tags" allowsEditingTextAttributes="YES" id="dSP-eG-l0g">
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" placeholderString="Source tags" allowsEditingTextAttributes="YES" id="dSP-eG-l0g">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </tokenFieldCell>
+                                                            <connections>
+                                                                <action selector="sidebarStackViewSourceTagsTokenFieldEndedEditing:" target="Tfo-f2-KRg" id="aN6-wU-0xH"/>
+                                                            </connections>
                                                         </tokenField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bGw-oE-c81" userLabel="Character Tags Label">
                                                             <rect key="frame" x="-2" y="125" width="71" height="17"/>
@@ -566,11 +582,14 @@
                                                         </textField>
                                                         <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="4mW-6H-V4J" userLabel="Character Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="100" width="194" height="17"/>
-                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Characters tags" allowsEditingTextAttributes="YES" id="G4L-Nb-tF4">
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" placeholderString="Characters tags" allowsEditingTextAttributes="YES" id="G4L-Nb-tF4">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </tokenFieldCell>
+                                                            <connections>
+                                                                <action selector="sidebarStackViewCharacterTagsTokenFieldEndedEditing:" target="Tfo-f2-KRg" id="4Io-3O-lgo"/>
+                                                            </connections>
                                                         </tokenField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UoN-J3-MLf" userLabel="Artists Tags Label">
                                                             <rect key="frame" x="-2" y="75" width="44" height="17"/>
@@ -582,11 +601,14 @@
                                                         </textField>
                                                         <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OOO-lj-uhO" userLabel="Artists Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="50" width="194" height="17"/>
-                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Artists tags" allowsEditingTextAttributes="YES" id="xd2-QZ-6zu">
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" placeholderString="Artists tags" allowsEditingTextAttributes="YES" id="xd2-QZ-6zu">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </tokenFieldCell>
+                                                            <connections>
+                                                                <action selector="sidebarStackViewArtistsTagsTokenFieldEndedEditing:" target="Tfo-f2-KRg" id="aOj-1j-v6m"/>
+                                                            </connections>
                                                         </tokenField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vWz-pO-eoZ" userLabel="General Tags Label">
                                                             <rect key="frame" x="-2" y="25" width="52" height="17"/>
@@ -598,13 +620,17 @@
                                                         </textField>
                                                         <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="pNn-6P-L6D" userLabel="General Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="0.0" width="194" height="17"/>
-                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="General tags" allowsEditingTextAttributes="YES" id="ffZ-kz-aQ4">
+                                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" placeholderString="General tags" allowsEditingTextAttributes="YES" id="ffZ-kz-aQ4">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </tokenFieldCell>
+                                                            <connections>
+                                                                <action selector="sidebarStackViewGeneralTagsTokenFieldEndedEditing:" target="Tfo-f2-KRg" id="Fz6-cv-mh8"/>
+                                                            </connections>
                                                         </tokenField>
                                                     </subviews>
+                                                    <edgeInsets key="edgeInsets" left="0.0" right="0.0" top="1" bottom="0.0"/>
                                                     <constraints>
                                                         <constraint firstItem="OOO-lj-uhO" firstAttribute="leading" secondItem="UT7-Jj-ehz" secondAttribute="leading" id="1TH-wr-K4u"/>
                                                         <constraint firstItem="4mW-6H-V4J" firstAttribute="leading" secondItem="UT7-Jj-ehz" secondAttribute="leading" id="BPh-TX-bUn"/>
@@ -642,13 +668,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="UT7-Jj-ehz" secondAttribute="trailing" id="o21-vG-a6U"/>
                                             </constraints>
                                         </clipView>
-                                        <edgeInsets key="contentInsets" left="0.0" right="0.0" top="5" bottom="5"/>
+                                        <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="5"/>
                                         <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="7lJ-FM-aik">
                                             <rect key="frame" x="0.0" y="235" width="190" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="tEd-ng-LYC">
-                                            <rect key="frame" x="174" y="5" width="16" height="246"/>
+                                            <rect key="frame" x="174" y="0.0" width="16" height="251"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
@@ -751,7 +777,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="r2q-nr-mqv"/>
                                 </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSCaution" id="tJX-fb-tuo"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSCaution" id="tJX-fb-tuo"/>
                             </imageView>
                         </subviews>
                         <constraints>
@@ -796,11 +822,14 @@
                             <constraint firstAttribute="bottom" secondItem="0WX-Pe-iLX" secondAttribute="bottom" constant="10" id="WuG-fT-xBb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="0WX-Pe-iLX" id="G13-QK-26D"/>
+                    </connections>
                 </collectionViewItem>
                 <customObject id="wlo-J6-ubL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="qb1-86-fO2"/>
             </objects>
-            <point key="canvasLocation" x="1300" y="1579"/>
+            <point key="canvasLocation" x="1274" y="1579"/>
         </scene>
     </scenes>
     <resources>

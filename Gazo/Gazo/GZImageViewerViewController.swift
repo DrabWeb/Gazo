@@ -39,6 +39,67 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         styleWindow();
     }
     
+    override func viewWillAppear() {
+        super.viewWillAppear();
+        
+        // Scale the window to the image
+        scaleWindowToFitImage();
+    }
+    
+    /// Scales the window's height/width to fit the image(and sidebar if its open)
+    func scaleWindowToFitImage() {
+        // If this view isnt embed...
+        if(!embed) {
+            // If we arent in fullscreen...
+            if(!window.fullscreen) {
+                // If the current displaying image isnt nil...
+                if(currentDisplayingImage != nil) {
+                    /// The new size for the window
+                    var newWindowSize : NSSize = window.frame.size;
+                    
+                    /// The size of the sidebar
+                    var sidebarSize : CGFloat = contentSplitViewController!.splitViewItems[0].viewController.view.bounds.width;
+                    
+                    // If the sidebar is collapsed...
+                    if(contentSplitViewController!.splitViewItems[0].collapsed) {
+                        // Set sidebarSize to 0
+                        sidebarSize = 0;
+                    }
+                    
+                    // If the image is bigger horizontally...
+                    if(currentDisplayingImage?.image?.pixelSize.width > currentDisplayingImage?.image?.pixelSize.height) {
+                        /// The aspect ratio of currentDisplayingImage's image
+                        let imageAspectRatio : CGFloat = currentDisplayingImage!.image!.pixelSize.width / currentDisplayingImage!.image!.pixelSize.height;
+                        
+                        /// The new width of the window
+                        let newWindowWidth : CGFloat = (imageAspectRatio * window.frame.height) + sidebarSize;
+                        
+                        // Update newWindowSize
+                        newWindowSize = NSSize(width: newWindowWidth, height: newWindowSize.height);
+                    }
+                        // If the image is bigger vertically...
+                    else if(currentDisplayingImage?.image?.pixelSize.height > currentDisplayingImage?.image?.pixelSize.width) {
+                        /// The aspect ratio of currentDisplayingImage's image
+                        let imageAspectRatio : CGFloat = currentDisplayingImage!.image!.pixelSize.height / currentDisplayingImage!.image!.pixelSize.width;
+                        
+                        /// The new height of the window
+                        let newWindowHeight : CGFloat = imageAspectRatio * (self.view.frame.width - sidebarSize);
+                        
+                        // Update newWindowSize
+                        newWindowSize = NSSize(width: newWindowSize.width, height: newWindowHeight);
+                    }
+                        // If the image width and height are equal...
+                    else {
+                        // Equal width and height
+                    }
+                    
+                    // Resize the window
+                    window.setFrame(NSRect(x: window.frame.origin.x, y: window.frame.origin.y, width: newWindowSize.width, height: newWindowSize.height), display: false);
+                }
+            }
+        }
+    }
+    
     /// Displays the given GZImage in this image viewer
     func displayImage(image : GZImage) {
         // Set currentDisplayingImage
@@ -64,11 +125,23 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         
         // If this view isnt embed...
         if(!embed) {
-            // If the cursor is outside of this window...
+            // If the cursor is outside the window...
             if(!window.cursorIn) {
                 // Fade out the mouse activity views
                 fadeOutMouseActivityFadeViews();
             }
+            
+            // If the sidebar is now expanded...
+            if(!contentSplitViewController!.splitViewItems[0].collapsed) {
+                // Fade in the mouse activity views
+                fadeInMouseActivityFadeViews();
+            }
+        }
+        
+        // If the user enabled resizing image viewers to fit to their images when the sidebar is toggled...
+        if(GZPreferences.defaultPreferences().resizeImageViewerWindowWhenSidebarToggled) {
+            // Scale the window to fit the image
+            scaleWindowToFitImage();
         }
     }
     
@@ -153,16 +226,6 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
             // Hide the titlebar visual effect view in the sidebar
             contentSidebarViewController!.hideTitlebarVisualEffectView();
         }
-        
-        // Load an example image
-        let exampleImage : GZImage = GZImage(path: NSHomeDirectory() + "/Pictures/Cute/1466125139266.jpg");
-        
-        exampleImage.sourceTags = [GZTag(name: "hibike! euphonium")];
-        exampleImage.characterTags = [GZTag(name: "oumae kumiko")];
-        exampleImage.artistTags = [GZTag(name: "ikeda shouko")];
-        exampleImage.generalTags = GZTag.tagArrayFromStrings(["1girl", "bag", "bench", "brown eyes", "brown hair", "euphonium", "highres", "instrument", "official art", "petals", "school uniform", "short hair", "sitting", "smile"]);
-        
-        displayImage(exampleImage);
     }
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {

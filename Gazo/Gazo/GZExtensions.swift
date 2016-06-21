@@ -116,3 +116,27 @@ extension SequenceType {
         return sortedArray;
     }
 }
+
+extension NSTokenField {
+    /// All the tokens that are currently entered in this token field
+    var tokens : [String] {
+        // Return the tokens
+        if(self.tokenStyle == .None) {
+            return self.stringValue.componentsSeparatedByString(" ");
+        }
+        else {
+            return self.stringValue.componentsSeparatedByString(",");
+        }
+    }
+}
+
+extension NSScrollView {
+    /// Scrolls to the top of this scroll view
+    func scrollToTop() {
+        // Scroll to the top(doesnt go up to the content insets)
+        self.verticalScroller!.floatValue = Float(self.documentView!.bounds.height);
+        
+        // Page up so it goes up to the content inset
+        self.pageUp(self);
+    }
+}

@@ -15,4 +15,26 @@ class GZImageBrowserCollectionViewItem: NSCollectionViewItem {
         super.viewDidLoad()
         // Do view setup here.
     }
+    
+    override func mouseDown(theEvent: NSEvent) {
+        super.mouseDown(theEvent);
+        
+        // If we double clicked...
+        if(theEvent.clickCount == 2) {
+            // Open this item's image
+            open();
+        }
+    }
+    
+    /// Opens this item's image in a new GZImageViewerViewController
+    func open() {
+        /// The window controller for the new GZImageViewerViewController
+        let newImageViewerWindowController : NSWindowController = NSStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateControllerWithIdentifier("imageViewerWindowController") as! NSWindowController;
+        
+        // Display this item's image in newImageViewerWindowController's GZImageViewerViewController
+        (newImageViewerWindowController.contentViewController as! GZImageViewerViewController).displayImage((self.representedObject as! GZImageBrowserCollectionViewObject).image!);
+        
+        // Display newImageViewerWindowController's window
+        newImageViewerWindowController.showWindow(self);
+    }
 }

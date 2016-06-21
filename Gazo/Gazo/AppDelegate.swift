@@ -14,6 +14,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// View/Toggle Sidebar (⇧⌘L)
     @IBOutlet weak var menuItemToggleSidebar: NSMenuItem!
 
+    /// Window/Fit Window to Image (⌘1)
+    @IBOutlet weak var menuItemFitWindowToImage: NSMenuItem!
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         // Setup the menu item
@@ -24,6 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func setupMenuItems() {
         // Set the action
         menuItemToggleSidebar.action = Selector("toggleSidebar");
+        menuItemFitWindowToImage.action = Selector("scaleWindowToFitImage");
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

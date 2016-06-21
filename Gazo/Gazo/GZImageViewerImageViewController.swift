@@ -30,7 +30,7 @@ class GZImageViewerImageViewController: NSViewController {
         currentDisplayingImage = image;
         
         // Display the image
-        self.imageView.image = NSImage(contentsOfFile: currentDisplayingImage!.path);
+        self.imageView.image = currentDisplayingImage!.getImage();
     }
     
     /// Styles this view
