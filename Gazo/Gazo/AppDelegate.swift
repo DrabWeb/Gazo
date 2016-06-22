@@ -11,6 +11,12 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    /// Browser/Set Tags For Selected Images (⌥⌘T)
+    @IBOutlet weak var menuItemSetTagsForSelectedImages: NSMenuItem!
+    
+    /// Browser/Add Tags To Selected Images (⌃⌘T)
+    @IBOutlet weak var menuItemAddTagsToSelectedImages: NSMenuItem!
+    
     /// View/Toggle Sidebar (⇧⌘L)
     @IBOutlet weak var menuItemToggleSidebar: NSMenuItem!
 
@@ -25,7 +31,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // Sets up the menu items actions
     func setupMenuItems() {
-        // Set the action
+        // Set the actions
+        // Browser
+        menuItemSetTagsForSelectedImages.action = Selector("setTagsForSelectedImages");
+        menuItemAddTagsToSelectedImages.action = Selector("addTagsToSelectedImages");
+        
+        // View
         menuItemToggleSidebar.action = Selector("toggleSidebar");
         menuItemFitWindowToImage.action = Selector("scaleWindowToFitImage");
     }

@@ -33,6 +33,18 @@ class GZImageBrowserViewController: NSViewController, NSWindowDelegate {
         styleWindow();
     }
     
+    /// Called when the user presses CMD+ALT+T(Browser/Set Tags For Selected Images)
+    func setTagsForSelectedImages() {
+        // Tell the image grid to prompt to set tags for the selected images
+        contentImageGridViewController!.promptToSetTagsForSelectedImages();
+    }
+    
+    /// Called when the user presses CMD+CTRL+T(Browser/Add Tags To Selected Images)
+    func addTagsToSelectedImages() {
+        // Tell the image grid to prompt to add tags to the selected images
+        contentImageGridViewController!.promptToAddTagsToSelectedImages();
+    }
+    
     /// Called when the user presses CMD+SHIFT+L(View/Toggle Sidebar)
     func toggleSidebar() {
         // Toggle the sidebar

@@ -11,6 +11,12 @@ import Cocoa
 /// A token field subclass for tags
 class GZTagsTokenField: GZScaleToFitContentTokenField {
     
+    /// The GZTags currently entered in this tag field
+    var tags : [GZTag] {
+        // Return an array of GZTags from the currently entered string split at every ","
+        return GZTag.tagArrayFromStrings(self.stringValue.componentsSeparatedByString(","));
+    }
+    
     func tokenField(tokenField: NSTokenField, writeRepresentedObjects objects: [AnyObject], toPasteboard pboard: NSPasteboard) -> Bool {
         // Add the string type to the pasteboard
         pboard.declareTypes([NSStringPboardType], owner: nil);

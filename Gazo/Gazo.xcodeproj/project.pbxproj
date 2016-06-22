@@ -18,6 +18,7 @@
 		5D3A3E991D186CB100E24545 /* GZImageBrowserSidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A3E981D186CB100E24545 /* GZImageBrowserSidebarViewController.swift */; };
 		5D3A3E9B1D186D4B00E24545 /* GZImageBrowserImageGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A3E9A1D186D4B00E24545 /* GZImageBrowserImageGridViewController.swift */; };
 		5D3A3EAE1D18801900E24545 /* GZRasterizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A3EAD1D18801900E24545 /* GZRasterizedImageView.swift */; };
+		5D67D5D31D1AD3EC00F645BC /* GZTagEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D67D5D21D1AD3EC00F645BC /* GZTagEditorViewController.swift */; };
 		5D7A307A1D16E365004D775B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30791D16E365004D775B /* AppDelegate.swift */; };
 		5D7A307E1D16E365004D775B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D7A307D1D16E365004D775B /* Assets.xcassets */; };
 		5D7A30811D16E365004D775B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D7A307F1D16E365004D775B /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		5D3A3E981D186CB100E24545 /* GZImageBrowserSidebarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageBrowserSidebarViewController.swift; sourceTree = "<group>"; };
 		5D3A3E9A1D186D4B00E24545 /* GZImageBrowserImageGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageBrowserImageGridViewController.swift; sourceTree = "<group>"; };
 		5D3A3EAD1D18801900E24545 /* GZRasterizedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZRasterizedImageView.swift; sourceTree = "<group>"; };
+		5D67D5D21D1AD3EC00F645BC /* GZTagEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZTagEditorViewController.swift; sourceTree = "<group>"; };
 		5D7A30761D16E365004D775B /* Gazo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gazo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7A30791D16E365004D775B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D7A307D1D16E365004D775B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +166,14 @@
 			name = "Objective C";
 			sourceTree = "<group>";
 		};
+		5D67D5D11D1AD3D400F645BC /* Tag Editor */ = {
+			isa = PBXGroup;
+			children = (
+				5D67D5D21D1AD3EC00F645BC /* GZTagEditorViewController.swift */,
+			);
+			name = "Tag Editor";
+			sourceTree = "<group>";
+		};
 		5D7A306D1D16E364004D775B = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +240,7 @@
 		5D7A30A51D16E3E3004D775B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5D67D5D11D1AD3D400F645BC /* Tag Editor */,
 				5D3A3E8C1D18634E00E24545 /* Image Browser */,
 				5D7A30A81D16E44A004D775B /* Image Viewer */,
 			);
@@ -424,6 +435,7 @@
 				5D25EBB81D19EEFE00658C66 /* GZImageBrowserCollectionViewItemSelectionBox.swift in Sources */,
 				5DF055101D17348C0094621E /* GZFloatAtTopClipView.swift in Sources */,
 				5D3A3E9B1D186D4B00E24545 /* GZImageBrowserImageGridViewController.swift in Sources */,
+				5D67D5D31D1AD3EC00F645BC /* GZTagEditorViewController.swift in Sources */,
 				5D99CE1E1D16EE2100092920 /* GZImageViewerSplitViewController.swift in Sources */,
 				5D7A307A1D16E365004D775B /* AppDelegate.swift in Sources */,
 				5D7A30AE1D16E7DF004D775B /* GZImageViewerImageViewController.swift in Sources */,

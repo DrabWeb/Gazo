@@ -29,6 +29,21 @@ class GZImageBrowserImageGridViewController: NSViewController {
         return selectedItems;
     }
     
+    /// Returns all the selected GZImages in imageGridCollectionView
+    var imageGridCollectionViewSelectedImages : [GZImage] {
+        /// The selected images
+        var selectedImages : [GZImage] = [];
+        
+        // For every item in imageGridCollectionViewSelectedItems...
+        for(_, currentItem) in imageGridCollectionViewSelectedItems.enumerate() {
+            // Add the current item's image to selectedImages
+            selectedImages.append(currentItem.image!);
+        }
+        
+        // Return selected images
+        return selectedImages;
+    }
+    
     /// The scroll view for imageGridCollectionView
     @IBOutlet var imageGridCollectionViewScrollView: NSScrollView!
     
@@ -154,12 +169,37 @@ class GZImageBrowserImageGridViewController: NSViewController {
     
     /// Called when the user right clicks image(s) and selects "Set Tags For Selected Image(s)" in the image grid
     func promptToSetTagsForSelectedImages() {
-        
+        // Show the tag editor
+        showTagEditorForSelectedImages(.Set);
     }
     
     /// Called when the user right clicks image(s) and selects "Add Tags To Selected Image(s)" in the image grid
     func promptToAddTagsToSelectedImages() {
-        
+        // Show the tag editor
+        showTagEditorForSelectedImages(.Add);
+    }
+    
+    /// Shows a GZTagEditorViewController as a sheet editing the current selected images in the given mode
+    func showTagEditorForSelectedImages(mode : GZTagEditorMode) {
+        // If we have any images selected in the image grid...
+        if(imageGridCollectionView.selectionIndexes.count > 0) {
+            /// The new tag editor view controller for editing the selected images
+            let newTagEditorViewController : GZTagEditorViewController = storyboard!.instantiateControllerWithIdentifier("tagEditorViewController") as! GZTagEditorViewController;
+            
+            // Load newTagEditorViewController
+            newTagEditorViewController.loadView();
+            
+            // Tell the tag editor to edit the selected images with the given mode
+            newTagEditorViewController.editImages(imageGridCollectionViewSelectedImages, mode: mode);
+            
+            // Present the view controller as a sheet
+            self.presentViewControllerAsSheet(newTagEditorViewController);
+        }
+        // If we dont have any images selected in the image grid...
+        else {
+            // Print that we cant edit nothing
+            print("GZImageBrowserImageGridViewController: Cant open tag editor for selected images when there are none selected");
+        }
     }
     
     override func viewWillAppear() {

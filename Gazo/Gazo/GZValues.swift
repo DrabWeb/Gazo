@@ -35,4 +35,30 @@ class GZValues {
     
     /// The color for the background of a GZImageBrowserImageGridViewController
     static let imageBrowserImageGridBackgroundColor : NSColor = NSColor(calibratedWhite: 0.1, alpha: 1);
+    
+    /// Returns the label for a GZTagEditorViewController's editingLabel, says how many are being edited and in what mode
+    static func tagEditorEditingLabel(mode : GZTagEditorMode, amountEditing : Int) -> String {
+        /// The string for referring to the images. Sets to "Image" if there is only one editing image
+        var imagesString : String = "Images";
+        
+        // If there is only one editing image...
+        if(amountEditing == 1) {
+            // Set imagesString to "Image"
+            imagesString = "Image";
+        }
+        
+        // If the mode is add...
+        if(mode == .Add) {
+            // Return the label
+            return "Adding Tags To \(amountEditing) \(imagesString)";
+        }
+        // If the mode is set...
+        else if(mode == .Set) {
+            // Return the label
+            return "Setting Tags For \(amountEditing) \(imagesString)";
+        }
+        
+        // Return an error message if the mode was something else
+        return "GZValues: Error getting tag editor editing label";
+    }
 }
