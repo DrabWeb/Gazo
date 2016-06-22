@@ -3,7 +3,6 @@
 //  Gazo
 //
 //  Created by Seth on 2016-06-22.
-//  Copyright © 2016 DrabWeb. All rights reserved.
 //
 
 import Cocoa

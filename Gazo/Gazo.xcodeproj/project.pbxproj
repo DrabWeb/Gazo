@@ -124,14 +124,6 @@
 			name = "Image Browser";
 			sourceTree = "<group>";
 		};
-		5D3A3E871D18440D00E24545 /* Image Viewer */ = {
-			isa = PBXGroup;
-			children = (
-				5D3A3E881D18442000E24545 /* GZTagsTokenField.swift */,
-			);
-			name = "Image Viewer";
-			sourceTree = "<group>";
-		};
 		5D3A3E8C1D18634E00E24545 /* Image Browser */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,8 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				5D25EBB61D19EEED00658C66 /* Image Browser */,
-				5D3A3E871D18440D00E24545 /* Image Viewer */,
 				5D7A30B31D16EB22004D775B /* Subclasses */,
+				5D3A3E881D18442000E24545 /* GZTagsTokenField.swift */,
 				5D3A3E961D186ABC00E24545 /* GZGradientView.swift */,
 			);
 			name = Views;

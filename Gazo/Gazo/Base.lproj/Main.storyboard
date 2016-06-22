@@ -458,7 +458,7 @@
                                             <rect key="frame" x="0.0" y="173" width="410" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="AQq-4y-7cX">
+                                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.049270090061781957" horizontal="NO" id="AQq-4y-7cX">
                                             <rect key="frame" x="394" y="0.0" width="16" height="189"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
@@ -668,7 +668,7 @@ Gw
                                     <rect key="frame" x="1" y="144" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Hfz-2w-p9G">
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.951272442168833" horizontal="NO" id="Hfz-2w-p9G">
                                     <rect key="frame" x="434" y="37" width="16" height="263"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -793,7 +793,7 @@ Gw
                                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UT7-Jj-ehz" userLabel="Sidebar Stack View">
                                                     <rect key="frame" x="0.0" y="141" width="190" height="193"/>
                                                     <subviews>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o1P-PV-FOd" userLabel="Source Tags Label">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o1P-PV-FOd" userLabel="Source Tags Label">
                                                             <rect key="frame" x="-2" y="175" width="47" height="17"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source" id="e1S-18-M9c">
                                                                 <font key="font" metaFont="system"/>
@@ -801,7 +801,7 @@ Gw
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="h2Y-PT-Zew" userLabel="Source Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
+                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2Y-PT-Zew" userLabel="Source Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="150" width="194" height="17"/>
                                                             <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" placeholderString="Source tags" allowsEditingTextAttributes="YES" id="dSP-eG-l0g">
                                                                 <font key="font" metaFont="system"/>
@@ -812,7 +812,7 @@ Gw
                                                                 <action selector="sidebarStackViewSourceTagsTokenFieldEndedEditing:" target="Tfo-f2-KRg" id="aN6-wU-0xH"/>
                                                             </connections>
                                                         </tokenField>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bGw-oE-c81" userLabel="Character Tags Label">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGw-oE-c81" userLabel="Character Tags Label">
                                                             <rect key="frame" x="-2" y="125" width="71" height="17"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Characters" id="aKf-A2-nyn">
                                                                 <font key="font" metaFont="system"/>
@@ -820,7 +820,7 @@ Gw
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="4mW-6H-V4J" userLabel="Character Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
+                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4mW-6H-V4J" userLabel="Character Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="100" width="194" height="17"/>
                                                             <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" placeholderString="Characters tags" allowsEditingTextAttributes="YES" id="G4L-Nb-tF4">
                                                                 <font key="font" metaFont="system"/>
@@ -831,7 +831,7 @@ Gw
                                                                 <action selector="sidebarStackViewCharacterTagsTokenFieldEndedEditing:" target="Tfo-f2-KRg" id="4Io-3O-lgo"/>
                                                             </connections>
                                                         </tokenField>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UoN-J3-MLf" userLabel="Artists Tags Label">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoN-J3-MLf" userLabel="Artists Tags Label">
                                                             <rect key="frame" x="-2" y="75" width="44" height="17"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Artists" id="nMk-5C-V57">
                                                                 <font key="font" metaFont="system"/>
@@ -839,7 +839,7 @@ Gw
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OOO-lj-uhO" userLabel="Artists Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
+                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OOO-lj-uhO" userLabel="Artists Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="50" width="194" height="17"/>
                                                             <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" placeholderString="Artists tags" allowsEditingTextAttributes="YES" id="xd2-QZ-6zu">
                                                                 <font key="font" metaFont="system"/>
@@ -850,7 +850,7 @@ Gw
                                                                 <action selector="sidebarStackViewArtistsTagsTokenFieldEndedEditing:" target="Tfo-f2-KRg" id="aOj-1j-v6m"/>
                                                             </connections>
                                                         </tokenField>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vWz-pO-eoZ" userLabel="General Tags Label">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vWz-pO-eoZ" userLabel="General Tags Label">
                                                             <rect key="frame" x="-2" y="25" width="52" height="17"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="General" id="Ik6-Ri-aeb">
                                                                 <font key="font" metaFont="system"/>
@@ -858,7 +858,7 @@ Gw
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="pNn-6P-L6D" userLabel="General Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
+                                                        <tokenField focusRingType="none" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNn-6P-L6D" userLabel="General Tags Token Field" customClass="GZTagsTokenField" customModule="Gazo" customModuleProvider="target">
                                                             <rect key="frame" x="-2" y="0.0" width="194" height="17"/>
                                                             <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" placeholderString="General tags" allowsEditingTextAttributes="YES" id="ffZ-kz-aQ4">
                                                                 <font key="font" metaFont="system"/>
