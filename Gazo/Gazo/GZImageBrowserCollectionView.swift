@@ -20,9 +20,18 @@ class GZImageBrowserCollectionView: NSCollectionView {
     /// The selector to call when the user right clicks and selects "Add Tags To Selected Image(s)"
     var addTagsToSelectedImagesAction : Selector = Selector("");
     
+    /// The object to perform openAction
+    var openTarget : AnyObject? = nil;
+    
+    /// The selector to call when the user right clicks and selects "Open"
+    var openAction : Selector = Selector("");
+    
     override func menuForEvent(event: NSEvent) -> NSMenu? {
         /// The menu to return
         let menu : NSMenu = NSMenu();
+        
+        /// The "Open" menu item
+        let openMenuItem : NSMenuItem = NSMenuItem(title: "Open", action: openAction, keyEquivalent: "");
         
         /// The "Set Tags For Selected Image(s)" menu item
         let setTagsForSelectedImagesMenuItem : NSMenuItem = NSMenuItem(title: "Set Tags For Selected Images", action: setTagsForSelectedImagesAction, keyEquivalent: "");
@@ -33,6 +42,7 @@ class GZImageBrowserCollectionView: NSCollectionView {
         // Set the targets
         setTagsForSelectedImagesMenuItem.target = setTagsForSelectedImagesTarget;
         addTagsToSelectedImagesMenuItem.target = addTagsToSelectedImagesTarget;
+        openMenuItem.target = openTarget;
         
         // If we only have one image selected...
         if(self.selectionIndexes.count == 1) {
@@ -42,6 +52,8 @@ class GZImageBrowserCollectionView: NSCollectionView {
         }
         
         // Add the menu items
+        menu.addItem(openMenuItem);
+        menu.addItem(NSMenuItem.separatorItem());
         menu.addItem(setTagsForSelectedImagesMenuItem);
         menu.addItem(addTagsToSelectedImagesMenuItem);
         

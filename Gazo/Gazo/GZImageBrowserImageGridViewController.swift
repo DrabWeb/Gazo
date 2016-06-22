@@ -66,6 +66,9 @@ class GZImageBrowserImageGridViewController: NSViewController {
         imageGridCollectionView.maxItemSize = NSSize(width: 250, height: 250);
         
         // Setup the image grid collection view right click actions
+        imageGridCollectionView.openTarget = self;
+        imageGridCollectionView.openAction = Selector("openSelectedImages");
+        
         imageGridCollectionView.setTagsForSelectedImagesTarget = self;
         imageGridCollectionView.setTagsForSelectedImagesAction = Selector("promptToSetTagsForSelectedImages");
         
