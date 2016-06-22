@@ -49,12 +49,12 @@ class GZValues {
         // If the mode is add...
         if(mode == .Add) {
             // Return the label
-            return "Adding Tags To \(amountEditing) \(imagesString)";
+            return "Add Tags To \(amountEditing) \(imagesString)";
         }
         // If the mode is set...
         else if(mode == .Set) {
             // Return the label
-            return "Setting Tags For \(amountEditing) \(imagesString)";
+            return "Set Tags For \(amountEditing) \(imagesString)";
         }
         
         // Return an error message if the mode was something else

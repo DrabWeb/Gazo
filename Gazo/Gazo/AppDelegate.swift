@@ -10,6 +10,9 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    /// File/Open (⌘O)
+    @IBOutlet weak var menuItemOpen: NSMenuItem!
+    
     /// Browser/Set Tags For Selected Images (⌥⌘T)
     @IBOutlet weak var menuItemSetTagsForSelectedImages: NSMenuItem!
     
@@ -31,6 +34,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // Sets up the menu items actions
     func setupMenuItems() {
         // Set the actions
+        // File
+        menuItemOpen.action = Selector("open");
+        
         // Browser
         menuItemSetTagsForSelectedImages.action = Selector("setTagsForSelectedImages");
         menuItemAddTagsToSelectedImages.action = Selector("addTagsToSelectedImages");

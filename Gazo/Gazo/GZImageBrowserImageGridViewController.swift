@@ -166,6 +166,15 @@ class GZImageBrowserImageGridViewController: NSViewController {
         imageGridCollectionViewScrollView.scrollToTop();
     }
     
+    /// Opens all the selected GZImages in the image grid
+    func openSelectedImages() {
+        // For every selection index...
+        for(_, currentSelectionIndex) in imageGridCollectionView.selectionIndexes.enumerate() {
+            // Tell the current GZImageBrowserCollectionViewItem to open
+            (imageGridCollectionView.itemAtIndex(currentSelectionIndex) as! GZImageBrowserCollectionViewItem).open();
+        }
+    }
+    
     /// Called when the user right clicks image(s) and selects "Set Tags For Selected Image(s)" in the image grid
     func promptToSetTagsForSelectedImages() {
         // Show the tag editor

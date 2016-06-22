@@ -32,6 +32,12 @@ class GZImageBrowserViewController: NSViewController, NSWindowDelegate {
         styleWindow();
     }
     
+    /// Called when the user presses CMD+O(File/Open)
+    func open() {
+        // Open all the selected images in the image grid
+        contentImageGridViewController!.openSelectedImages();
+    }
+    
     /// Called when the user presses CMD+ALT+T(Browser/Set Tags For Selected Images)
     func setTagsForSelectedImages() {
         // Tell the image grid to prompt to set tags for the selected images
