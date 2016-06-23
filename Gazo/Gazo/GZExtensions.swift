@@ -133,7 +133,7 @@ extension NSScrollView {
     /// Scrolls to the top of this scroll view
     func scrollToTop() {
         // Scroll to the top(doesnt go up to the content insets)
-        self.verticalScroller?.floatValue = Float((self.documentView?.bounds.height)!);
+        self.verticalScroller!.floatValue = Float(self.documentView!.bounds.height);
         
         // Page up so it goes up to the content inset
         self.pageUp(self);
@@ -186,5 +186,17 @@ extension NSFileManager {
         
         // Return supportedFiles
         return supportedFiles;
+    }
+    
+    // Returns if the given file is an image
+    func fileIsImage(filePath : String) -> Bool {
+        do {
+            // Return if the given file's UTI type conforms to public.image
+            return NSWorkspace.sharedWorkspace().type(try NSWorkspace.sharedWorkspace().typeOfFile(filePath), conformsToType: "public.image");
+        }
+        catch {
+            // There was some error, return false
+            return false;
+        }
     }
 }

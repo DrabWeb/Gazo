@@ -45,6 +45,21 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         scaleWindowToFitImage();
     }
     
+    /// Called when the user does CMD+I(File/Get Info)
+    func getInfo() {
+        /// The window controller for the new image info view
+        let newImageInfoWindowController : NSWindowController = storyboard!.instantiateControllerWithIdentifier("imageInfoWindowController") as! NSWindowController;
+        
+        // Load newImageInfoWindowController's view controller
+        newImageInfoWindowController.contentViewController?.loadView();
+        
+        // Display this image's info in the image info view
+        (newImageInfoWindowController.contentViewController as! GZImageInfoViewController).showInfoForImage(currentDisplayingImage!);
+        
+        // Display the window
+        newImageInfoWindowController.showWindow(self);
+    }
+    
     /// Scales the window's height/width to fit the image(and sidebar if its open)
     func scaleWindowToFitImage() {
         // If this view isnt embed...

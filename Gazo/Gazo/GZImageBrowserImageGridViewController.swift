@@ -150,12 +150,14 @@ class GZImageBrowserImageGridViewController: NSViewController {
             /// The GZImageBrowserCollectionViewObject for the new image grid item
             let newImageGridObject : GZImageBrowserCollectionViewObject = GZImageBrowserCollectionViewObject();
             
-            // Set the thumbnail image
-            newImageGridObject.thumbnailImage = NSImage(contentsOfFile: currentFile);
-            
             // Set the image
             newImageGridObject.image = GZImage();
-            newImageGridObject.image!.image = newImageGridObject.thumbnailImage;
+            
+            // Set the image path
+            newImageGridObject.image!.path = currentFile;
+            
+            // Get the thumbnail image, and set the display thumbnail image
+            newImageGridObject.thumbnailImage = newImageGridObject.image!.getThumbnailImage();
             
             // Add the item to the image grid
             imageGridCollectionViewArrayController.addObject(newImageGridObject);

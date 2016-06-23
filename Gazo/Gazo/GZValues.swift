@@ -27,8 +27,11 @@ class GZValues {
         return false;
     }
     
+    /// The file UTI types supported for managing by Gazo
+    static let supportedFileUtiTypes : [String] = ["public.png", "public.jpeg", "com.compuserve.gif", "io.mpv.webm"];
+    
     /// The file UTI types supported for viewing by Gazo
-    static let supportedFileUtiTypes : [String] = ["public.png", "public.jpeg", "com.compuserve.gif"];
+    static let supportedViewingFileUtiTypes : [String] = ["public.png", "public.jpeg", "com.compuserve.gif"];
     
     /// Returns if the file at the given path is suppoorted for viewing by Gazo
     static func fileIsSupported(filePath : String) -> Bool {

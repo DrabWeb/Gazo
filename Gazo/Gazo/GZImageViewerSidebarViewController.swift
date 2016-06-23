@@ -141,10 +141,5 @@ class GZImageViewerSidebarViewController: NSViewController {
         // Set all the stack views' appearances(For some reason it doesnt inherit the appearance)
         sidebarStackView.appearance = backgroundVisualEffectView.appearance;
         bottomBarButtonsStackView.appearance = backgroundVisualEffectView.appearance;
-        
-        // Re-add all the buttons in bottomBarButtonsStackView so they are centered
-        for(_, currentSubview) in bottomBarButtonsStackView.subviews.enumerate() {
-            bottomBarButtonsStackView.addView(currentSubview, inGravity: .Center);
-        }
     }
 }

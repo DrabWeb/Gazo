@@ -10,19 +10,22 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    /// File/Open (⌘O)
+    /// File/Open (⌘O) (open)
     @IBOutlet weak var menuItemOpen: NSMenuItem!
     
-    /// Browser/Set Tags For Selected Images (⌥⌘T)
+    /// File/Get Info (⌘I) (getInfo)
+    @IBOutlet weak var menuItemGetInfo: NSMenuItem!
+    
+    /// Browser/Set Tags For Selected Images (⌥⌘T) (setTagsForSelectedImages)
     @IBOutlet weak var menuItemSetTagsForSelectedImages: NSMenuItem!
     
-    /// Browser/Add Tags To Selected Images (⌃⌘T)
+    /// Browser/Add Tags To Selected Images (⌃⌘T) (addTagsToSelectedImages)
     @IBOutlet weak var menuItemAddTagsToSelectedImages: NSMenuItem!
     
-    /// View/Toggle Sidebar (⇧⌘L)
+    /// View/Toggle Sidebar (⇧⌘L) (toggleSidebar)
     @IBOutlet weak var menuItemToggleSidebar: NSMenuItem!
 
-    /// Window/Fit Window to Image (⌘1)
+    /// Window/Fit Window to Image (⌘1) (scaleWindowToFitImage)
     @IBOutlet weak var menuItemFitWindowToImage: NSMenuItem!
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -36,6 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Set the actions
         // File
         menuItemOpen.action = Selector("open");
+        menuItemGetInfo.action = Selector("getInfo");
         
         // Browser
         menuItemSetTagsForSelectedImages.action = Selector("setTagsForSelectedImages");

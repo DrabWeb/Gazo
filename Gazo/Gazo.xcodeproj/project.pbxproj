@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0302541D1C6E2F008019FC /* GZImageInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0302531D1C6E2F008019FC /* GZImageInfoViewController.swift */; };
 		5D0D7BF91D1B10E1007D295F /* GZImageBrowserSidebarItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0D7BF81D1B10E1007D295F /* GZImageBrowserSidebarItemData.swift */; };
 		5D25EBB51D19EDB200658C66 /* GZImageBrowserCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25EBB41D19EDB200658C66 /* GZImageBrowserCollectionView.swift */; };
 		5D25EBB81D19EEFE00658C66 /* GZImageBrowserCollectionViewItemSelectionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25EBB71D19EEFE00658C66 /* GZImageBrowserCollectionViewItemSelectionBox.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D0302531D1C6E2F008019FC /* GZImageInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageInfoViewController.swift; sourceTree = "<group>"; };
 		5D0D7BF71D1B0D00007D295F /* Gazo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gazo-Bridging-Header.h"; sourceTree = "<group>"; };
 		5D0D7BF81D1B10E1007D295F /* GZImageBrowserSidebarItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageBrowserSidebarItemData.swift; sourceTree = "<group>"; };
 		5D25EBB41D19EDB200658C66 /* GZImageBrowserCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageBrowserCollectionView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D0302521D1C6E1D008019FC /* Image Info */ = {
+			isa = PBXGroup;
+			children = (
+				5D0302531D1C6E2F008019FC /* GZImageInfoViewController.swift */,
+			);
+			name = "Image Info";
+			sourceTree = "<group>";
+		};
 		5D25EBB61D19EEED00658C66 /* Image Browser */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +250,7 @@
 		5D7A30A51D16E3E3004D775B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5D0302521D1C6E1D008019FC /* Image Info */,
 				5D67D5D11D1AD3D400F645BC /* Tag Editor */,
 				5D3A3E8C1D18634E00E24545 /* Image Browser */,
 				5D7A30A81D16E44A004D775B /* Image Viewer */,
@@ -431,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DCDF2001D19DD8C0027765F /* GZPreferences.swift in Sources */,
+				5D0302541D1C6E2F008019FC /* GZImageInfoViewController.swift in Sources */,
 				5DF0550A1D17314C0094621E /* GZImage.swift in Sources */,
 				5D25EBB81D19EEFE00658C66 /* GZImageBrowserCollectionViewItemSelectionBox.swift in Sources */,
 				5DF055101D17348C0094621E /* GZFloatAtTopClipView.swift in Sources */,

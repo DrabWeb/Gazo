@@ -38,7 +38,13 @@ class GZImageBrowserSidebarViewController: NSViewController {
     
     /// The currently selected GZImageBrowserSidebarItemData in sidebarTableView
     var sidebarTableViewSelectedItem : GZImageBrowserSidebarItemData {
-        // Return the selected GZImageBrowserSidebarItemData
+        // If the selected row is -1...
+        if(sidebarTableView.selectedRow == -1) {
+            // Set the selected row to 1(If this is called on load, sometimes it still has the "Folders" header selected, and results in giving back an NSString, crashing the application)
+            sidebarTableView.selectRowIndexes(NSIndexSet(index: 1), byExtendingSelection: false);
+        }
+        
+        // Return the selected item as a GZImageBrowserSidebarItemData
         return ((sidebarTableView.dataSource()!.tableView!(sidebarTableView, objectValueForTableColumn: nil, row: sidebarTableView.selectedRow)) as! GZImageBrowserSidebarItemData);
     }
     
@@ -107,6 +113,9 @@ class GZImageBrowserSidebarViewController: NSViewController {
         
         // Reload the sidebar table view
         sidebarTableView.reloadData();
+        
+        // Scroll to the top of the sidebar
+        sidebarTableViewScrollView.verticalScroller!.floatValue = Float(sidebarTableViewScrollView.documentView!.bounds.height * 5000000);
     }
     
     /// Called when the selection in sidebarTableView changes
@@ -161,6 +170,9 @@ extension GZImageBrowserSidebarViewController: NSTableViewDelegate {
                 cellView.imageView?.image = cellData.icon;
                 cellView.textField?.stringValue = cellData.title;
                 cellView.imageCountLabel.title = String(cellData.imageCount);
+                
+                // Set the tooltip
+                cellView.toolTip = cellData.path;
             }
         }
         

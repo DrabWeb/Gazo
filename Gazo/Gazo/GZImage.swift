@@ -27,6 +27,21 @@ class GZImage: NSObject {
         return image!;
     }
     
+    /// The thumbnail image for this image
+    var thumbnailImage : NSImage? = nil;
+    
+    /// Grabs the thumbnail image for this image, and stores it in thumbnailImage. Also returns the image
+    func getThumbnailImage() -> NSImage {
+        // If thumbnailImage is nil...
+        if(thumbnailImage == nil) {
+            // Load the thumbnail image
+            loadThumbnailImage();
+        }
+        
+        // Return the thumbnail image
+        return thumbnailImage!;
+    }
+    
     /// The tags for the source material of this image
     var sourceTags : [GZTag] = [];
     
@@ -43,6 +58,27 @@ class GZImage: NSObject {
     func loadImage() {
         // Load the image
         self.image = NSImage(contentsOfFile: path);
+    }
+    
+    /// Loads this GZImage's thumbnail image into thumbnailImage
+    func loadThumbnailImage() {
+        // Load the thumbnail image
+        /// The thumbnail image that will be grabbed based on path
+        var createdThumbnailImage : NSImage = NSImage();
+        
+        // If this file is an image...
+        if(NSFileManager.defaultManager().fileIsImage(self.path)) {
+            // Get the thumbnail image
+            createdThumbnailImage = NSImage(contentsOfFile: self.path)!;
+        }
+        // If this file isnt an image...
+        else {
+            // Set the thumbnail image to the file's icon
+            createdThumbnailImage = NSWorkspace.sharedWorkspace().iconForFile(self.path);
+        }
+        
+        // Set thumbnailImage
+        self.thumbnailImage = createdThumbnailImage;
     }
     
     // Init with a path

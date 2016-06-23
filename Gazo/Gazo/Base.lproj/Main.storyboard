@@ -66,6 +66,8 @@
                                         </menuItem>
                                         <menuItem title="Open" keyEquivalent="o" id="JDr-8L-4h1"/>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
+                                        <menuItem title="Get Info" keyEquivalent="i" id="Thg-MY-Lrz"/>
+                                        <menuItem isSeparatorItem="YES" id="Lxr-Nj-gZ5"/>
                                         <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
@@ -254,6 +256,7 @@
                     <connections>
                         <outlet property="menuItemAddTagsToSelectedImages" destination="e9g-nh-V8k" id="pi4-EL-qM8"/>
                         <outlet property="menuItemFitWindowToImage" destination="24B-4Z-Rpm" id="zMR-yT-d9p"/>
+                        <outlet property="menuItemGetInfo" destination="Thg-MY-Lrz" id="63y-dQ-zHV"/>
                         <outlet property="menuItemOpen" destination="JDr-8L-4h1" id="mt2-k5-28n"/>
                         <outlet property="menuItemSetTagsForSelectedImages" destination="XIa-uX-dVj" id="Mmd-To-M9I"/>
                         <outlet property="menuItemToggleSidebar" destination="q60-kM-J1u" id="XgJ-Nw-PGI"/>
@@ -290,6 +293,37 @@
                 <customObject id="GHs-gE-8za" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="795" y="86"/>
+        </scene>
+        <!--Image Info Window Controller-->
+        <scene sceneID="8Z4-uE-qn4">
+            <objects>
+                <windowController storyboardIdentifier="imageInfoWindowController" id="2GI-h8-mXC" userLabel="Image Info Window Controller" sceneMemberID="viewController">
+                    <window key="window" title="Info" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="4qo-dW-p2c" customClass="NSPanel">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="229" y="249" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1600" height="900"/>
+                    </window>
+                    <connections>
+                        <segue destination="zzO-lu-OEL" kind="relationship" relationship="window.shadowedContentViewController" id="CT6-Bp-Ggh"/>
+                    </connections>
+                </windowController>
+                <customObject id="pzL-Gt-yPu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512" y="98"/>
+        </scene>
+        <!--Image Info View Controller-->
+        <scene sceneID="kZ4-uU-dkg">
+            <objects>
+                <viewController id="zzO-lu-OEL" userLabel="Image Info View Controller" customClass="GZImageInfoViewController" customModule="Gazo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="TCe-Jp-XE3">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="jCT-ro-nGW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512" y="643"/>
         </scene>
         <!--Tag Editor View Controller-->
         <scene sceneID="L5s-eY-9kw">
@@ -442,7 +476,7 @@
                                             <rect key="frame" x="0.0" y="173" width="410" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="AQq-4y-7cX">
+                                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.25" horizontal="NO" id="AQq-4y-7cX">
                                             <rect key="frame" x="394" y="0.0" width="16" height="189"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
@@ -514,7 +548,7 @@ Gw
                 </viewController>
                 <customObject id="Xlw-ep-R6E" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="643"/>
+            <point key="canvasLocation" x="2147" y="643"/>
         </scene>
         <!--Image Browser View Controller-->
         <scene sceneID="4zi-Q1-GwP">
@@ -782,7 +816,7 @@ Gw
                                     <rect key="frame" x="1" y="144" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Hfz-2w-p9G">
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.94594594594594272" horizontal="NO" id="Hfz-2w-p9G">
                                     <rect key="frame" x="434" y="37" width="16" height="263"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -1037,9 +1071,9 @@ Gw
                                         <subviews>
                                             <stackView orientation="horizontal" alignment="centerY" spacing="22" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Hs-Kh-th1" userLabel="Buttons Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
-                                                <beginningViews>
+                                                <middleViews>
                                                     <button toolTip="Sauce" focusRingType="none" verticalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQd-Tq-mOx" userLabel="Sauce Button">
-                                                        <rect key="frame" x="0.0" y="5" width="19" height="12"/>
+                                                        <rect key="frame" x="74" y="5" width="19" height="12"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSQuickLookTemplate" imagePosition="only" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="Y2S-aw-jPb">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1049,7 +1083,7 @@ Gw
                                                         </connections>
                                                     </button>
                                                     <button toolTip="Share" focusRingType="none" verticalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RFg-NY-slg" userLabel="Share Button">
-                                                        <rect key="frame" x="41" y="3" width="11" height="16"/>
+                                                        <rect key="frame" x="115" y="3" width="11" height="16"/>
                                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSShareTemplate" imagePosition="only" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="okv-a3-CYg">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -1058,7 +1092,7 @@ Gw
                                                             <action selector="bottomBarShareButtonPressed:" target="Tfo-f2-KRg" id="qfU-oD-R7Z"/>
                                                         </connections>
                                                     </button>
-                                                </beginningViews>
+                                                </middleViews>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
                                                     <integer value="1000"/>
@@ -1131,7 +1165,7 @@ Gw
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="r2q-nr-mqv"/>
                                 </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSCaution" id="tJX-fb-tuo"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" image="NSCaution" id="tJX-fb-tuo"/>
                             </imageView>
                         </subviews>
                         <constraints>
@@ -1178,7 +1212,7 @@ Gw
                                         </shadow>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSCaution" id="i9G-lI-nf4"/>
                                         <connections>
-                                            <binding destination="dtt-Kx-raC" name="value" keyPath="representedObject.thumbnailImage" id="a2R-dV-wl4"/>
+                                            <binding destination="dtt-Kx-raC" name="value" keyPath="representedObject.thumbnailImage" id="GdW-0g-5Ct"/>
                                         </connections>
                                     </imageView>
                                 </subviews>

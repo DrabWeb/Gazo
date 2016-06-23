@@ -12,7 +12,14 @@ class GZImageBrowserCollectionViewItem: NSCollectionViewItem {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.=
+        // Do view setup here.
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear();
+        
+        // Set the tooltip to the image's path
+        self.view.toolTip = (self.representedObject as! GZImageBrowserCollectionViewObject).image?.path;
     }
     
     override func rightMouseDown(theEvent: NSEvent) {
