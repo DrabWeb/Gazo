@@ -9,6 +9,24 @@ import Cocoa
 
 /// Constant values used through out the application, such as display strings, colors and more
 class GZValues {
+    /// The folders and files ignored by Gazo
+    static let ignoredFiles : [String] = [NSHomeDirectory() + "/Pictures/Photo Booth Library", NSHomeDirectory() + "/Pictures/Photos Library.photoslibrary"];
+    
+    /// Should the given folder or file be ignored by Gazo?
+    static func fileShouldBeIgnored(filePath : String) -> Bool {
+        // For every ignored file/folder in ignoredFiles...
+        for(_, currentIgnoredFile) in ignoredFiles.enumerate() {
+            // If the given file path is an ignored file or is in an ignored folder...
+            if(filePath.hasPrefix(currentIgnoredFile)) {
+                // Say to ignore this file/folder
+                return true;
+            }
+        }
+        
+        // Say not to ignore this file/folder
+        return false;
+    }
+    
     /// The file UTI types supported for viewing by Gazo
     static let supportedFileUtiTypes : [String] = ["public.png", "public.jpeg", "com.compuserve.gif"];
     

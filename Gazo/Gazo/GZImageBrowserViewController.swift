@@ -32,6 +32,13 @@ class GZImageBrowserViewController: NSViewController, NSWindowDelegate {
         styleWindow();
     }
     
+    /// Called when the selection in the sidebar changes
+    func sidebarSelectionChanged() {
+        // I have to grab sidebarTableViewSelectedItem manually instead of passing it because for some reason GZImageBrowserSidebarViewControllers dont want to call selectors properly
+        
+        contentImageGridViewController!.displayImagesFromFolder(contentSidebarViewController!.sidebarTableViewSelectedItem.path, deepSearch: false);
+    }
+    
     /// Called when the user presses CMD+O(File/Open)
     func open() {
         // Open all the selected images in the image grid
@@ -100,6 +107,10 @@ class GZImageBrowserViewController: NSViewController, NSWindowDelegate {
             // Set contentSidebarViewController and contentImageGridViewController
             contentSidebarViewController = (contentSplitViewController!.splitViewItems[0].viewController as! GZImageBrowserSidebarViewController);
             contentImageGridViewController = (contentSplitViewController!.splitViewItems[1].viewController as! GZImageBrowserImageGridViewController);
+            
+            // Setup the sidebar selection changed target and action
+            contentSidebarViewController!.sidebarSelectionChangedTarget = self;
+            contentSidebarViewController!.sidebarSelectionChangedAction = Selector("sidebarSelectionChanged");
         }
     }
 }

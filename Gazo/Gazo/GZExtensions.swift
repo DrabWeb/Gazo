@@ -133,9 +133,58 @@ extension NSScrollView {
     /// Scrolls to the top of this scroll view
     func scrollToTop() {
         // Scroll to the top(doesnt go up to the content insets)
-        self.verticalScroller!.floatValue = Float(self.documentView!.bounds.height);
+        self.verticalScroller?.floatValue = Float((self.documentView?.bounds.height)!);
         
         // Page up so it goes up to the content inset
         self.pageUp(self);
+    }
+}
+
+extension NSFileManager {
+    /// Is the given file a folder?
+    func isFolder(path : String) -> Bool {
+        // If the given file exists...
+        if(NSFileManager.defaultManager().fileExistsAtPath(path)) {
+            // Return if the file at the given path's contents are nil
+            return NSFileManager.defaultManager().contentsAtPath(path) == nil;
+        }
+        // If the given file doesnt exist...
+        else {
+            // Say its not a folder
+            return false;
+        }
+    }
+    
+    /// Return the number of supported files in a folder
+    func numberOfSupportedFilesInFolder(folderPath : String) -> Int {
+        // Return the count of items returned from supportedFilesInFolder
+        return supportedFilesInFolder(folderPath).count;
+    }
+    
+    /// Returns the list of files in a given folder that are supported by Gazo
+    func supportedFilesInFolder(folderPath : String) -> [String] {
+        /// The supported files in the given folder
+        var supportedFiles : [String] = [];
+        
+        // If the given folder exists...
+        if(NSFileManager.defaultManager().fileExistsAtPath(folderPath)) {
+            do {
+                // For every file in the given folder...
+                for(_, currentFile) in try NSFileManager.defaultManager().contentsOfDirectoryAtPath(folderPath).enumerate() {
+                    // If the current file is supported...
+                    if(GZValues.fileIsSupported(folderPath + "/" + currentFile)) {
+                        // Add the current file to supportedFiles
+                        supportedFiles.append(folderPath + "/" + currentFile);
+                    }
+                }
+            }
+            catch let error as NSError {
+                // Print the error to the log
+                print("NSFileManager Extension: Failed to get the folder contents from \"\(folderPath)\", \(error.description)");
+            }
+        }
+        
+        // Return supportedFiles
+        return supportedFiles;
     }
 }

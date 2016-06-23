@@ -74,25 +74,21 @@ class GZImageBrowserImageGridViewController: NSViewController {
         
         imageGridCollectionView.addTagsToSelectedImagesTarget = self;
         imageGridCollectionView.addTagsToSelectedImagesAction = Selector("promptToAddTagsToSelectedImages");
-        
-        // Prompt for a folder to display images from, for testing
-        /// The open panel for getting the folder to display images from
-        let imagesFolderOpenPanel : NSOpenPanel = NSOpenPanel();
-        
-        // Configure the open panel
-        imagesFolderOpenPanel.allowsMultipleSelection = false;
-        imagesFolderOpenPanel.canChooseFiles = false;
-        imagesFolderOpenPanel.canChooseDirectories = true;
-        
-        /// If the user hits ok on the open panel...]
-        if(Bool(imagesFolderOpenPanel.runModal())) {
-            // Display the images from the selected folder in the image grid
-            displayImagesFromFolder(imagesFolderOpenPanel.URL!.absoluteString.stringByRemovingPercentEncoding!.stringByReplacingOccurrencesOfString("file://", withString: ""), deepSearch: false);
-        }
     }
     
-    /// Displays the images from the given folder in this image grid. If deepSearch is true it uses a file enumerator and goes into subfolders
+    /// Displays the images from the given folder in this image grid. If deepSearch is true it uses a file enumerator and goes into subfolders. folderPath should have a trailing slash
     func displayImagesFromFolder(folderPath : String, deepSearch : Bool) {
+        // A simple hack to fix a bug where if this function is called before the view loads, than imageGridCollectionViewScrollView would be nil
+        let _ = self.view;
+        
+        // Print what folder we are displaying files from
+        if(deepSearch) {
+            print("GZImageBrowserImageGridViewController: Displaying images from \"\(folderPath)\", and using a deep search");
+        }
+        else {
+            print("GZImageBrowserImageGridViewController: Displaying images from \"\(folderPath)\"");
+        }
+        
         // Clear out all the current items in the image grid
         imageGridCollectionViewArrayController.removeAll();
         

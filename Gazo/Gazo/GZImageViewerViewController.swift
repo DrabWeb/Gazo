@@ -87,9 +87,13 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
                         // Update newWindowSize
                         newWindowSize = NSSize(width: newWindowSize.width, height: newWindowHeight);
                     }
-                        // If the image width and height are equal...
+                    // If the image width and height are equal...
                     else {
-                        // Equal width and height
+                        /// The new width for the window
+                        let newWindowWidth : CGFloat = newWindowSize.height + sidebarSize;
+                        
+                        // Update newWindowSize
+                        newWindowSize = NSSize(width: newWindowWidth, height: newWindowSize.height);
                     }
                     
                     // Resize the window

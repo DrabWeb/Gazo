@@ -22,13 +22,28 @@ class GZImageBrowserSidebarViewController: NSViewController {
     @IBOutlet var sidebarTableViewScrollView: NSScrollView!
     
     /// The folders in the sidebar
-    var folderSidebarItems : [GZImageBrowserSidebarItemData] = [GZImageBrowserSidebarItemData(title: "Folder One", icon: NSImage(named: "NSFolder")!), GZImageBrowserSidebarItemData(title: "Folder Two", icon: NSImage(named: "NSFolder")!), GZImageBrowserSidebarItemData(title: "Folder Three", icon: NSImage(named: "NSFolder")!)];
+    var folderSidebarItems : [GZImageBrowserSidebarItemData] = [];
     
     /// The albums in the sidebar
-    var albumSidebarItems : [GZImageBrowserSidebarItemData] = [GZImageBrowserSidebarItemData(title: "Album One", icon: NSImage(named: "NSFolder")!)];
+    var albumSidebarItems : [GZImageBrowserSidebarItemData] = [];
     
     /// The groups in the sidebar
-    var groupSidebarItems : [GZImageBrowserSidebarItemData] = [GZImageBrowserSidebarItemData(title: "Group One", icon: NSImage(named: "NSFolder")!), GZImageBrowserSidebarItemData(title: "Group Two", icon: NSImage(named: "NSFolder")!)];
+    var groupSidebarItems : [GZImageBrowserSidebarItemData] = [];
+    
+    /// The object to perform sidebarSelectionChangedAction
+    var sidebarSelectionChangedTarget : AnyObject? = nil;
+    
+    /// The selector to call when the selection changes in sidebarTableView
+    var sidebarSelectionChangedAction : Selector = Selector("");
+    
+    /// The currently selected GZImageBrowserSidebarItemData in sidebarTableView
+    var sidebarTableViewSelectedItem : GZImageBrowserSidebarItemData {
+        // Return the selected GZImageBrowserSidebarItemData
+        return ((sidebarTableView.dataSource()!.tableView!(sidebarTableView, objectValueForTableColumn: nil, row: sidebarTableView.selectedRow)) as! GZImageBrowserSidebarItemData);
+    }
+    
+    /// A private bool to make sure that a initial sidebarTableViewSelectionChanged is called
+    private var calledInitialSidebarSelectionChanged : Bool = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +51,68 @@ class GZImageBrowserSidebarViewController: NSViewController {
         // Style this view
         styleView();
         
+        // Load the sidebar
+        updateSidebar();
+        
+        // If we didnt make the initial sidebarTableViewSelectionChanged call...
+        if(!calledInitialSidebarSelectionChanged) {
+            // Call sidebarTableViewSelectionChanged
+            sidebarTableViewSelectionChanged(sidebarTableViewSelectedItem);
+            
+            // Say we made the initial call
+            calledInitialSidebarSelectionChanged = true;
+        }
+    }
+    
+    /// Updates the sidebar to reflect the current values
+    func updateSidebar() {
+        // Clear out all the current values
+        folderSidebarItems.removeAll();
+        albumSidebarItems.removeAll();
+        groupSidebarItems.removeAll();
+        
+        // Get the folder items
+        // For every picture folder the user added...
+        for(_, currentPictureFolder) in GZPreferences.defaultPreferences().pictureFolders.enumerate() {
+            // For every file in testFolderPath...
+            for(_, currentFile) in NSFileManager.defaultManager().enumeratorAtPath(currentPictureFolder)!.enumerate() {
+                /// The full path to the current file
+                let currentFilePath : String = currentPictureFolder + (currentFile as! String);
+                
+                /// The name of currentFilePath
+                let currentFileName : String = currentFilePath.ToNSString.lastPathComponent;
+                
+                // If the current file is a folder...
+                if(NSFileManager.defaultManager().isFolder(currentFilePath)) {
+                    // If the current file isnt supposed to be ignored...
+                    if(!GZValues.fileShouldBeIgnored(currentFilePath)) {
+                        /// The amount of file in the current folder
+                        let fileCount : Int =  NSFileManager.defaultManager().numberOfSupportedFilesInFolder(currentFilePath);
+                        
+                        // If fileCount is greater than 0...
+                        if(fileCount > 0) {
+                            // Add the current folder to the sidebar
+                            folderSidebarItems.append(GZImageBrowserSidebarItemData(title: currentFileName, icon: NSImage(named: "NSFolder")!, imageCount: fileCount));
+                            
+                            // Set the path
+                            folderSidebarItems.last!.path = currentFilePath + "/";
+                            
+                            // Set the section
+                            folderSidebarItems.last!.section = .Folders;
+                        }
+                    }
+                }
+            }
+        }
+        
         // Reload the sidebar table view
         sidebarTableView.reloadData();
     }
     
     /// Called when the selection in sidebarTableView changes
-    func sidebarSelectionChanged(selectedItem : GZImageBrowserSidebarItemData, selectedItemSection : GZImageBrowserSidebarSection) {
-        print("Selected \"\(selectedItem.title)\" in \"\(selectedItemSection.name)\"");
+    func sidebarTableViewSelectionChanged(selectedItem : GZImageBrowserSidebarItemData) {
+        // Perform the sidebar selection changed action
+        sidebarSelectionChangedTarget?.performSelector(sidebarSelectionChangedAction);
     }
     
     /// Styles this view
@@ -54,25 +124,19 @@ class GZImageBrowserSidebarViewController: NSViewController {
 
 extension GZImageBrowserSidebarViewController: NSTableViewDelegate {
     func tableViewSelectionDidChange(notification: NSNotification) {
-        /// The table view from the given notification
-        let tableView : NSTableView = (notification.object as! NSTableView);
+        // If we didnt make the initial sidebarTableViewSelectionChanged call...
+        if(!calledInitialSidebarSelectionChanged) {
+            // Say we made the initial call
+            calledInitialSidebarSelectionChanged = true;
+        }
         
-        /// The data source of tableView as a NSTableViewSectionDataSource
-        let tableViewDataSource : NSTableViewSectionDataSource = (tableView.dataSource()! as! NSTableViewSectionDataSource);
-        
-        /// The GZImageBrowserSidebarItemData that was selected
-        let selectedItem : GZImageBrowserSidebarItemData = ((tableView.dataSource()!.tableView!(tableView, objectValueForTableColumn: nil, row: tableView.selectedRow)) as! GZImageBrowserSidebarItemData);
-        
-        /// The GZImageBrowserSidebarSection selectedItem is in
-        let selectedItemSection : GZImageBrowserSidebarSection = GZImageBrowserSidebarSection(rawValue: tableViewDataSource.tableView(tableView, sectionForRow: tableView.selectedRow).section)!;
-        
-        // Call sidebarSelectionChanged
-        sidebarSelectionChanged(selectedItem, selectedItemSection: selectedItemSection);
+        // Call sidebarTableViewSelectionChanged
+        sidebarTableViewSelectionChanged(sidebarTableViewSelectedItem);
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         /// The cell view for the table column
-        let cellView : NSTableCellView = tableView.makeViewWithIdentifier("Data Cell", owner: self) as! NSTableCellView;
+        let cellView : GZImageBrowserSidebarTableViewCell = tableView.makeViewWithIdentifier("Data Cell", owner: self) as! GZImageBrowserSidebarTableViewCell;
         
         /// If the table view's data source as a NSTableViewSectionDataSource isnt nil...
         if let dataSource = tableView.dataSource() as? NSTableViewSectionDataSource {
@@ -96,6 +160,7 @@ extension GZImageBrowserSidebarViewController: NSTableViewDelegate {
                 // Update the cell view to match the cell data
                 cellView.imageView?.image = cellData.icon;
                 cellView.textField?.stringValue = cellData.title;
+                cellView.imageCountLabel.title = String(cellData.imageCount);
             }
         }
         
