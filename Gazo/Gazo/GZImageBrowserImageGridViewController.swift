@@ -103,7 +103,7 @@ class GZImageBrowserImageGridViewController: NSViewController {
                     // If the current file isnt a hidden system file(prepended with a .)...
                     if(!currentFile.hasPrefix(".")) {
                         // If the current file's extension is supported...
-                        if(GZValues.fileIsSupported(folderPath + currentFile)) {
+                        if(GZConstants.fileIsSupported(folderPath + currentFile)) {
                             // Add the current file to fileList
                             fileList.append(folderPath + currentFile);
                         }
@@ -127,7 +127,7 @@ class GZImageBrowserImageGridViewController: NSViewController {
                     // If the current file isnt a hidden system file(prepended with a .)...
                     if(!(currentFile as! String).hasPrefix(".")) {
                         // If the current file's extension is supported...
-                        if(GZValues.fileIsSupported(folderPath + (currentFile as! String))) {
+                        if(GZConstants.fileIsSupported(folderPath + (currentFile as! String))) {
                             // Add the current file to fileList
                             fileList.append(folderPath + (currentFile as! String));
                         }
@@ -215,7 +215,7 @@ class GZImageBrowserImageGridViewController: NSViewController {
         super.viewWillAppear();
         
         // Set the background color
-        self.view.layer?.backgroundColor = GZValues.imageBrowserImageGridBackgroundColor.CGColor;
+        self.view.layer?.backgroundColor = GZConstants.imageBrowserImageGridBackgroundColor.CGColor;
     }
     
     /// Styles this view

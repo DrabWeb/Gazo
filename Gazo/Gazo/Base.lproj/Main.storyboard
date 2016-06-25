@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Y6v-Xw-H9x">
     <dependencies>
+        <plugIn identifier="com.apple.AVKitIBPlugin" version="9531"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -476,7 +477,7 @@
                                             <rect key="frame" x="0.0" y="173" width="410" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.25" horizontal="NO" id="AQq-4y-7cX">
+                                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="AQq-4y-7cX">
                                             <rect key="frame" x="394" y="0.0" width="16" height="189"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
@@ -816,7 +817,7 @@ Gw
                                     <rect key="frame" x="1" y="144" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.94594594594594272" horizontal="NO" id="Hfz-2w-p9G">
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Hfz-2w-p9G">
                                     <rect key="frame" x="434" y="37" width="16" height="263"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -852,7 +853,7 @@ Gw
         <scene sceneID="R5d-Cj-4Gn">
             <objects>
                 <windowController storyboardIdentifier="imageViewerWindowController" id="DhD-FS-ftm" sceneMemberID="viewController">
-                    <window key="window" title="Image Viewer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="dJh-fw-J7F">
+                    <window key="window" title="Image Viewer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="dJh-fw-J7F">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="328" y="307" width="480" height="500"/>
@@ -902,7 +903,7 @@ Gw
                         <splitViewItem canCollapse="YES" id="3J8-Cb-5ce"/>
                         <splitViewItem id="l3k-kH-Jj9"/>
                     </splitViewItems>
-                    <splitView key="splitView" autosaveName="drabweb.Gazo.ImageViewerContentSplitView" dividerStyle="thin" vertical="YES" id="cuY-pE-Ynu" userLabel="Split View" customClass="GZNoDividerSplitView" customModule="Gazo" customModuleProvider="target">
+                    <splitView key="splitView" autosaveName="" dividerStyle="thin" vertical="YES" id="cuY-pE-Ynu" userLabel="Split View" customClass="GZNoDividerSplitView" customModule="Gazo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </splitView>
@@ -1167,16 +1168,24 @@ Gw
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" image="NSCaution" id="tJX-fb-tuo"/>
                             </imageView>
+                            <avPlayerView controlsStyle="inline" translatesAutoresizingMaskIntoConstraints="NO" id="bvE-1H-WY6">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </avPlayerView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="bvE-1H-WY6" secondAttribute="bottom" id="4kd-i4-Wot"/>
                             <constraint firstItem="NeC-nt-ijN" firstAttribute="top" secondItem="0TA-fx-8V5" secondAttribute="top" id="Hcb-RW-lcM"/>
+                            <constraint firstItem="bvE-1H-WY6" firstAttribute="top" secondItem="0TA-fx-8V5" secondAttribute="top" id="Qix-sG-8j1"/>
                             <constraint firstAttribute="bottom" secondItem="NeC-nt-ijN" secondAttribute="bottom" id="fWv-Ik-QjX"/>
                             <constraint firstAttribute="trailing" secondItem="NeC-nt-ijN" secondAttribute="trailing" id="kHH-4Q-amb"/>
                             <constraint firstItem="NeC-nt-ijN" firstAttribute="leading" secondItem="0TA-fx-8V5" secondAttribute="leading" id="rJ6-Lj-SLJ"/>
+                            <constraint firstAttribute="trailing" secondItem="bvE-1H-WY6" secondAttribute="trailing" id="tJV-MM-c3z"/>
+                            <constraint firstItem="bvE-1H-WY6" firstAttribute="leading" secondItem="0TA-fx-8V5" secondAttribute="leading" id="u1w-zv-11P"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="NeC-nt-ijN" id="SjQ-lx-Amb"/>
+                        <outlet property="playerView" destination="bvE-1H-WY6" id="D8M-V0-kmO"/>
                     </connections>
                 </viewController>
                 <customObject id="iy6-kb-k3g" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -172,7 +172,7 @@ extension NSFileManager {
                 // For every file in the given folder...
                 for(_, currentFile) in try NSFileManager.defaultManager().contentsOfDirectoryAtPath(folderPath).enumerate() {
                     // If the current file is supported...
-                    if(GZValues.fileIsSupported(folderPath + "/" + currentFile)) {
+                    if(GZConstants.fileIsSupported(folderPath + "/" + currentFile)) {
                         // Add the current file to supportedFiles
                         supportedFiles.append(folderPath + "/" + currentFile);
                     }
@@ -193,6 +193,18 @@ extension NSFileManager {
         do {
             // Return if the given file's UTI type conforms to public.image
             return NSWorkspace.sharedWorkspace().type(try NSWorkspace.sharedWorkspace().typeOfFile(filePath), conformsToType: "public.image");
+        }
+        catch {
+            // There was some error, return false
+            return false;
+        }
+    }
+    
+    // Returns if the given file is an video
+    func fileIsVideo(filePath : String) -> Bool {
+        do {
+            // Return if the given file's UTI type conforms to public.video
+            return NSWorkspace.sharedWorkspace().type(try NSWorkspace.sharedWorkspace().typeOfFile(filePath), conformsToType: "public.movie");
         }
         catch {
             // There was some error, return false

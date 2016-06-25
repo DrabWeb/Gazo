@@ -76,7 +76,7 @@ class GZTagEditorViewController: NSViewController {
         currentEditingImages = images;
         
         // Set editingLabel's string value
-        editingLabel.stringValue = GZValues.tagEditorEditingLabel(mode, amountEditing: currentEditingImages.count);
+        editingLabel.stringValue = GZConstants.tagEditorEditingLabel(mode, amountEditing: currentEditingImages.count);
     }
     
     /// Applies the current entered info the the editing images and dismisses this view controller

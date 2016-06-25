@@ -29,7 +29,7 @@
 		5D7A30A71D16E446004D775B /* GZImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30A61D16E446004D775B /* GZImageViewerViewController.swift */; };
 		5D7A30AB1D16E7C1004D775B /* GZImageViewerSidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30A91D16E7C1004D775B /* GZImageViewerSidebarViewController.swift */; };
 		5D7A30AE1D16E7DF004D775B /* GZImageViewerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30AD1D16E7DF004D775B /* GZImageViewerImageViewController.swift */; };
-		5D7A30B11D16E9F7004D775B /* GZValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30B01D16E9F7004D775B /* GZValues.swift */; };
+		5D7A30B11D16E9F7004D775B /* GZConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30B01D16E9F7004D775B /* GZConstants.swift */; };
 		5D7A30B51D16EB31004D775B /* GZNoDividerSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A30B41D16EB31004D775B /* GZNoDividerSplitView.swift */; };
 		5D99CE1E1D16EE2100092920 /* GZImageViewerSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99CE1D1D16EE2100092920 /* GZImageViewerSplitViewController.swift */; };
 		5DAED3961D1C4428007F651C /* GZImageBrowserSidebarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAED3951D1C4428007F651C /* GZImageBrowserSidebarTableViewCell.swift */; };
@@ -38,6 +38,7 @@
 		5DF0550A1D17314C0094621E /* GZImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF055091D17314C0094621E /* GZImage.swift */; };
 		5DF055101D17348C0094621E /* GZFloatAtTopClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF0550F1D17348C0094621E /* GZFloatAtTopClipView.swift */; };
 		5DF055121D173B380094621E /* GZScaleToFitContentTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF055111D173B380094621E /* GZScaleToFitContentTokenField.swift */; };
+		5DF1174C1D1EE43B00933C34 /* GZCommandUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1174B1D1EE43B00933C34 /* GZCommandUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +88,7 @@
 		5D7A30A61D16E446004D775B /* GZImageViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageViewerViewController.swift; sourceTree = "<group>"; };
 		5D7A30A91D16E7C1004D775B /* GZImageViewerSidebarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageViewerSidebarViewController.swift; sourceTree = "<group>"; };
 		5D7A30AD1D16E7DF004D775B /* GZImageViewerImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageViewerImageViewController.swift; sourceTree = "<group>"; };
-		5D7A30B01D16E9F7004D775B /* GZValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZValues.swift; sourceTree = "<group>"; };
+		5D7A30B01D16E9F7004D775B /* GZConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZConstants.swift; sourceTree = "<group>"; };
 		5D7A30B41D16EB31004D775B /* GZNoDividerSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZNoDividerSplitView.swift; sourceTree = "<group>"; };
 		5D99CE1D1D16EE2100092920 /* GZImageViewerSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageViewerSplitViewController.swift; sourceTree = "<group>"; };
 		5DAED3951D1C4428007F651C /* GZImageBrowserSidebarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImageBrowserSidebarTableViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		5DF055091D17314C0094621E /* GZImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZImage.swift; sourceTree = "<group>"; };
 		5DF0550F1D17348C0094621E /* GZFloatAtTopClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZFloatAtTopClipView.swift; sourceTree = "<group>"; };
 		5DF055111D173B380094621E /* GZScaleToFitContentTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZScaleToFitContentTokenField.swift; sourceTree = "<group>"; };
+		5DF1174B1D1EE43B00933C34 /* GZCommandUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZCommandUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,7 +273,7 @@
 		5D7A30AF1D16E9DE004D775B /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				5D7A30B01D16E9F7004D775B /* GZValues.swift */,
+				5D7A30B01D16E9F7004D775B /* GZConstants.swift */,
 				5DF055091D17314C0094621E /* GZImage.swift */,
 				5D3A3E8A1D18520900E24545 /* GZTag.swift */,
 				5DCDF1FF1D19DD8C0027765F /* GZPreferences.swift */,
@@ -307,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				5DF055071D172DFC0094621E /* GZExtensions.swift */,
+				5DF1174B1D1EE43B00933C34 /* GZCommandUtilities.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -460,10 +463,11 @@
 				5D25EBB51D19EDB200658C66 /* GZImageBrowserCollectionView.swift in Sources */,
 				5D7A30A71D16E446004D775B /* GZImageViewerViewController.swift in Sources */,
 				5D3A3E931D1865D800E24545 /* GZImageBrowserCollectionViewObject.swift in Sources */,
-				5D7A30B11D16E9F7004D775B /* GZValues.swift in Sources */,
+				5D7A30B11D16E9F7004D775B /* GZConstants.swift in Sources */,
 				5DF055081D172DFC0094621E /* GZExtensions.swift in Sources */,
 				5D0D7BF91D1B10E1007D295F /* GZImageBrowserSidebarItemData.swift in Sources */,
 				5D3A3E991D186CB100E24545 /* GZImageBrowserSidebarViewController.swift in Sources */,
+				5DF1174C1D1EE43B00933C34 /* GZCommandUtilities.swift in Sources */,
 				5D3A3E8E1D18636200E24545 /* GZImageBrowserViewController.swift in Sources */,
 				5D7A30B51D16EB31004D775B /* GZNoDividerSplitView.swift in Sources */,
 				5DF055121D173B380094621E /* GZScaleToFitContentTokenField.swift in Sources */,

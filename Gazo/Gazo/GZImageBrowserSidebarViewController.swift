@@ -91,7 +91,7 @@ class GZImageBrowserSidebarViewController: NSViewController {
                 // If the current file is a folder...
                 if(NSFileManager.defaultManager().isFolder(currentFilePath)) {
                     // If the current file isnt supposed to be ignored...
-                    if(!GZValues.fileShouldBeIgnored(currentFilePath)) {
+                    if(!GZConstants.fileShouldBeIgnored(currentFilePath)) {
                         /// The amount of file in the current folder
                         let fileCount : Int =  NSFileManager.defaultManager().numberOfSupportedFilesInFolder(currentFilePath);
                         

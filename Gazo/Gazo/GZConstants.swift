@@ -1,5 +1,5 @@
 //
-//  GZValues.swift
+//  GZConstants.swift
 //  Gazo
 //
 //  Created by Seth on 2016-06-19.
@@ -7,8 +7,8 @@
 
 import Cocoa
 
-/// Constant values used through out the application, such as display strings, colors and more
-class GZValues {
+/// Constants used through out the application, such as display strings, colors and more
+class GZConstants {
     /// The folders and files ignored by Gazo
     static let ignoredFiles : [String] = [NSHomeDirectory() + "/Pictures/Photo Booth Library", NSHomeDirectory() + "/Pictures/Photos Library.photoslibrary"];
     
@@ -28,16 +28,30 @@ class GZValues {
     }
     
     /// The file UTI types supported for managing by Gazo
-    static let supportedFileUtiTypes : [String] = ["public.png", "public.jpeg", "com.compuserve.gif", "io.mpv.webm"];
-    
-    /// The file UTI types supported for viewing by Gazo
-    static let supportedViewingFileUtiTypes : [String] = ["public.png", "public.jpeg", "com.compuserve.gif"];
+    static let supportedFileUtiTypes : [String] = ["public.png", "public.jpeg", "com.compuserve.gif", "io.mpv.webm", "public.mpeg-4"];
     
     /// Returns if the file at the given path is suppoorted for viewing by Gazo
     static func fileIsSupported(filePath : String) -> Bool {
         do {
             // Return if the supported file UTI types contains the given file's UTI type
             return supportedFileUtiTypes.contains(try NSWorkspace.sharedWorkspace().typeOfFile(filePath));
+        }
+        catch {
+            // Do nothing, dont need to see errors here
+        }
+        
+        // Return false, there was an error getting the file
+        return false;
+    }
+    
+    /// The UTI types for files that AVPlayerView cant open directly, and need to be converted first
+    static let convertFileUtiTypes : [String] = ["io.mpv.webm"];
+    
+    /// Returns if the file at the given path has to be converted before being viewed
+    static func fileShouldBeConverted(filePath : String) -> Bool {
+        do {
+            // Return if convertFileUtiTypes contains the given file's UTI type
+            return convertFileUtiTypes.contains(try NSWorkspace.sharedWorkspace().typeOfFile(filePath));
         }
         catch {
             // Do nothing, dont need to see errors here
@@ -79,6 +93,6 @@ class GZValues {
         }
         
         // Return an error message if the mode was something else
-        return "GZValues: Error getting tag editor editing label";
+        return "GZConstants: Error getting tag editor editing label";
     }
 }

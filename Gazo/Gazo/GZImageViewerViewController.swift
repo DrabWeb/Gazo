@@ -38,13 +38,6 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         styleWindow();
     }
     
-    override func viewWillAppear() {
-        super.viewWillAppear();
-        
-        // Scale the window to the image
-        scaleWindowToFitImage();
-    }
-    
     /// Called when the user does CMD+I(File/Get Info)
     func getInfo() {
         /// The window controller for the new image info view
@@ -81,9 +74,9 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
                     }
                     
                     // If the image is bigger horizontally...
-                    if(currentDisplayingImage?.image?.pixelSize.width > currentDisplayingImage?.image?.pixelSize.height) {
+                    if(currentDisplayingImage!.size.width > currentDisplayingImage!.size.height) {
                         /// The aspect ratio of currentDisplayingImage's image
-                        let imageAspectRatio : CGFloat = currentDisplayingImage!.image!.pixelSize.width / currentDisplayingImage!.image!.pixelSize.height;
+                        let imageAspectRatio : CGFloat = currentDisplayingImage!.size.width / currentDisplayingImage!.size.height;
                         
                         /// The new width of the window
                         let newWindowWidth : CGFloat = (imageAspectRatio * window.frame.height) + sidebarSize;
@@ -92,9 +85,9 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
                         newWindowSize = NSSize(width: newWindowWidth, height: newWindowSize.height);
                     }
                         // If the image is bigger vertically...
-                    else if(currentDisplayingImage?.image?.pixelSize.height > currentDisplayingImage?.image?.pixelSize.width) {
+                    else if(currentDisplayingImage!.size.height > currentDisplayingImage!.size.width) {
                         /// The aspect ratio of currentDisplayingImage's image
-                        let imageAspectRatio : CGFloat = currentDisplayingImage!.image!.pixelSize.height / currentDisplayingImage!.image!.pixelSize.width;
+                        let imageAspectRatio : CGFloat = currentDisplayingImage!.size.height / currentDisplayingImage!.size.width;
                         
                         /// The new height of the window
                         let newWindowHeight : CGFloat = imageAspectRatio * (self.view.frame.width - sidebarSize);
@@ -104,7 +97,7 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
                     }
                     // If the image width and height are equal...
                     else {
-                        /// The new width for the window
+                        /// The new width for the window.
                         let newWindowWidth : CGFloat = newWindowSize.height + sidebarSize;
                         
                         // Update newWindowSize
@@ -113,6 +106,10 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
                     
                     // Resize the window
                     window.setFrame(NSRect(x: window.frame.origin.x, y: window.frame.origin.y, width: newWindowSize.width, height: newWindowSize.height), display: false);
+                    
+                    // Resize the sidebar
+                    contentSplitViewController!.splitView.setPosition(sidebarSize, ofDividerAtIndex: 0);
+                    contentSplitViewController!.splitView.adjustSubviews();
                 }
             }
         }
@@ -134,6 +131,9 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
         
         // Display the image in the sidebar
         contentSidebarViewController!.displayImage(image);
+        
+        // Scale the window to the image
+        scaleWindowToFitImage();
     }
     
     /// Called when the user presses CMD+SHIFT+L(View/Toggle Sidebar)
@@ -166,7 +166,7 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
     /// Fades out all the views in mouseActivityFadeViews and the titlebar
     func fadeOutMouseActivityFadeViews() {
         // Set the animation duration
-        NSAnimationContext.currentContext().duration = NSTimeInterval(GZValues.mouseActivityFadeDuration);
+        NSAnimationContext.currentContext().duration = NSTimeInterval(GZConstants.mouseActivityFadeDuration);
         
         // For every view in mouseActivityFadeViews...
         for(_, currentFadeView) in mouseActivityFadeViews.enumerate() {
@@ -187,7 +187,7 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
     /// Fades in all the views in mouseActivityFadeViews and the titlebar
     func fadeInMouseActivityFadeViews() {
         // Set the animation duration
-        NSAnimationContext.currentContext().duration = NSTimeInterval(GZValues.mouseActivityFadeDuration);
+        NSAnimationContext.currentContext().duration = NSTimeInterval(GZConstants.mouseActivityFadeDuration);
         
         // For every view in mouseActivityFadeViews...
         for(_, currentFadeView) in mouseActivityFadeViews.enumerate() {
@@ -204,7 +204,7 @@ class GZImageViewerViewController: NSViewController, NSWindowDelegate {
     
     func windowWillEnterFullScreen(notification: NSNotification) {
         // Set the animation duration
-        NSAnimationContext.currentContext().duration = NSTimeInterval(GZValues.mouseActivityFadeDuration);
+        NSAnimationContext.currentContext().duration = NSTimeInterval(GZConstants.mouseActivityFadeDuration);
         
         // Fade in the titlebar
         window.titlebarView.animator().alphaValue = 1;
