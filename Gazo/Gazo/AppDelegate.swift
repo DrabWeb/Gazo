@@ -30,8 +30,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-        // Setup the menu item
+        // Setup the menu items
         setupMenuItems();
+        
+        // Create the application support folders
+        createApplicationSupportFolders();
     }
     
     // Sets up the menu items actions
@@ -48,6 +51,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // View
         menuItemToggleSidebar.action = Selector("toggleSidebar");
         menuItemFitWindowToImage.action = Selector("scaleWindowToFitImage");
+    }
+    
+    /// Creates the application support folder for Gazo if it doesnt already exist(And the other folders Gazo need inside of it)
+    func createApplicationSupportFolders() {
+        // If the application support folder doesnt exist...
+        if(!NSFileManager.defaultManager().fileExistsAtPath(NSHomeDirectory() + "/Library/Application Support/Gazo/")) {
+            do {
+                // Create the application support folder
+                try NSFileManager.defaultManager().createDirectoryAtPath(NSHomeDirectory() + "/Library/Application Support/Gazo/", withIntermediateDirectories: false, attributes: nil);
+            }
+            catch _ as NSError {
+                // Do nothing
+            }
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

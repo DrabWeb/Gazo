@@ -80,31 +80,37 @@ class GZImageBrowserSidebarViewController: NSViewController {
         // Get the folder items
         // For every picture folder the user added...
         for(_, currentPictureFolder) in GZPreferences.defaultPreferences().pictureFolders.enumerate() {
+            /// The NSDirectoryEnumerator for currentPictureFolder
+            let currentPictureFolderEnumerator : NSDirectoryEnumerator = NSFileManager.defaultManager().enumeratorAtPath(currentPictureFolder)!;
+            
             // For every file in testFolderPath...
-            for(_, currentFile) in NSFileManager.defaultManager().enumeratorAtPath(currentPictureFolder)!.enumerate() {
+            for(_, currentFile) in currentPictureFolderEnumerator.enumerate() {
                 /// The full path to the current file
                 let currentFilePath : String = currentPictureFolder + (currentFile as! String);
                 
                 /// The name of currentFilePath
                 let currentFileName : String = currentFilePath.ToNSString.lastPathComponent;
                 
-                // If the current file is a folder...
-                if(NSFileManager.defaultManager().isFolder(currentFilePath)) {
-                    // If the current file isnt supposed to be ignored...
-                    if(!GZConstants.fileShouldBeIgnored(currentFilePath)) {
-                        /// The amount of file in the current folder
-                        let fileCount : Int =  NSFileManager.defaultManager().numberOfSupportedFilesInFolder(currentFilePath);
-                        
-                        // If fileCount is greater than 0...
-                        if(fileCount > 0) {
-                            // Add the current folder to the sidebar
-                            folderSidebarItems.append(GZImageBrowserSidebarItemData(title: currentFileName, icon: NSImage(named: "NSFolder")!, imageCount: fileCount));
+                // If the current file's extension is empty(This is a primary check so we dont load a million files to check if they are folders or not, though still does a isFolder in case the user has a file without a extension in their picture folders)
+                if(currentFilePath.ToNSString.pathExtension == "") {
+                    // If the current file is a folder...
+                    if(NSFileManager.defaultManager().isFolder(currentFilePath)) {
+                        // If the current file isnt supposed to be ignored...
+                        if(!GZConstants.fileShouldBeIgnored(currentFilePath)) {
+                            /// The amount of file in the current folder
+                            let fileCount : Int =  NSFileManager.defaultManager().numberOfSupportedFilesInFolder(currentFilePath);
                             
-                            // Set the path
-                            folderSidebarItems.last!.path = currentFilePath + "/";
-                            
-                            // Set the section
-                            folderSidebarItems.last!.section = .Folders;
+                            // If fileCount is greater than 0...
+                            if(fileCount > 0) {
+                                // Add the current folder to the sidebar
+                                folderSidebarItems.append(GZImageBrowserSidebarItemData(title: currentFileName, icon: NSImage(named: "NSFolder")!, imageCount: fileCount));
+                                
+                                // Set the path
+                                folderSidebarItems.last!.path = currentFilePath + "/";
+                                
+                                // Set the section
+                                folderSidebarItems.last!.section = .Folders;
+                            }
                         }
                     }
                 }
